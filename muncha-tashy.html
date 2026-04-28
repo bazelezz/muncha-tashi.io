@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Мунча Ташы — Премиум банный комплекс в Казани</title>
+<meta name="description" content="Официальный сайт премиум-банного комплекса в Казани. Мунча Ташы — место силы, покоя и подлинного татарского духа." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --c-bg:       #0d0f0e;
+    --c-surface:  #131714;
+    --c-card:     #181e1b;
+    --c-emerald:  #2e6b55;
+    --c-emerald2: #3a8068;
+    --c-gold:     #b89a5e;
+    --c-gold2:    #d4b87a;
+    --c-white:    #f0ece4;
+    --c-muted:    #8a8a80;
+    --c-line:     rgba(184,154,94,.18);
+    --ff-head:    'Cormorant Garamond', Georgia, serif;
+    --ff-body:    'Manrope', sans-serif;
+    --ease:       cubic-bezier(.25,.46,.45,.94);
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--c-bg);
+    color: var(--c-white);
+    font-family: var(--ff-body);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+
+  /* ── NOISE OVERLAY ─────────────────────────── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: .35;
+  }
+
+  /* ── SCROLLBAR ──────────────────────────────── */
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--c-bg); }
+  ::-webkit-scrollbar-thumb { background: var(--c-gold); border-radius: 2px; }
+
+  /* ── UTILITY ────────────────────────────────── */
+  .container { max-width: 1280px; margin: 0 auto; padding: 0 clamp(20px, 5vw, 80px); }
+  .section { padding: clamp(80px, 10vw, 140px) 0; }
+  .label {
+    display: inline-flex; align-items: center; gap: 12px;
+    font-family: var(--ff-body); font-size: 11px; font-weight: 500;
+    letter-spacing: .22em; text-transform: uppercase; color: var(--c-gold);
+    margin-bottom: 24px;
+  }
+  .label::before {
+    content: ''; width: 32px; height: 1px; background: var(--c-gold);
+  }
+  h2.section-title {
+    font-family: var(--ff-head); font-size: clamp(38px, 5vw, 68px);
+    font-weight: 400; line-height: 1.1; color: var(--c-white);
+    margin-bottom: 20px;
+  }
+  h2.section-title em { font-style: italic; color: var(--c-gold2); }
+  .section-sub {
+    font-size: 15px; color: var(--c-muted); max-width: 520px; line-height: 1.8;
+  }
+
+  /* ── BUTTON ─────────────────────────────────── */
+  .btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    padding: 14px 36px; border: 1px solid var(--c-gold);
+    font-family: var(--ff-body); font-size: 12px; font-weight: 500;
+    letter-spacing: .15em; text-transform: uppercase; color: var(--c-white);
+    cursor: pointer; background: transparent; transition: all .4s var(--ease);
+    position: relative; overflow: hidden;
+  }
+  .btn::after {
+    content: ''; position: absolute; inset: 0;
+    background: var(--c-gold); transform: translateX(-101%);
+    transition: transform .4s var(--ease); z-index: -1;
+  }
+  .btn:hover { color: var(--c-bg); }
+  .btn:hover::after { transform: translateX(0); }
+  .btn-solid {
+    background: var(--c-emerald); border-color: var(--c-emerald);
+    color: var(--c-white);
+  }
+  .btn-solid::after { background: var(--c-emerald2); }
+  .btn-solid:hover { color: var(--c-white); }
+
+  /* ── NAV ────────────────────────────────────── */
+  #nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 24px clamp(20px,5vw,80px);
+    display: flex; align-items: center; justify-content: space-between;
+    transition: background .5s var(--ease), padding .5s var(--ease);
+  }
+  #nav.scrolled {
+    background: rgba(13,15,14,.92);
+    backdrop-filter: blur(16px);
+    padding-top: 14px; padding-bottom: 14px;
+    border-bottom: 1px solid var(--c-line);
+  }
+  .nav-logo {
+    font-family: var(--ff-head); font-size: 22px; font-weight: 400;
+    letter-spacing: .08em; color: var(--c-white);
+    display: flex; flex-direction: column; line-height: 1;
+  }
+  .nav-logo span { font-size: 8px; letter-spacing: .22em; text-transform: uppercase; color: var(--c-gold); margin-top: 4px; }
+  .nav-links { display: flex; align-items: center; gap: 36px; }
+  .nav-links a {
+    font-size: 11px; font-weight: 500; letter-spacing: .16em;
+    text-transform: uppercase; color: rgba(240,236,228,.65);
+    transition: color .3s;
+  }
+  .nav-links a:hover { color: var(--c-gold2); }
+  .nav-cta { display: flex; align-items: center; gap: 16px; }
+  .nav-phone {
+    font-size: 13px; font-weight: 600; color: var(--c-white);
+    letter-spacing: .04em;
+  }
+  .burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+  .burger span { display: block; width: 24px; height: 1.5px; background: var(--c-white); transition: .3s; }
+
+  @media (max-width: 900px) {
+    .nav-links, .nav-phone { display: none; }
+    .burger { display: flex; }
+    #mobile-menu {
+      display: none; position: fixed; inset: 0;
+      background: var(--c-bg); z-index: 200; flex-direction: column;
+      justify-content: center; align-items: center; gap: 32px;
+    }
+    #mobile-menu.open { display: flex; }
+    #mobile-menu a {
+      font-family: var(--ff-head); font-size: 36px; font-weight: 300;
+      letter-spacing: .04em; color: var(--c-white);
+    }
+    #mobile-menu .m-phone {
+      font-family: var(--ff-body); font-size: 20px; font-weight: 600;
+      color: var(--c-gold); margin-top: 12px;
+    }
+    #mobile-menu .close-btn {
+      position: absolute; top: 28px; right: 28px; font-size: 28px;
+      cursor: pointer; color: var(--c-muted);
+    }
+  }
+
+  /* ── HERO ───────────────────────────────────── */
+  #hero {
+    height: 100dvh; min-height: 600px;
+    position: relative; display: flex; align-items: center; justify-content: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background-image: url('https://images.unsplash.com/photo-1613138401752-b33f4e4ee2be?w=1920&q=85');
+    background-size: cover; background-position: center;
+    transform: scale(1.06);
+    transition: transform 8s var(--ease);
+  }
+  .hero-bg.loaded { transform: scale(1); }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(
+      180deg,
+      rgba(13,15,14,.35) 0%,
+      rgba(13,15,14,.55) 50%,
+      rgba(13,15,14,.85) 100%
+    );
+  }
+  /* Tatар geometric accent */
+  .hero-pattern {
+    position: absolute; bottom: 0; left: 0; right: 0; height: 180px;
+    opacity: .09;
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M30 0 L60 30 L30 60 L0 30Z' fill='none' stroke='%23b89a5e' stroke-width='1'/%3E%3Cpath d='M30 10 L50 30 L30 50 L10 30Z' fill='none' stroke='%23b89a5e' stroke-width='0.5'/%3E%3C/svg%3E");
+    background-repeat: repeat-x;
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    text-align: center; padding: 0 clamp(20px,8vw,120px);
+  }
+  .hero-eyebrow {
+    font-size: 11px; font-weight: 500; letter-spacing: .28em;
+    text-transform: uppercase; color: var(--c-gold);
+    margin-bottom: 28px; opacity: 0;
+    animation: fadeUp .9s var(--ease) .4s forwards;
+  }
+  .hero-title {
+    font-family: var(--ff-head);
+    font-size: clamp(52px, 9vw, 130px);
+    font-weight: 300; line-height: .95;
+    color: var(--c-white); letter-spacing: -.01em;
+    opacity: 0;
+    animation: fadeUp 1s var(--ease) .6s forwards;
+  }
+  .hero-title em {
+    font-style: italic; color: var(--c-gold2);
+    display: block; font-size: .75em;
+  }
+  .hero-sub {
+    margin: 28px auto 44px; max-width: 480px;
+    font-size: 15px; color: rgba(240,236,228,.7); line-height: 1.7;
+    opacity: 0;
+    animation: fadeUp 1s var(--ease) .8s forwards;
+  }
+  .hero-actions {
+    display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 1s var(--ease) 1s forwards;
+  }
+  .hero-scroll {
+    position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%);
+    z-index: 2; display: flex; flex-direction: column; align-items: center; gap: 8px;
+    font-size: 10px; letter-spacing: .2em; text-transform: uppercase; color: var(--c-gold);
+    opacity: 0; animation: fadeIn 1s var(--ease) 1.5s forwards;
+  }
+  .scroll-line {
+    width: 1px; height: 48px; background: var(--c-gold);
+    animation: scrollPulse 2s ease-in-out infinite;
+  }
+  @keyframes scrollPulse {
+    0%,100% { transform: scaleY(1); opacity: 1; }
+    50% { transform: scaleY(.4); opacity: .4; }
+  }
+
+  /* ── FEATURES ───────────────────────────────── */
+  #features { background: var(--c-surface); }
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1px;
+    border: 1px solid var(--c-line);
+    margin-top: 64px;
+    overflow: hidden;
+  }
+  .feature-item {
+    padding: clamp(32px,4vw,52px);
+    border-right: 1px solid var(--c-line);
+    transition: background .4s var(--ease);
+  }
+  .feature-item:last-child { border-right: none; }
+  .feature-item:hover { background: rgba(46,107,85,.06); }
+  .feature-icon {
+    width: 48px; height: 48px; margin-bottom: 24px;
+    color: var(--c-gold);
+  }
+  .feature-title {
+    font-family: var(--ff-head); font-size: 22px; font-weight: 500;
+    margin-bottom: 12px; color: var(--c-white);
+  }
+  .feature-text { font-size: 14px; color: var(--c-muted); line-height: 1.75; }
+
+  /* ── BATHS ──────────────────────────────────── */
+  #baths { background: var(--c-bg); }
+  .baths-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 56px; gap: 24px; flex-wrap: wrap;
+  }
+  .baths-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 16px;
+  }
+  .bath-card {
+    position: relative; overflow: hidden; cursor: pointer;
+    background: var(--c-card);
+    transition: transform .5s var(--ease);
+  }
+  .bath-card:hover { transform: translateY(-6px); }
+  .bath-card:hover .bath-img { transform: scale(1.08); }
+  .bath-card:nth-child(1) { grid-column: span 7; }
+  .bath-card:nth-child(2) { grid-column: span 5; }
+  .bath-card:nth-child(3) { grid-column: span 4; }
+  .bath-card:nth-child(4) { grid-column: span 4; }
+  .bath-card:nth-child(5) { grid-column: span 4; }
+
+  @media (max-width: 900px) {
+    .bath-card:nth-child(n) { grid-column: span 12; }
+  }
+  @media (min-width: 600px) and (max-width: 900px) {
+    .bath-card:nth-child(1) { grid-column: span 12; }
+    .bath-card:nth-child(2),
+    .bath-card:nth-child(3),
+    .bath-card:nth-child(4),
+    .bath-card:nth-child(5) { grid-column: span 6; }
+  }
+
+  .bath-img-wrap { height: clamp(220px, 30vw, 400px); overflow: hidden; }
+  .bath-img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform .7s var(--ease);
+  }
+  .bath-body { padding: 28px 28px 32px; }
+  .bath-num {
+    font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
+    color: var(--c-gold); margin-bottom: 10px;
+  }
+  .bath-name {
+    font-family: var(--ff-head); font-size: clamp(20px,2.2vw,28px);
+    font-weight: 400; margin-bottom: 10px; color: var(--c-white);
+  }
+  .bath-desc { font-size: 13px; color: var(--c-muted); line-height: 1.7; }
+  .bath-tag {
+    display: inline-block; margin-top: 16px;
+    padding: 6px 14px; border: 1px solid var(--c-line);
+    font-size: 11px; letter-spacing: .12em; text-transform: uppercase;
+    color: var(--c-gold); transition: all .3s;
+  }
+  .bath-card:hover .bath-tag {
+    background: var(--c-gold); color: var(--c-bg);
+  }
+
+  /* ── ROOMS ──────────────────────────────────── */
+  #rooms { background: var(--c-surface); }
+  .rooms-header {
+    display: flex; justify-content: space-between; align-items: flex-end;
+    margin-bottom: 56px; gap: 24px; flex-wrap: wrap;
+  }
+  .rooms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2px;
+  }
+  .room-card {
+    position: relative; overflow: hidden;
+    background: var(--c-card); cursor: pointer;
+    transition: transform .5s var(--ease);
+  }
+  .room-card:hover { transform: scale(1.01); }
+  .room-card:hover .room-img { transform: scale(1.06); }
+  .room-img-wrap { height: 340px; overflow: hidden; }
+  .room-img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform .7s var(--ease);
+  }
+  .room-overlay {
+    position: absolute; bottom: 0; left: 0; right: 0;
+    padding: 48px 36px 36px;
+    background: linear-gradient(to top, rgba(13,15,14,.96) 0%, transparent 100%);
+  }
+  .room-type {
+    font-size: 10px; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--c-gold); margin-bottom: 8px;
+  }
+  .room-name {
+    font-family: var(--ff-head); font-size: 28px; font-weight: 400;
+    color: var(--c-white); margin-bottom: 8px;
+  }
+  .room-details {
+    display: flex; gap: 20px; flex-wrap: wrap;
+    font-size: 12px; color: var(--c-muted); letter-spacing: .06em;
+  }
+  .room-price {
+    margin-top: 16px; display: flex; align-items: baseline; gap: 6px;
+  }
+  .room-price .price { font-family: var(--ff-head); font-size: 26px; color: var(--c-gold2); }
+  .room-price .per { font-size: 11px; color: var(--c-muted); }
+
+  /* ── RITUAL (spa) ───────────────────────────── */
+  #ritual { background: var(--c-bg); }
+  .ritual-inner {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;
+  }
+  @media (max-width: 768px) { .ritual-inner { grid-template-columns: 1fr; gap: 48px; } }
+  .ritual-img-wrap { position: relative; }
+  .ritual-img {
+    width: 100%; height: 600px; object-fit: cover;
+    filter: brightness(.9);
+  }
+  .ritual-badge {
+    position: absolute; bottom: -24px; right: -24px;
+    width: 130px; height: 130px; border-radius: 50%;
+    background: var(--c-emerald);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    font-family: var(--ff-head); font-size: 13px; letter-spacing: .06em;
+    color: var(--c-white); text-align: center; line-height: 1.3;
+  }
+  @media (max-width: 768px) { .ritual-badge { right: 16px; bottom: -16px; } }
+  .ritual-list { margin: 36px 0; display: flex; flex-direction: column; gap: 20px; }
+  .ritual-item {
+    display: flex; gap: 20px; padding: 20px 24px;
+    border: 1px solid var(--c-line);
+    transition: border-color .3s, background .3s;
+  }
+  .ritual-item:hover { border-color: var(--c-emerald); background: rgba(46,107,85,.05); }
+  .ritual-num {
+    font-family: var(--ff-head); font-size: 36px; font-weight: 300;
+    color: var(--c-gold); opacity: .4; flex-shrink: 0; line-height: 1;
+  }
+  .ritual-item-title {
+    font-family: var(--ff-head); font-size: 19px; margin-bottom: 6px; color: var(--c-white);
+  }
+  .ritual-item-text { font-size: 13px; color: var(--c-muted); line-height: 1.7; }
+
+  /* ── MAP ────────────────────────────────────── */
+  #location { background: var(--c-surface); }
+  .location-inner {
+    display: grid; grid-template-columns: 1fr 1.6fr; gap: 0; min-height: 520px;
+  }
+  @media (max-width: 768px) { .location-inner { grid-template-columns: 1fr; } }
+  .location-info {
+    padding: clamp(40px,6vw,80px);
+    background: var(--c-card);
+    display: flex; flex-direction: column; justify-content: center;
+    border-right: 1px solid var(--c-line);
+  }
+  .location-detail {
+    display: flex; gap: 16px; margin-top: 28px; align-items: flex-start;
+  }
+  .loc-icon { color: var(--c-gold); flex-shrink: 0; margin-top: 2px; }
+  .loc-label { font-size: 11px; letter-spacing: .16em; text-transform: uppercase; color: var(--c-muted); margin-bottom: 4px; }
+  .loc-value { font-size: 15px; color: var(--c-white); line-height: 1.5; }
+  .map-container { min-height: 420px; }
+  .map-container iframe {
+    width: 100%; height: 100%; min-height: 420px; border: 0;
+    filter: grayscale(40%) contrast(1.05);
+  }
+
+  /* ── CONTACTS ───────────────────────────────── */
+  #contacts { background: var(--c-bg); }
+  .contacts-inner {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+  }
+  @media (max-width: 768px) { .contacts-inner { grid-template-columns: 1fr; gap: 48px; } }
+  .contacts-phone {
+    font-family: var(--ff-head);
+    font-size: clamp(32px, 5vw, 58px);
+    font-weight: 400; color: var(--c-white);
+    margin: 20px 0 8px;
+    transition: color .3s;
+  }
+  .contacts-phone:hover { color: var(--c-gold2); }
+  .contacts-hours {
+    font-size: 14px; color: var(--c-muted); margin-bottom: 32px; line-height: 1.7;
+  }
+  .contacts-form { display: flex; flex-direction: column; gap: 16px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 500px) { .form-row { grid-template-columns: 1fr; } }
+  .form-input {
+    background: var(--c-card); border: 1px solid var(--c-line);
+    padding: 14px 18px; font-family: var(--ff-body); font-size: 14px;
+    color: var(--c-white); outline: none; width: 100%;
+    transition: border-color .3s;
+  }
+  .form-input::placeholder { color: var(--c-muted); }
+  .form-input:focus { border-color: var(--c-emerald); }
+  .form-note { font-size: 11px; color: var(--c-muted); line-height: 1.6; }
+
+  /* ── FOOTER ─────────────────────────────────── */
+  footer {
+    background: var(--c-surface);
+    border-top: 1px solid var(--c-line);
+    padding: 48px clamp(20px,5vw,80px);
+  }
+  .footer-inner {
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 24px; flex-wrap: wrap;
+  }
+  .footer-logo {
+    font-family: var(--ff-head); font-size: 20px; font-weight: 400; color: var(--c-white);
+  }
+  .footer-logo span {
+    display: block; font-family: var(--ff-body); font-size: 10px;
+    letter-spacing: .18em; text-transform: uppercase; color: var(--c-gold); margin-top: 4px;
+  }
+  .footer-links { display: flex; gap: 28px; flex-wrap: wrap; }
+  .footer-links a {
+    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--c-muted); transition: color .3s;
+  }
+  .footer-links a:hover { color: var(--c-gold2); }
+  .footer-copy { font-size: 12px; color: var(--c-muted); }
+  .footer-bottom {
+    margin-top: 32px; padding-top: 28px;
+    border-top: 1px solid var(--c-line);
+    display: flex; justify-content: space-between; align-items: center;
+    gap: 20px; flex-wrap: wrap;
+    font-size: 12px; color: var(--c-muted);
+  }
+
+  /* ── DIVIDER ────────────────────────────────── */
+  .ornament {
+    display: flex; align-items: center; gap: 16px;
+    margin: 0 auto 0; max-width: 280px; justify-content: center;
+  }
+  .ornament::before, .ornament::after {
+    content: ''; flex: 1; height: 1px; background: var(--c-line);
+  }
+  .ornament svg { color: var(--c-gold); opacity: .7; }
+
+  /* ── ANIMATE ON SCROLL ──────────────────────── */
+  .reveal {
+    opacity: 0; transform: translateY(40px);
+    transition: opacity .8s var(--ease), transform .8s var(--ease);
+  }
+  .reveal.visible { opacity: 1; transform: none; }
+  .reveal-left {
+    opacity: 0; transform: translateX(-40px);
+    transition: opacity .8s var(--ease), transform .8s var(--ease);
+  }
+  .reveal-left.visible { opacity: 1; transform: none; }
+  .reveal-right {
+    opacity: 0; transform: translateX(40px);
+    transition: opacity .8s var(--ease), transform .8s var(--ease);
+  }
+  .reveal-right.visible { opacity: 1; transform: none; }
+
+  /* stagger delays */
+  .delay-1 { transition-delay: .1s; }
+  .delay-2 { transition-delay: .2s; }
+  .delay-3 { transition-delay: .3s; }
+  .delay-4 { transition-delay: .4s; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+  }
+</style>
+</head>
+<body>
+
+<!-- MOBILE MENU -->
+<div id="mobile-menu">
+  <span class="close-btn" onclick="closeMobileMenu()">✕</span>
+  <a href="#baths" onclick="closeMobileMenu()">Парные</a>
+  <a href="#rooms" onclick="closeMobileMenu()">Гостевой дом</a>
+  <a href="#ritual" onclick="closeMobileMenu()">Ритуалы</a>
+  <a href="#location" onclick="closeMobileMenu()">Расположение</a>
+  <a href="#contacts" onclick="closeMobileMenu()">Контакты</a>
+  <span class="m-phone">+7 (843) 222-48-16</span>
+</div>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="#" class="nav-logo">Мунча Ташы<span>Казань · Премиум</span></a>
+  <div class="nav-links">
+    <a href="#baths">Парные</a>
+    <a href="#rooms">Гостевой дом</a>
+    <a href="#ritual">Ритуалы</a>
+    <a href="#location">Расположение</a>
+    <a href="#contacts">Контакты</a>
+  </div>
+  <div class="nav-cta">
+    <a href="tel:+78432224816" class="nav-phone">+7 (843) 222-48-16</a>
+    <a href="#contacts" class="btn">Забронировать</a>
+    <div class="burger" onclick="openMobileMenu()">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Казань · Официальный сайт премиум-банного комплекса</div>
+    <h1 class="hero-title">
+      Мунча Ташы
+      <em>Камень бани</em>
+    </h1>
+    <p class="hero-sub">
+      Пространство подлинного тепла, древних традиций и современного комфорта на берегу Волги
+    </p>
+    <div class="hero-actions">
+      <a href="#baths" class="btn btn-solid">Выбрать парную</a>
+      <a href="#contacts" class="btn">Забронировать визит</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    Листать
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features" class="section">
+  <div class="container">
+    <div class="label">Почему Мунча Ташы</div>
+    <div style="display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:20px; margin-bottom:0;">
+      <h2 class="section-title">Что вас <em>ждёт</em></h2>
+      <p class="section-sub">Место, где каждая деталь продумана до совершенства — от породы дров до аромата пара</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-item reveal delay-1">
+        <svg class="feature-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2">
+          <circle cx="24" cy="24" r="20"/>
+          <path d="M24 12 C16 18 16 28 24 34 C32 28 32 18 24 12Z"/>
+          <path d="M14 24 H34"/>
+        </svg>
+        <div class="feature-title">Живой огонь</div>
+        <div class="feature-text">Печи на настоящих дровах — берёза, ольха, яблоня. Жар мягкий, обволакивающий, без сухости.</div>
+      </div>
+      <div class="feature-item reveal delay-2">
+        <svg class="feature-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2">
+          <path d="M8 36 C8 28 16 22 24 18 C32 22 40 28 40 36"/>
+          <path d="M24 18 L24 8"/>
+          <path d="M18 12 L24 8 L30 12"/>
+          <ellipse cx="24" cy="38" rx="12" ry="4"/>
+        </svg>
+        <div class="feature-title">Tatар-дух</div>
+        <div class="feature-text">Аромаотвары из трав татарских лугов, кумысные обёртывания и мёдовые пилинги по рецептам предков.</div>
+      </div>
+      <div class="feature-item reveal delay-3">
+        <svg class="feature-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2">
+          <rect x="10" y="18" width="28" height="22" rx="1"/>
+          <path d="M10 26 H38"/>
+          <path d="M18 18 L18 14 C18 11 30 11 30 14 L30 18"/>
+          <circle cx="24" cy="34" r="3"/>
+        </svg>
+        <div class="feature-title">Приватность</div>
+        <div class="feature-text">Только индивидуальные сессии. Вы и ваши близкие — больше никого. Закрытая территория.</div>
+      </div>
+      <div class="feature-item reveal delay-4">
+        <svg class="feature-icon" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.2">
+          <path d="M24 8 L28 18 H40 L30 26 L34 38 L24 30 L14 38 L18 26 L8 18 H20Z"/>
+        </svg>
+        <div class="feature-title">Премиум сервис</div>
+        <div class="feature-text">Персональный банщик, авторские веники, органическая кухня, чайный мастер — всё включено.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BATHS -->
+<section id="baths" class="section">
+  <div class="container">
+    <div class="baths-header">
+      <div>
+        <div class="label">Наши парные</div>
+        <h2 class="section-title">5 уникальных <em>пространств</em></h2>
+      </div>
+      <p class="section-sub">Каждая парная — отдельный характер, своя традиция, свой мастер</p>
+    </div>
+    <div class="baths-grid">
+
+      <div class="bath-card reveal">
+        <div class="bath-img-wrap">
+          <img class="bath-img" 
+               src="https://images.unsplash.com/photo-1571896349842-33c89424de2d?w=900&q=80" 
+               alt="Черная парная по-татарски с дымным жаром и аутентичным декором" />
+        </div>
+        <div class="bath-body">
+          <div class="bath-num">01 — Флагман</div>
+          <div class="bath-name">Чёрная парная по-татарски</div>
+          <p class="bath-desc">Аутентичная курная баня без дымохода. Стены пропитаны вековым смолистым духом. Жар стоит плотно, дышится глубоко. Максимум до 6 гостей.</p>
+          <span class="bath-tag">от 6 000 ₽/час</span>
+        </div>
+      </div>
+
+      <div class="bath-card reveal delay-1">
+        <div class="bath-img-wrap">
+          <img class="bath-img" 
+               src="https://images.unsplash.com/photo-1540518614846-7eded433c457?w=700&q=80" 
+               alt="Царь-печь — русская баня с массивной каменной печью" />
+        </div>
+        <div class="bath-body">
+          <div class="bath-num">02 — Легенда</div>
+          <div class="bath-name">Царь-печь</div>
+          <p class="bath-desc">Русская баня с массивной печью из карельского камня. Пар невесомый, мягкий — как облако. Окно в сосновый бор.</p>
+          <span class="bath-tag">от 5 000 ₽/час</span>
+        </div>
+      </div>
+
+      <div class="bath-card reveal delay-1">
+        <div class="bath-img-wrap">
+          <img class="bath-img" 
+               src="https://images.unsplash.com/photo-1617952739363-3e5f96e09a4e?w=600&q=80" 
+               alt="Кедровая бочка — сухой пар и фитонциды сибирского кедра" />
+        </div>
+        <div class="bath-body">
+          <div class="bath-num">03 — Детокс</div>
+          <div class="bath-name">Кедровая бочка</div>
+          <p class="bath-desc">Погружение в мягкий сухой пар при +55°C. Фитонциды сибирского кедра восстанавливают нервную систему. Индивидуально.</p>
+          <span class="bath-tag">от 1 800 ₽/30 мин</span>
+        </div>
+      </div>
+
+      <div class="bath-card reveal delay-2">
+        <div class="bath-img-wrap">
+          <img class="bath-img" 
+               src="https://images.unsplash.com/photo-1600948836101-f9ffda59d250?w=600&q=80" 
+               alt="Хамам по-булгарски с мраморным столом и восточными ароматами" />
+        </div>
+        <div class="bath-body">
+          <div class="bath-num">04 — Восток</div>
+          <div class="bath-name">Хамам по-булгарски</div>
+          <p class="bath-desc">Мраморный стол, влажный пар +42°C, пенный массаж кесе и аргановые масла. Дань наследию Волжской Булгарии.</p>
+          <span class="bath-tag">от 4 500 ₽/час</span>
+        </div>
+      </div>
+
+      <div class="bath-card reveal delay-3">
+        <div class="bath-img-wrap">
+          <img class="bath-img" 
+               src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&q=80" 
+               alt="Spa-ритуал с кумысом и мёдом татарских пасек" />
+        </div>
+        <div class="bath-body">
+          <div class="bath-num">05 — Эксклюзив</div>
+          <div class="bath-name">Spa-ритуал «Ханский»</div>
+          <p class="bath-desc">Полная программа 3 часа: чёрная парная → хамам → кумысное обёртывание → медовый массаж → чайная церемония.</p>
+          <span class="bath-tag">от 14 000 ₽/на двоих</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ROOMS -->
+<section id="rooms" class="section">
+  <div class="container">
+    <div class="rooms-header">
+      <div>
+        <div class="label">Гостевой дом</div>
+        <h2 class="section-title">Остаться <em>до утра</em></h2>
+      </div>
+      <a href="#contacts" class="btn">Забронировать номер</a>
+    </div>
+    <div class="rooms-grid">
+
+      <div class="room-card reveal">
+        <div class="room-img-wrap">
+          <img class="room-img" 
+               src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=800&q=80" 
+               alt="Люкс Лесной — спальня с панорамным видом на сосновый лес" />
+        </div>
+        <div class="room-overlay">
+          <div class="room-type">Люкс</div>
+          <div class="room-name">Лесной люкс</div>
+          <div class="room-details">
+            <span>60 м²</span><span>2 гостя</span><span>Панорамное окно</span>
+          </div>
+          <div class="room-price">
+            <span class="price">9 800 ₽</span>
+            <span class="per">/ ночь</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="room-card reveal delay-1">
+        <div class="room-img-wrap">
+          <img class="room-img" 
+               src="https://images.unsplash.com/photo-1578683010236-d716f9a3f461?w=800&q=80" 
+               alt="Татарский лофт — дизайнерский номер с традиционными орнаментами" />
+        </div>
+        <div class="room-overlay">
+          <div class="room-type">Делюкс</div>
+          <div class="room-name">Татарский лофт</div>
+          <div class="room-details">
+            <span>45 м²</span><span>2 гостя</span><span>Камин</span>
+          </div>
+          <div class="room-price">
+            <span class="price">7 400 ₽</span>
+            <span class="per">/ ночь</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="room-card reveal delay-2">
+        <div class="room-img-wrap">
+          <img class="room-img" 
+               src="https://images.unsplash.com/photo-1605346576742-58fa0e9b8a98?w=800&q=80" 
+               alt="Чайный дом — отдельно стоящий домик для медитации и чаепития" />
+        </div>
+        <div class="room-overlay">
+          <div class="room-type">Особняк</div>
+          <div class="room-name">Чайный дом</div>
+          <div class="room-details">
+            <span>80 м²</span><span>до 4 гостей</span><span>Отдельный вход</span>
+          </div>
+          <div class="room-price">
+            <span class="price">16 500 ₽</span>
+            <span class="per">/ ночь</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- RITUAL -->
+<section id="ritual" class="section">
+  <div class="container">
+    <div class="ritual-inner">
+      <div class="reveal-left">
+        <div class="ritual-img-wrap">
+          <img class="ritual-img" 
+               src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?w=800&q=80" 
+               alt="Банный ритуал с вениками и ароматными отварами" />
+          <div class="ritual-badge">
+            Более<br/>12 лет<br/>традиций
+          </div>
+        </div>
+      </div>
+      <div class="reveal-right">
+        <div class="label">Банные программы</div>
+        <h2 class="section-title">Авторские <em>ритуалы</em></h2>
+        <p class="section-sub">Каждая программа составлена мастером банного дела по сезону и вашему состоянию</p>
+        <div class="ritual-list">
+          <div class="ritual-item">
+            <div class="ritual-num">I</div>
+            <div>
+              <div class="ritual-item-title">Парение с вениками</div>
+              <div class="ritual-item-text">Дубовый, берёзовый, крапивный, полынный — мастер подбирает веник по вашему запросу. 45 минут в три захода.</div>
+            </div>
+          </div>
+          <div class="ritual-item">
+            <div class="ritual-num">II</div>
+            <div>
+              <div class="ritual-item-title">Кумысное обёртывание</div>
+              <div class="ritual-item-text">Молочные протеины и пробиотики кумыса насыщают кожу влагой. Снимает стресс и воспаления.</div>
+            </div>
+          </div>
+          <div class="ritual-item">
+            <div class="ritual-num">III</div>
+            <div>
+              <div class="ritual-item-title">Медовый пилинг</div>
+              <div class="ritual-item-text">Башкирский мёд с морской солью и маслом чёрного тмина. Кожа обновляется за один сеанс.</div>
+            </div>
+          </div>
+          <div class="ritual-item">
+            <div class="ritual-num">IV</div>
+            <div>
+              <div class="ritual-item-title">Чайная церемония</div>
+              <div class="ritual-item-text">Татарский чай с чак-чаком и травами. Завершает любую программу, возвращая в мир мягко.</div>
+            </div>
+          </div>
+        </div>
+        <a href="#contacts" class="btn btn-solid">Составить программу</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOCATION -->
+<section id="location" class="section" style="padding-bottom:0">
+  <div class="container">
+    <div class="label">Как найти нас</div>
+    <h2 class="section-title" style="margin-bottom:48px;">Казань, <em>Волга рядом</em></h2>
+  </div>
+  <div class="location-inner">
+    <div class="location-info">
+      <div class="location-detail">
+        <svg class="loc-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/>
+          <circle cx="12" cy="9" r="2.5"/>
+        </svg>
+        <div>
+          <div class="loc-label">Адрес</div>
+          <div class="loc-value">Казань, ул. Волжская набережная, 12<br/>Вахитовский район</div>
+        </div>
+      </div>
+      <div class="location-detail">
+        <svg class="loc-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="10"/>
+          <polyline points="12 6 12 12 16 14"/>
+        </svg>
+        <div>
+          <div class="loc-label">Часы работы</div>
+          <div class="loc-value">Ежедневно с 10:00 до 00:00<br/>Без выходных</div>
+        </div>
+      </div>
+      <div class="location-detail">
+        <svg class="loc-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 10.8 19.79 19.79 0 01.1 2.18 2 2 0 012.07 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.91a16 16 0 006.18 6.18l1.27-.41a2 2 0 012.11.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+        </svg>
+        <div>
+          <div class="loc-label">Телефон</div>
+          <div class="loc-value"><a href="tel:+78432224816" style="color:var(--c-gold2); font-weight:600;">+7 (843) 222-48-16</a></div>
+        </div>
+      </div>
+      <div style="margin-top:36px;">
+        <a href="https://yandex.ru/maps" target="_blank" class="btn">Открыть в картах</a>
+      </div>
+    </div>
+    <div class="map-container">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2263.4808034530167!2d49.1059!3d55.7960!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x415ead0a4a21f4a3%3A0x23bb5e74ba10c2a2!2z0JrQsNC30LDQvdGM!5e0!3m2!1sru!2sru!4v1700000000000"
+        title="Расположение Мунча Ташы на карте Казани"
+        allowfullscreen="" loading="lazy">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section id="contacts" class="section">
+  <div class="container">
+    <div class="contacts-inner">
+      <div class="reveal-left">
+        <div class="label">Связаться с нами</div>
+        <h2 class="section-title" style="margin-bottom:16px;">Забронировать <em>визит</em></h2>
+        <a href="tel:+78432224816" class="contacts-phone">+7 (843) 222-48-16</a>
+        <div class="contacts-hours">
+          Звоните или пишите в любое время.<br/>
+          Работаем ежедневно с 10:00 до 00:00
+        </div>
+        <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:8px;">
+          <a href="#" class="btn">WhatsApp</a>
+          <a href="#" class="btn">Telegram</a>
+        </div>
+      </div>
+      <div class="reveal-right">
+        <div class="label">Онлайн-заявка</div>
+        <div class="contacts-form">
+          <div class="form-row">
+            <input class="form-input" type="text" placeholder="Ваше имя" />
+            <input class="form-input" type="tel" placeholder="+7 (___) ___-__-__" />
+          </div>
+          <input class="form-input" type="text" placeholder="Желаемая дата и время" />
+          <select class="form-input" style="appearance:none; cursor:pointer;">
+            <option value="" disabled selected>Выберите программу</option>
+            <option>Чёрная парная по-татарски</option>
+            <option>Царь-печь</option>
+            <option>Кедровая бочка</option>
+            <option>Хамам по-булгарски</option>
+            <option>Spa-ритуал «Ханский»</option>
+          </select>
+          <textarea class="form-input" rows="3" placeholder="Ваши пожелания..."></textarea>
+          <div class="form-note">Нажимая «Отправить», вы соглашаетесь с условиями обработки персональных данных.</div>
+          <a href="#" class="btn btn-solid" style="align-self:flex-start;">Отправить заявку</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-logo">
+      Мунча Ташы
+      <span>Казань · Банный комплекс</span>
+    </div>
+    <div class="footer-links">
+      <a href="#baths">Парные</a>
+      <a href="#rooms">Гостевой дом</a>
+      <a href="#ritual">Ритуалы</a>
+      <a href="#contacts">Контакты</a>
+    </div>
+    <div class="footer-copy">© 2024 Мунча Ташы</div>
+  </div>
+  <div class="footer-bottom">
+    <span>Официальный сайт премиум-банного комплекса в Казани</span>
+    <span>Политика конфиденциальности</span>
+    <span>ИНН 1655 000 000 · г. Казань, ул. Волжская набережная, 12</span>
+  </div>
+</footer>
+
+<script>
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Hero bg parallax + load
+const heroBg = document.getElementById('heroBg');
+setTimeout(() => heroBg.classList.add('loaded'), 100);
+window.addEventListener('scroll', () => {
+  heroBg.style.transform = `scale(1) translateY(${window.scrollY * 0.25}px)`;
+});
+
+// Mobile menu
+function openMobileMenu() { document.getElementById('mobile-menu').classList.add('open'); }
+function closeMobileMenu() { document.getElementById('mobile-menu').classList.remove('open'); }
+
+// Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right').forEach(el => {
+  observer.observe(el);
+});
+
+// Feature items on scroll
+const featureObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.feature-item').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(30px)';
+  el.style.transition = 'opacity .7s cubic-bezier(.25,.46,.45,.94), transform .7s cubic-bezier(.25,.46,.45,.94)';
+  featureObserver.observe(el);
+});
+</script>
+</body>
+</html>
