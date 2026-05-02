@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Мунча Ташы — Банный комплекс в Казани | Парение, SPA, кухня</title>
+<meta name="description" content="Банный комплекс «Мунча Ташы» — Казань, д. Эстачи. Баня по-чёрному, купели, тёплый бассейн, банный чан, SPA, авторская кухня. До 16 человек. Тел: +7 950 319-69-15"/>
+<meta name="keywords" content="баня Казань, Мунча Ташы, банный комплекс Казань, баня по черному, купели Казань, SPA Казань, банный чан, парение Казань"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+/* ══ RESET ══════════════════════════════════════════ */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{background:#fff;color:#2A2A2A;font-family:'Manrope',sans-serif;line-height:1.65;overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{border:none;background:none;cursor:pointer;font-family:inherit}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:#111}
+::-webkit-scrollbar-thumb{background:#C9A87C;border-radius:2px}
+
+/* ══ CSS VARIABLES ══════════════════════════════════ */
+:root{
+  --white:#FFFFFF;
+  --light:#F5F0E8;
+  --dark:#111410;
+  --graphite:#2A2A2A;
+  --wood:#4A3525;
+  --emerald:#0F4C3A;
+  --em2:#1a6650;
+  --gold:#C9A87C;
+  --gold2:#e0c49a;
+  --muted:#888;
+  --line:rgba(201,168,124,.2);
+  --ff-h:'Cormorant Garamond',Georgia,serif;
+  --ff-b:'Manrope',sans-serif;
+  --ease:cubic-bezier(.25,.46,.45,.94);
+}
+
+/* ══ NOISE OVERLAY ══════════════════════════════════ */
+body::before{
+  content:'';position:fixed;inset:0;pointer-events:none;z-index:9998;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+  opacity:.22;
+}
+
+/* ══ UTILITY ════════════════════════════════════════ */
+.wrap{max-width:1280px;margin:0 auto;padding:0 clamp(16px,5vw,80px)}
+.sec{padding:clamp(64px,9vw,120px) 0}
+.sec--dark{background:var(--dark);color:var(--white)}
+.sec--warm{background:var(--light)}
+
+.eyebrow{
+  display:inline-flex;align-items:center;gap:12px;
+  font-size:10px;font-weight:600;letter-spacing:.26em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:18px;
+}
+.eyebrow::before{content:'';width:28px;height:1px;background:var(--gold)}
+
+h2.htitle{
+  font-family:var(--ff-h);font-size:clamp(34px,5vw,62px);
+  font-weight:400;line-height:1.08;margin-bottom:16px;
+}
+h2.htitle em{font-style:italic;color:var(--gold2)}
+.sub{font-size:14px;color:var(--muted);max-width:480px;line-height:1.85}
+
+/* ══ BUTTONS ════════════════════════════════════════ */
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:13px 32px;font-size:11px;font-weight:600;
+  letter-spacing:.16em;text-transform:uppercase;
+  border:1.5px solid var(--gold);color:var(--graphite);
+  cursor:pointer;background:transparent;
+  transition:all .35s var(--ease);position:relative;overflow:hidden;
+}
+.btn::after{
+  content:'';position:absolute;inset:0;
+  background:var(--gold);transform:translateX(-101%);
+  transition:transform .35s var(--ease);z-index:-1;
+}
+.btn:hover{color:var(--dark)}
+.btn:hover::after{transform:translateX(0)}
+.btn-green{background:var(--emerald);border-color:var(--emerald);color:#fff}
+.btn-green::after{background:var(--em2)}
+.btn-green:hover{color:#fff}
+.btn-outline-w{border-color:rgba(255,255,255,.35);color:#fff}
+.btn-outline-w::after{background:rgba(255,255,255,.1)}
+.btn-outline-w:hover{color:#fff}
+.btn-full{width:100%;justify-content:center}
+
+/* ══ STICKY HEADER ══════════════════════════════════ */
+#hdr{
+  position:fixed;top:0;left:0;right:0;z-index:9000;
+  padding:18px clamp(16px,5vw,80px);
+  display:flex;align-items:center;justify-content:space-between;gap:12px;
+  transition:background .5s,padding .4s,box-shadow .4s;
+  /* всегда минимально виден — нет просвета под хедером */
+  background:rgba(17,20,16,.0);
+}
+#hdr.on{
+  background:rgba(17,20,16,.94);
+  backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
+  padding-top:11px;padding-bottom:11px;
+  box-shadow:0 1px 0 var(--line);
+}
+.hdr-logo{display:flex;align-items:center;gap:10px;flex-shrink:0;color:#fff}
+.hdr-logo img{height:40px;width:auto;object-fit:contain}
+.hdr-logo-text{display:flex;flex-direction:column;line-height:1}
+.hdr-logo-name{font-family:var(--ff-h);font-size:20px;font-weight:400;letter-spacing:.06em;color:#fff}
+.hdr-logo-sub{font-family:var(--ff-b);font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:3px}
+.hdr-nav{display:flex;gap:28px}
+.hdr-nav a{font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.6);transition:color .3s}
+.hdr-nav a:hover{color:var(--gold2)}
+.hdr-r{display:flex;align-items:center;gap:12px}
+.hdr-phone{font-size:13px;font-weight:700;color:#fff;letter-spacing:.03em;white-space:nowrap}
+.hdr-ms{display:flex;gap:8px}
+.hdr-m{
+  width:33px;height:33px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.2);
+  display:flex;align-items:center;justify-content:center;
+  color:#fff;transition:all .3s;
+}
+.hdr-m:hover{background:var(--gold);border-color:var(--gold);color:var(--dark)}
+.burger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:4px}
+.burger span{display:block;width:22px;height:1.5px;background:#fff;transition:.3s}
+
+/* Mobile nav */
+#mnav{
+  display:none;position:fixed;inset:0;z-index:9500;
+  background:var(--dark);flex-direction:column;
+  align-items:center;justify-content:center;gap:24px;
+}
+#mnav.open{display:flex}
+#mnav a{font-family:var(--ff-h);font-size:30px;font-weight:300;color:#fff}
+#mnav .mx{position:absolute;top:22px;right:22px;font-size:24px;color:var(--muted);cursor:pointer}
+#mnav .mphone{font-size:18px;font-weight:700;color:var(--gold);margin-top:8px}
+#mnav .mms{display:flex;gap:10px;margin-top:4px}
+
+@media(max-width:960px){.hdr-nav,.hdr-phone{display:none}.burger{display:flex}}
+@media(max-width:600px){.hdr-m{display:none}}
+
+/* ══ HERO ════════════════════════════════════════ */
+#hero{
+  min-height:100dvh;min-height:100vh;
+  position:relative;display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.hero-bg{position:absolute;inset:0;background:var(--dark)}
+.hero-bg img{
+  width:100%;height:100%;object-fit:cover;opacity:.65;
+  transform:scale(1.06);transition:transform 10s var(--ease);
+}
+.hero-bg img.rdy{transform:scale(1)}
+.hero-ov{
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(17,20,16,.2) 0%,rgba(17,20,16,.5) 55%,rgba(17,20,16,.92) 100%);
+}
+/* татарский геометрический бордюр */
+.hero-orn{
+  position:absolute;bottom:0;left:0;right:0;height:60px;
+  background-image:url("data:image/svg+xml,%3Csvg width='60' height='16' viewBox='0 0 60 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 8L7.5 0 15 8 22.5 0 30 8 37.5 0 45 8 52.5 0 60 8' fill='none' stroke='%23C9A87C' stroke-width='.7' opacity='.28'/%3E%3C/svg%3E");
+  background-repeat:repeat-x;background-position:bottom;pointer-events:none;
+}
+.hero-c{
+  position:relative;z-index:2;
+  text-align:center;padding:0 clamp(16px,8vw,140px);max-width:880px;width:100%;
+}
+.hero-ey{
+  font-size:10px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--gold);margin-bottom:22px;
+  opacity:0;animation:fup .9s var(--ease) .3s forwards;
+}
+.hero-h{
+  font-family:var(--ff-h);font-size:clamp(42px,8vw,110px);
+  font-weight:300;line-height:.95;color:#fff;letter-spacing:-.01em;
+  opacity:0;animation:fup 1s var(--ease) .5s forwards;
+}
+.hero-h em{font-style:italic;color:var(--gold2);display:block;font-size:.68em}
+.hero-p{
+  margin:22px auto 36px;max-width:430px;
+  font-size:14px;color:rgba(255,255,255,.65);line-height:1.75;
+  opacity:0;animation:fup 1s var(--ease) .7s forwards;
+}
+.hero-btns{
+  display:flex;gap:12px;justify-content:center;flex-wrap:wrap;
+  opacity:0;animation:fup 1s var(--ease) .9s forwards;
+}
+.hero-scroll{
+  position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
+  z-index:2;display:flex;flex-direction:column;align-items:center;gap:7px;
+  font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);
+  opacity:0;animation:fin 1s var(--ease) 1.5s forwards;
+}
+.scroll-ln{width:1px;height:42px;background:var(--gold);animation:spulse 2s ease-in-out infinite}
+@keyframes spulse{0%,100%{transform:scaleY(1);opacity:1}50%{transform:scaleY(.3);opacity:.3}}
+
+/* ══ STATS BAR ══════════════════════════════════════ */
+.stats-bar{
+  background:var(--emerald);
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border-top:1px solid rgba(255,255,255,.1);
+}
+@media(max-width:640px){.stats-bar{grid-template-columns:repeat(2,1fr)}}
+.stat-item{
+  padding:28px 20px;text-align:center;
+  border-right:1px solid rgba(255,255,255,.12);
+}
+.stat-item:last-child{border-right:none}
+.stat-n{font-family:var(--ff-h);font-size:clamp(32px,4vw,48px);font-weight:400;color:#fff;line-height:1}
+.stat-l{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:6px}
+
+/* ══ ABOUT ══════════════════════════════════════════ */
+#about{}
+.about-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,80px);
+  align-items:center;margin-bottom:60px;
+}
+@media(max-width:768px){.about-grid{grid-template-columns:1fr;gap:36px}}
+.about-txt p{font-size:14px;color:#555;line-height:1.85;margin-bottom:18px}
+.about-txt p:last-of-type{margin-bottom:24px}
+.about-imgs{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.aimg{overflow:hidden;background:#e4dfd6}
+.aimg:first-child{grid-column:span 2}
+.aimg img,.aimg .ph{width:100%;height:200px;object-fit:cover;transition:transform .7s var(--ease)}
+.aimg:first-child img,.aimg:first-child .ph{height:260px}
+.aimg:hover img{transform:scale(1.05)}
+
+.about-feats{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border:1px solid var(--line);overflow:hidden;
+}
+@media(max-width:900px){.about-feats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.about-feats{grid-template-columns:1fr}}
+.af{
+  padding:clamp(24px,3vw,44px) clamp(20px,2.5vw,36px);
+  border-right:1px solid var(--line);transition:background .3s;
+}
+.af:last-child,.af:nth-child(2){border-right:none}
+@media(min-width:900px){.af:nth-child(2){border-right:1px solid var(--line)}.af:last-child{border-right:none}}
+@media(max-width:900px){.af:nth-child(even){border-right:none}.af:nth-child(odd){border-right:1px solid var(--line)}}
+.af:hover{background:rgba(15,76,58,.04)}
+.af-ico{width:42px;height:42px;color:var(--gold);margin-bottom:16px}
+.af-t{font-family:var(--ff-h);font-size:19px;margin-bottom:8px}
+.af-p{font-size:13px;color:var(--muted);line-height:1.75}
+
+/* ══ SERVICES ═══════════════════════════════════════ */
+.svc-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:36px;gap:16px;flex-wrap:wrap}
+.filters{display:flex;gap:8px;flex-wrap:wrap}
+.fbtn{
+  padding:8px 18px;font-size:10px;font-weight:600;letter-spacing:.12em;
+  text-transform:uppercase;border:1px solid rgba(42,42,42,.25);color:var(--graphite);
+  cursor:pointer;background:transparent;transition:all .3s;
+}
+.fbtn.act,.fbtn:hover{background:var(--emerald);border-color:var(--emerald);color:#fff}
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px}
+.scard{
+  background:#fff;border:1px solid rgba(42,42,42,.1);overflow:hidden;
+  transition:transform .4s var(--ease),box-shadow .4s,border-color .4s;
+}
+.scard:hover{transform:translateY(-7px);box-shadow:0 18px 55px rgba(0,0,0,.11);border-color:var(--gold)}
+.scard:hover .sc-img{transform:scale(1.07)}
+.scard.hide{display:none}
+.sc-iw{height:210px;overflow:hidden;background:#e8e3d8}
+.sc-img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.sc-body{padding:22px 22px 26px}
+.sc-cat{font-size:9px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:8px}
+.sc-name{font-family:var(--ff-h);font-size:21px;font-weight:500;margin-bottom:8px}
+.sc-desc{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:14px}
+.sc-meta{display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:1px solid var(--line)}
+.sc-dur{font-size:11px;color:var(--muted)}
+.sc-price{font-family:var(--ff-h);font-size:22px;color:var(--emerald)}
+
+/* ══ KITCHEN ════════════════════════════════════════ */
+.kitch-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:44px;gap:16px;flex-wrap:wrap}
+.kgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:14px;margin-bottom:44px}
+.fcard{background:#1a1f1c;overflow:hidden;transition:transform .4s var(--ease)}
+.fcard:hover{transform:translateY(-5px)}
+.fcard:hover .fimg{transform:scale(1.07)}
+.fiw{height:195px;overflow:hidden;background:#1e2420}
+.fimg{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.fbody{padding:18px 18px 22px}
+.fname{font-family:var(--ff-h);font-size:19px;margin-bottom:7px;color:#fff}
+.fdesc{font-size:12px;color:rgba(255,255,255,.42);line-height:1.65}
+
+/* ══ GALLERY SLIDER ═════════════════════════════════ */
+.gal-head{margin-bottom:36px}
+.slider-ow{overflow:hidden}
+.slider-tr{display:flex;transition:transform .6s var(--ease);will-change:transform}
+.slide{flex-shrink:0;padding-right:14px}
+.slide-iw{overflow:hidden;background:#ddd8ce}
+.slide-iw img,.slide-iw .ph{width:100%;height:clamp(220px,32vw,460px);object-fit:cover;transition:transform .6s var(--ease)}
+.slide:hover .slide-iw img{transform:scale(1.04)}
+.sl-ctrl{display:flex;align-items:center;gap:14px;margin-top:24px;justify-content:flex-end}
+.sl-btn{
+  width:46px;height:46px;border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;
+  cursor:pointer;background:transparent;color:var(--graphite);transition:all .3s;
+}
+.sl-btn:hover{background:var(--emerald);border-color:var(--emerald);color:#fff}
+.sl-dots{display:flex;gap:7px;align-items:center}
+.sl-dot{width:6px;height:6px;border-radius:50%;background:rgba(42,42,42,.2);cursor:pointer;transition:all .3s}
+.sl-dot.on{background:var(--gold);width:20px;border-radius:3px}
+
+/* ══ REVIEWS ════════════════════════════════════════ */
+.rev-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:44px;gap:16px;flex-wrap:wrap}
+.rgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:18px}
+.rcard{padding:28px 24px;border:1px solid var(--line);transition:border-color .3s,box-shadow .3s}
+.rcard:hover{border-color:var(--gold);box-shadow:0 8px 28px rgba(0,0,0,.07)}
+.rstars{color:var(--gold);font-size:13px;letter-spacing:3px;margin-bottom:14px}
+.rtxt{font-size:13px;color:#555;line-height:1.8;margin-bottom:20px;font-style:italic}
+.rauthor{display:flex;align-items:center;gap:12px}
+.rava{width:44px;height:44px;border-radius:50%;overflow:hidden;background:#ddd;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:20px;color:#aaa}
+.rname{font-weight:600;font-size:13px;margin-bottom:2px}
+.rdate{font-size:11px;color:var(--muted)}
+
+/* ══ FAQ ════════════════════════════════════════════ */
+.faq-in{max-width:800px;margin:0 auto}
+.fq{border-bottom:1px solid var(--line)}
+.fq-btn{
+  width:100%;text-align:left;padding:20px 0;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  font-family:var(--ff-h);font-size:19px;font-weight:500;
+  color:var(--graphite);cursor:pointer;background:none;border:none;transition:color .3s;
+}
+.fq-btn:hover{color:var(--emerald)}
+.fq-ico{
+  width:26px;height:26px;flex-shrink:0;border:1px solid var(--line);
+  border-radius:50%;display:flex;align-items:center;justify-content:center;
+  font-size:14px;color:var(--gold);transition:transform .4s,background .3s;
+}
+.fq.open .fq-ico{transform:rotate(45deg);background:var(--gold);color:#fff}
+.fq-a{max-height:0;overflow:hidden;transition:max-height .45s var(--ease)}
+.fq.open .fq-a{max-height:300px}
+.fq-a p{padding-bottom:20px;font-size:13px;color:#555;line-height:1.8}
+
+/* ══ FORM SECTION ════════════════════════════════════ */
+.book-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,7vw,90px);align-items:center}
+@media(max-width:768px){.book-grid{grid-template-columns:1fr;gap:44px}}
+.bphone{font-family:var(--ff-h);font-size:clamp(30px,5vw,54px);font-weight:400;color:#fff;margin:14px 0 6px;transition:color .3s}
+.bphone:hover{color:var(--gold2)}
+.bsub{font-size:13px;color:rgba(255,255,255,.45);line-height:1.7;margin-bottom:24px}
+.bmess{display:flex;gap:10px;flex-wrap:wrap}
+.bform{display:flex;flex-direction:column;gap:12px}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:480px){.frow{grid-template-columns:1fr}}
+.ff{
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);
+  padding:12px 15px;font-family:var(--ff-b);font-size:13px;
+  color:#fff;outline:none;width:100%;border-radius:2px;transition:border-color .3s;
+}
+.ff::placeholder{color:rgba(255,255,255,.32)}
+.ff:focus{border-color:var(--gold)}
+.cb-row{display:flex;align-items:flex-start;gap:9px}
+.cb-row input{margin-top:3px;accent-color:var(--gold);flex-shrink:0}
+.cb-row label{font-size:11px;color:rgba(255,255,255,.38);line-height:1.6}
+.cb-row a{color:var(--gold)}
+
+/* ══ CONTACTS + MAP ══════════════════════════════════ */
+.ctop{padding:clamp(56px,8vw,96px) 0 52px}
+.cgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:28px;margin-bottom:52px}
+.ci-lab{font-size:10px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin-bottom:7px}
+.ci-val{font-size:14px;color:var(--graphite);line-height:1.65}
+.ci-val a{color:var(--emerald);font-weight:600;transition:color .3s}
+.ci-val a:hover{color:var(--gold)}
+.mapblock{height:420px}
+.mapblock iframe{width:100%;height:100%;border:0;filter:grayscale(20%) contrast(1.05)}
+
+/* ══ FOOTER ══════════════════════════════════════════ */
+footer{
+  background:linear-gradient(180deg,#111410 0%,#0a0d0b 100%);
+  border-top:1px solid rgba(201,168,124,.1);
+  padding:48px clamp(16px,5vw,80px) 28px;
+}
+/* татарский орнаментальный бордюр */
+.forn{
+  height:10px;margin-bottom:28px;
+  background-image:url("data:image/svg+xml,%3Csvg width='40' height='10' viewBox='0 0 40 10' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 5L5 0 10 5 15 0 20 5 25 0 30 5 35 0 40 5' fill='none' stroke='%23C9A87C' stroke-width='.6' opacity='.22'/%3E%3C/svg%3E");
+  background-repeat:repeat-x;background-position:center;
+}
+.fmain{display:flex;justify-content:space-between;align-items:flex-start;gap:32px;flex-wrap:wrap;margin-bottom:36px}
+.flogo{font-family:var(--ff-h);font-size:22px;font-weight:400;color:#fff}
+.flogo small{display:block;font-family:var(--ff-b);font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:4px}
+.fnav{display:flex;flex-direction:column;gap:10px}
+.fnav a{font-size:10px;font-weight:500;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.4);transition:color .3s}
+.fnav a:hover{color:var(--gold2)}
+.fsoc{display:flex;gap:9px}
+.fs{
+  width:36px;height:36px;border-radius:50%;
+  border:1px solid rgba(255,255,255,.14);
+  display:flex;align-items:center;justify-content:center;
+  color:rgba(255,255,255,.45);transition:all .3s;
+}
+.fs:hover{background:var(--gold);border-color:var(--gold);color:var(--dark)}
+.fbot{
+  padding-top:22px;border-top:1px solid rgba(255,255,255,.06);
+  display:flex;justify-content:space-between;align-items:center;
+  gap:14px;flex-wrap:wrap;font-size:11px;color:rgba(255,255,255,.28);
+}
+.fbot a{color:rgba(201,168,124,.45);transition:color .3s}
+.fbot a:hover{color:var(--gold)}
+
+/* ══ STICKY CTA ══════════════════════════════════════ */
+#scta{
+  position:fixed;bottom:28px;right:28px;z-index:8000;
+  opacity:0;transform:translateY(14px);
+  transition:opacity .4s,transform .4s;pointer-events:none;
+}
+#scta.vis{opacity:1;transform:none;pointer-events:auto}
+#scta .btn{box-shadow:0 8px 28px rgba(15,76,58,.35)}
+
+/* ══ MODALS ══════════════════════════════════════════ */
+.ov{
+  position:fixed;inset:0;z-index:9900;
+  background:rgba(8,11,9,.88);backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
+  display:flex;align-items:center;justify-content:center;padding:16px;
+  opacity:0;pointer-events:none;transition:opacity .4s;
+}
+.ov.open{opacity:1;pointer-events:auto}
+.modal{
+  background:var(--dark);max-width:540px;width:100%;
+  padding:clamp(28px,5vw,52px);position:relative;
+  border:1px solid rgba(201,168,124,.15);
+  transform:translateY(18px);transition:transform .4s var(--ease);
+  max-height:90vh;overflow-y:auto;
+}
+.ov.open .modal{transform:none}
+.mc{position:absolute;top:18px;right:18px;font-size:20px;color:var(--muted);cursor:pointer;transition:color .3s}
+.mc:hover{color:var(--gold)}
+.mt{font-family:var(--ff-h);font-size:clamp(26px,4vw,40px);font-weight:400;color:#fff;margin-bottom:6px}
+.ms{font-size:12px;color:rgba(255,255,255,.38);margin-bottom:24px;line-height:1.7}
+
+/* ══ IMAGE PLACEHOLDER ═══════════════════════════════ */
+.ph{
+  width:100%;height:100%;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  background:linear-gradient(135deg,#1a1f1c 0%,#252b28 100%);
+  font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(201,168,124,.45);text-align:center;padding:16px;
+}
+.ph span{font-size:11px;color:rgba(201,168,124,.28);margin-top:5px}
+.ph.light{background:linear-gradient(135deg,#e8e3d8 0%,#ddd6c8 100%);color:rgba(74,53,37,.42)}
+.ph.light span{color:rgba(74,53,37,.28)}
+
+/* ══ SCROLL ANIMATIONS ═══════════════════════════════ */
+.rv{opacity:0;transform:translateY(32px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rv.vis{opacity:1;transform:none}
+.rl{opacity:0;transform:translateX(-32px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rl.vis{opacity:1;transform:none}
+.rr{opacity:0;transform:translateX(32px);transition:opacity .8s var(--ease),transform .8s var(--ease)}
+.rr.vis{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
+
+@keyframes fup{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes fin{from{opacity:0}to{opacity:1}}
+</style>
+</head>
+<body>
+
+<!-- MOBILE NAV -->
+<div id="mnav">
+  <span class="mx" onclick="closeMnav()">✕</span>
+  <a href="#about" onclick="closeMnav()">О нас</a>
+  <a href="#services" onclick="closeMnav()">Услуги</a>
+  <a href="#kitchen" onclick="closeMnav()">Кухня</a>
+  <a href="#gallery" onclick="closeMnav()">Галерея</a>
+  <a href="#reviews" onclick="closeMnav()">Отзывы</a>
+  <a href="#faq" onclick="closeMnav()">FAQ</a>
+  <a href="#contacts" onclick="closeMnav()">Контакты</a>
+  <a href="tel:+79503196915" class="mphone">+7 950 319-69-15</a>
+  <div class="mms">
+    <a href="https://wa.me/79503196915" class="hdr-m">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+    <a href="https://t.me/munchatashi_kazan" class="hdr-m">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+    </a>
+  </div>
+</div>
+
+<!-- HEADER -->
+<header id="hdr">
+  <a href="#" class="hdr-logo">
+    <img src="images/logo.png" alt="Мунча Ташы — логотип" onerror="this.style.display='none'"/>
+    <div class="hdr-logo-text">
+      <span class="hdr-logo-name">Мунча Ташы</span>
+      <span class="hdr-logo-sub">Банный комплекс · Казань</span>
+    </div>
+  </a>
+  <nav class="hdr-nav">
+    <a href="#about">О нас</a>
+    <a href="#services">Услуги</a>
+    <a href="#kitchen">Кухня</a>
+    <a href="#gallery">Галерея</a>
+    <a href="#faq">FAQ</a>
+    <a href="#contacts">Контакты</a>
+  </nav>
+  <div class="hdr-r">
+    <a href="tel:+79503196915" class="hdr-phone">+7 950 319-69-15</a>
+    <div class="hdr-ms">
+      <a href="https://wa.me/79503196915" class="hdr-m" title="WhatsApp">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </a>
+      <a href="https://t.me/munchatashi_kazan" class="hdr-m" title="Telegram">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+      </a>
+    </div>
+    <a href="#booking" class="btn btn-green" style="padding:10px 22px">Забронировать</a>
+    <div class="burger" onclick="openMnav()"><span></span><span></span><span></span></div>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg">
+    <img id="himg" src="images/hero-bg.jpg" alt="Банный комплекс Мунча Ташы — природа Высокогорского района Казани"
+         onerror="this.style.display='none'"/>
+  </div>
+  <div class="hero-ov"></div>
+  <div class="hero-orn"></div>
+  <div class="hero-c">
+    <div class="hero-ey">д. Эстачи, Казань · Официальный сайт</div>
+    <h1 class="hero-h">Мунча Ташы<em>Отдых и здоровье</em></h1>
+    <p class="hero-p">Парение, купели, SPA и авторская кухня для вашего идеального отдыха</p>
+    <div class="hero-btns">
+      <a href="#booking" class="btn btn-green">Забронировать</a>
+      <a href="#services" class="btn btn-outline-w">Наши программы</a>
+    </div>
+  </div>
+  <div class="hero-scroll"><div class="scroll-ln"></div>Листать</div>
+</section>
+
+<!-- STATS BAR -->
+<div class="stats-bar">
+  <div class="stat-item"><div class="stat-n">16</div><div class="stat-l">Гостей вмещает</div></div>
+  <div class="stat-item"><div class="stat-n">3</div><div class="stat-l">Вида парных</div></div>
+  <div class="stat-item"><div class="stat-n">4★</div><div class="stat-l">Рейтинг 2ГИС</div></div>
+  <div class="stat-item"><div class="stat-n">24/7</div><div class="stat-l">Поддержка</div></div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="sec">
+  <div class="wrap">
+    <div class="about-grid">
+      <div class="rl">
+        <div class="eyebrow">О комплексе</div>
+        <h2 class="htitle">Место, где камень<br/>хранит <em>тепло</em></h2>
+        <div class="about-txt">
+          <p>«Мунча Ташы» — что в переводе с татарского означает «банный камень» — расположен в живописной деревне Эстачи Высокогорского района. Здесь среди леса и тишины мы создали пространство подлинного банного отдыха.</p>
+          <p>Комплекс вмещает до 16 гостей. В распоряжении: русская парная на дровах, купели, тёплый и уличный бассейны, банный чан, гидромассаж. Всё необходимое — полотенца, простыни, тапочки, чай — включено.</p>
+          <p>Наш парильщик работает с вениками по традиционной технике. Шеф-повар Фёдор готовит авторскую кухню с татарским акцентом — из локальных продуктов, без полуфабрикатов.</p>
+          <a href="#booking" class="btn btn-green" style="margin-top:6px">Забронировать визит</a>
+        </div>
+      </div>
+      <div class="about-imgs rr">
+        <div class="aimg">
+          <img src="images/about-1.jpg" alt="Интерьер парной Мунча Ташы"
+               onerror="this.outerHTML='<div class=\'ph light\' style=\'height:260px\'>🪵<br>about-1.jpg</div>'"/>
+        </div>
+        <div class="aimg">
+          <img src="images/about-2.jpg" alt="Купель комплекса"
+               onerror="this.outerHTML='<div class=\'ph light\' style=\'height:200px\'>💧<br>about-2.jpg</div>'"/>
+        </div>
+        <div class="aimg">
+          <img src="images/about-3.jpg" alt="Территория Мунча Ташы"
+               onerror="this.outerHTML='<div class=\'ph light\' style=\'height:200px\'>🌿<br>about-3.jpg</div>'"/>
+        </div>
+      </div>
+    </div>
+    <div class="about-feats rv">
+      <div class="af d1">
+        <svg class="af-ico" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="22" cy="22" r="18"/><path d="M22 10C14 16 14 26 22 34C30 26 30 16 22 10Z"/><line x1="12" y1="22" x2="32" y2="22"/></svg>
+        <div class="af-t">Парная на дровах</div>
+        <div class="af-p">Настоящая русская парная и баня по-чёрному. Берёзовые и дубовые веники, мягкий живой пар.</div>
+      </div>
+      <div class="af d2">
+        <svg class="af-ico" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M8 34C8 24 14 16 22 12C30 16 36 24 36 34"/><path d="M15 22Q22 14 29 22"/><ellipse cx="22" cy="34" rx="10" ry="3.5"/></svg>
+        <div class="af-t">Купели и бассейны</div>
+        <div class="af-p">Тёплый бассейн, уличный бассейн, холодные купели и банный чан под открытым небом.</div>
+      </div>
+      <div class="af d3">
+        <svg class="af-ico" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M10 34Q10 22 22 18Q34 22 34 34"/><circle cx="22" cy="13" r="4"/><path d="M16 24Q22 18 28 24"/></svg>
+        <div class="af-t">SPA и процедуры</div>
+        <div class="af-p">Гидромассаж, авторские банные программы, кумысные и медовые ритуалы от мастера.</div>
+      </div>
+      <div class="af d4">
+        <svg class="af-ico" viewBox="0 0 44 44" fill="none" stroke="currentColor" stroke-width="1.2"><path d="M10 36Q10 22 22 18Q34 22 34 36"/><path d="M18 26Q22 20 26 26"/><path d="M14 10C14 10 18 14 22 10C26 6 30 10 30 10"/></svg>
+        <div class="af-t">Авторская кухня</div>
+        <div class="af-p">Шеф-повар Фёдор готовит татарские и авторские блюда из локальных продуктов. Утка — гости в восторге.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="sec sec--warm">
+  <div class="wrap">
+    <div class="svc-head">
+      <div>
+        <div class="eyebrow">Программы</div>
+        <h2 class="htitle">Выберите <em>ваш ритуал</em></h2>
+      </div>
+      <div class="filters" id="filters">
+        <button class="fbtn act" data-f="all">Все</button>
+        <button class="fbtn" data-f="pair">Для двоих</button>
+        <button class="fbtn" data-f="group">Компании</button>
+        <button class="fbtn" data-f="kids">Детская</button>
+      </div>
+    </div>
+    <div class="svc-grid" id="sgrid">
+
+      <div class="scard rv" data-cat="group">
+        <div class="sc-iw">
+          <img class="sc-img" src="images/service-1.jpg" alt="Классическое парение в бане по-чёрному"
+               onerror="this.outerHTML='<div class=\'ph\' style=\'height:210px\'>🌿<br><span>service-1.jpg</span></div>'"/>
+        </div>
+        <div class="sc-body">
+          <div class="sc-cat">Традиция · Компании до 16 чел.</div>
+          <div class="sc-name">Баня по-чёрному</div>
+          <p class="sc-desc">Аутентичная курная баня — визитная карточка комплекса. Стены пропитаны смолой, жар плотный и обволакивающий. Парильщик Алексей — профессионал своего дела.</p>
+          <div class="sc-meta"><span class="sc-dur">⏱ 2–4 часа</span><span class="sc-price">от 6 000 ₽</span></div>
+          <button onclick="openBook()" class="btn btn-green btn-full" style="margin-top:16px">Забронировать</button>
+        </div>
+      </div>
+
+      <div class="scard rv d1" data-cat="pair">
+        <div class="sc-iw">
+          <img class="sc-img" src="images/service-2.jpg" alt="Романтическая SPA-программа для двоих"
+               onerror="this.outerHTML='<div class=\'ph\' style=\'height:210px\'>🕯️<br><span>service-2.jpg</span></div>'"/>
+        </div>
+        <div class="sc-body">
+          <div class="sc-cat">Романтика · Для двоих</div>
+          <div class="sc-name">SPA для двоих</div>
+          <p class="sc-desc">Парная + купель + гидромассаж + авторское обёртывание + чайная церемония с чак-чаком. Полное погружение для двоих в приватной обстановке.</p>
+          <div class="sc-meta"><span class="sc-dur">⏱ 3 часа</span><span class="sc-price">от 10 000 ₽</span></div>
+          <button onclick="openBook()" class="btn btn-green btn-full" style="margin-top:16px">Забронировать</button>
+        </div>
+      </div>
+
+      <div class="scard rv d2" data-cat="group">
+        <div class="sc-iw">
+          <img class="sc-img" src="images/service-3.jpg" alt="Банный день для большой компании с мангалом"
+               onerror="this.outerHTML='<div class=\'ph\' style=\'height:210px\'>👥<br><span>service-3.jpg</span></div>'"/>
+        </div>
+        <div class="sc-body">
+          <div class="sc-cat">Праздник · Компании</div>
+          <div class="sc-name">Банный день</div>
+          <p class="sc-desc">Полный день: парная, уличный бассейн, банный чан, мангальная зона, авторское меню от шефа. До 16 гостей. Идеально для корпоратива или дня рождения.</p>
+          <div class="sc-meta"><span class="sc-dur">⏱ 5–8 часов</span><span class="sc-price">от 25 000 ₽</span></div>
+          <button onclick="openBook()" class="btn btn-green btn-full" style="margin-top:16px">Забронировать</button>
+        </div>
+      </div>
+
+      <div class="scard rv d3" data-cat="kids">
+        <div class="sc-iw">
+          <img class="sc-img" src="images/service-4.jpg" alt="Детская банная программа с детской комнатой"
+               onerror="this.outerHTML='<div class=\'ph\' style=\'height:210px\'>🧒<br><span>service-4.jpg</span></div>'"/>
+        </div>
+        <div class="sc-body">
+          <div class="sc-cat">Семья · Дети от 5 лет</div>
+          <div class="sc-name">Семейный день</div>
+          <p class="sc-desc">Щадящий пар, мягкие травяные отвары, детская комната с няней — всё предусмотрено. Гости с детьми приезжают снова и снова.</p>
+          <div class="sc-meta"><span class="sc-dur">⏱ 2–3 часа</span><span class="sc-price">от 8 000 ₽</span></div>
+          <button onclick="openBook()" class="btn btn-green btn-full" style="margin-top:16px">Забронировать</button>
+        </div>
+      </div>
+
+      <div class="scard rv d1" data-cat="pair">
+        <div class="sc-iw">
+          <img class="sc-img" src="images/service-5.jpg" alt="Банный чан под открытым небом"
+               onerror="this.outerHTML='<div class=\'ph\' style=\'height:210px\'>🛁<br><span>service-5.jpg</span></div>'"/>
+        </div>
+        <div class="sc-body">
+          <div class="sc-cat">Релакс · Для двоих / соло</div>
+          <div class="sc-name">Банный чан</div>
+          <p class="sc-desc">Деревянный чан с горячей водой под открытым небом. Парение на свежем воздухе, звёздное небо, тишина леса. Незабываемый опыт в любое время года.</p>
+          <div class="sc-meta"><span class="sc-dur">⏱ 1–2 часа</span><span class="sc-price">от 4 500 ₽</span></div>
+          <button onclick="openBook()" class="btn btn-green btn-full" style="margin-top:16px">Забронировать</button>
+        </div>
+      </div>
+
+      <div class="scard rv d2" data-cat="group">
+        <div class="sc-iw">
+          <img class="sc-img" src="images/service-6.jpg" alt="Корпоратив в банном комплексе Мунча Ташы"
+               onerror="this.outerHTML='<div class=\'ph\' style=\'height:210px\'>🏆<br><span>service-6.jpg</span></div>'"/>
+        </div>
+        <div class="sc-body">
+          <div class="sc-cat">VIP · Мероприятия</div>
+          <div class="sc-name">Корпоратив / Event</div>
+          <p class="sc-desc">Аренда всего комплекса под ваше мероприятие. Персональный менеджер, авторское меню под заказ, оформление по вашему запросу. До 16 человек.</p>
+          <div class="sc-meta"><span class="sc-dur">⏱ По запросу</span><span class="sc-price">По запросу</span></div>
+          <button onclick="openBook()" class="btn btn-green btn-full" style="margin-top:16px">Забронировать</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- KITCHEN -->
+<section id="kitchen" class="sec sec--dark">
+  <div class="wrap">
+    <div class="kitch-head">
+      <div>
+        <div class="eyebrow">Авторская кухня</div>
+        <h2 class="htitle">Вкус <em>настоящего</em></h2>
+        <p class="sub" style="color:rgba(255,255,255,.42)">Фермерские продукты, национальные блюда в новом прочтении, приготовлено с заботой — специально для вас</p>
+      </div>
+    </div>
+    <div class="kgrid">
+      <div class="fcard rv">
+        <div class="fiw">
+          <img class="fimg" src="images/food-1.jpg" alt="Банный стол — чайный сет"
+               onerror="this.outerHTML='<div class=\'ph\' style=\'height:195px\'>☕<br><span>food-1.jpg</span></div>'"/>
+        </div>
+        <div class="fbody">
+          <div class="fname">Чайный сет</div>
+          <p class="fdesc">Мёд с местной пасеки · Домашнее варенье · Конфеты ручной работы из сухофруктов и орехов · Блины по рецепту бабушки</p>
+        </div>
+      </div>
+      <div class="fcard rv d1">
+        <div class="fiw">
+          <img class="fimg" src="images/food-2.jpg" alt="Банный стол — закуски"
+               onerror="this.outerHTML='<div class=\'ph\' style=\'height:195px\'>🥗<br><span>food-2.jpg</span></div>'"/>
+        </div>
+        <div class="fbody">
+          <div class="fname">Банный стол</div>
+          <p class="fdesc">Овощи фермерские · Соленья · Ассорти заморских сыров · Мясные деликатесы Halal · Плато сезонных и экзотических фруктов</p>
+        </div>
+      </div>
+      <div class="fcard rv d2">
+        <div class="fiw">
+          <img class="fimg" src="images/food-3.jpg" alt="Горячее — Урдэк конфи и горячие блюда"
+               onerror="this.outerHTML='<div class=\'ph\' style=\'height:195px\'>🍗<br><span>food-3.jpg</span></div>'"/>
+        </div>
+        <div class="fbody">
+          <div class="fname">Горячее</div>
+          <p class="fdesc">Урдэк конфи — утиная ножка с ягодным соусом и шафрановым пюре · Говядина с картофелем в горшочке · Дикий сазан в дровяной печи</p>
+        </div>
+      </div>
+      <div class="fcard rv d3">
+        <div class="fiw">
+          <img class="fimg" src="images/food-4.jpg" alt="Татарское меню — бэлеш, кыстыбый, треугольник"
+               onerror="this.outerHTML='<div class=\'ph\' style=\'height:195px\'>🥟<br><span>food-4.jpg</span></div>'"/>
+        </div>
+        <div class="fbody">
+          <div class="fname">Татарское меню</div>
+          <p class="fdesc">Бэлеш с картошкой и говядиной · Кыстыбый · Треугольник · Шурпа с говядиной · Куриная лапша — вкусно, как дома</p>
+        </div>
+      </div>
+    </div>
+    <div style="text-align:center">
+      <a href="files/menu.pdf" target="_blank" class="btn btn-outline-w">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+        Скачать меню PDF
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="sec sec--warm">
+  <div class="wrap">
+    <div class="gal-head">
+      <div class="eyebrow">Атмосфера</div>
+      <h2 class="htitle">Комплекс <em>изнутри</em></h2>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="slider-ow" id="sow">
+      <div class="slider-tr" id="str">
+        <div class="slide"><div class="slide-iw"><img src="images/gallery-1.jpg" alt="Парная изнутри — камень и дерево" onerror="this.outerHTML='<div class=\'ph light\'>🪵<br><span>gallery-1.jpg</span></div>'"/></div></div>
+        <div class="slide"><div class="slide-iw"><img src="images/gallery-2.jpg" alt="Банный чан под открытым небом" onerror="this.outerHTML='<div class=\'ph light\'>🛁<br><span>gallery-2.jpg</span></div>'"/></div></div>
+        <div class="slide"><div class="slide-iw"><img src="images/gallery-3.jpg" alt="Тёплый бассейн комплекса" onerror="this.outerHTML='<div class=\'ph light\'>🏊<br><span>gallery-3.jpg</span></div>'"/></div></div>
+        <div class="slide"><div class="slide-iw"><img src="images/gallery-4.jpg" alt="Зона отдыха и терраса" onerror="this.outerHTML='<div class=\'ph light\'>🌿<br><span>gallery-4.jpg</span></div>'"/></div></div>
+        <div class="slide"><div class="slide-iw"><img src="images/gallery-5.jpg" alt="Купели и уличный бассейн" onerror="this.outerHTML='<div class=\'ph light\'>💧<br><span>gallery-5.jpg</span></div>'"/></div></div>
+        <div class="slide"><div class="slide-iw"><img src="images/gallery-6.jpg" alt="Природа Высокогорского района Казани" onerror="this.outerHTML='<div class=\'ph light\'>🌲<br><span>gallery-6.jpg</span></div>'"/></div></div>
+      </div>
+    </div>
+    <div class="sl-ctrl">
+      <div class="sl-dots" id="sdots"></div>
+      <button class="sl-btn" id="sprev">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="15 18 9 12 15 6"/></svg>
+      </button>
+      <button class="sl-btn" id="snext">
+        <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS — реальные с 2ГИС -->
+<section id="reviews" class="sec">
+  <div class="wrap">
+    <div class="rev-head">
+      <div>
+        <div class="eyebrow">Отзывы гостей</div>
+        <h2 class="htitle">Что говорят <em>клиенты</em></h2>
+      </div>
+      <a href="https://2gis.ru/kazan/firm/70000001089301618/tab/reviews" target="_blank" class="btn">Все отзывы в 2ГИС</a>
+    </div>
+    <div class="rgrid">
+      <div class="rcard rv">
+        <div class="rstars">★★★★★</div>
+        <p class="rtxt">«Баня по-чёрному — это восторг!!! Мастера — профессионалы своего дела!!! Чистота и уют на высшем уровне!!! Кухня — это просто отдельная тема и восторг!!! Настоятельно рекомендую к посещению ценителей бани!!!»</p>
+        <div class="rauthor">
+          <div class="rava">👤</div>
+          <div><div class="rname">Рамиль Мирзагалимов</div><div class="rdate">2ГИС · 2026</div></div>
+        </div>
+      </div>
+      <div class="rcard rv d1">
+        <div class="rstars">★★★★★</div>
+        <p class="rtxt">«Были большой компанией с детьми. Отдохнули от души. Всё продумано до мелочей. Процедура парения на высшем уровне. Еда безумно вкусная. Огромный плюс — для детей есть детская комната, и даже могут предоставить няню!»</p>
+        <div class="rauthor">
+          <div class="rava">👤</div>
+          <div><div class="rname">Надина Файзуллина</div><div class="rdate">2ГИС · 2026</div></div>
+        </div>
+      </div>
+      <div class="rcard rv d2">
+        <div class="rstars">★★★★★</div>
+        <p class="rtxt">«Это лучшая баня в моей жизни. И накормят, и напоят, и попарят. Баня новая, всё свежее. Парильщик Алексей 🔥. Утка и десерт от шефа Фёдора — лучшее что пробовала. Администратор Айгуль — умничка. Процветания вам, ребята!»</p>
+        <div class="rauthor">
+          <div class="rava">👤</div>
+          <div><div class="rname">Светлана</div><div class="rdate">2ГИС · 2026</div></div>
+        </div>
+      </div>
+      <div class="rcard rv d1">
+        <div class="rstars">★★★★★</div>
+        <p class="rtxt">«Красиво, вкусно, эстетично, но самое главное в бане что? Парная! А она здесь топ. Ребята знают своё дело. Встретили, накормили, напарили, всё рассказали. К делу подходят от души. Мой друг называет меня «сталевар» — но здесь я просил притормозить!»</p>
+        <div class="rauthor">
+          <div class="rava">👤</div>
+          <div><div class="rname">Замир Ахметов</div><div class="rdate">2ГИС · 2026</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="sec sec--warm">
+  <div class="wrap">
+    <div style="max-width:520px;margin-bottom:48px">
+      <div class="eyebrow">Частые вопросы</div>
+      <h2 class="htitle">Всё, что вы хотели <em>спросить</em></h2>
+    </div>
+    <div class="faq-in">
+      <div class="fq">
+        <button class="fq-btn">Как забронировать визит?<span class="fq-ico">+</span></button>
+        <div class="fq-a"><p>Оставьте заявку через форму на сайте, позвоните по номеру <strong>+7 950 319-69-15</strong> или напишите в WhatsApp / Telegram (<a href="https://t.me/munchatashi_kazan" target="_blank" style="color:var(--emerald)">@munchatashi_kazan</a>). Мы подтвердим бронь в течение 15 минут.</p></div>
+      </div>
+      <div class="fq">
+        <button class="fq-btn">Сколько человек вмещает комплекс?<span class="fq-ico">+</span></button>
+        <div class="fq-a"><p>Комплекс рассчитан на одновременное посещение до <strong>16 гостей</strong>. Мы работаем в режиме приватных сессий — вы и ваши близкие, без посторонних. При желании можно арендовать весь комплекс целиком.</p></div>
+      </div>
+      <div class="fq">
+        <button class="fq-btn">Что нужно взять с собой?<span class="fq-ico">+</span></button>
+        <div class="fq-a"><p>Всё включено: полотенца, простыни, тапочки, шапочки для парной, веники, чай. Личную косметику и купальники берите по желанию. Все принадлежности для парения предоставляются.</p></div>
+      </div>
+      <div class="fq">
+        <button class="fq-btn">Можно ли приехать с детьми?<span class="fq-ico">+</span></button>
+        <div class="fq-a"><p>Да! У нас есть <strong>детская комната</strong> и возможность предоставить няню. Дети от 5 лет могут посещать парную при температуре, скорректированной для них. Семейные визиты — одно из наших любимых направлений.</p></div>
+      </div>
+      <div class="fq">
+        <button class="fq-btn">Есть ли у вас кухня и ресторан?<span class="fq-ico">+</span></button>
+        <div class="fq-a"><p>Да — наш шеф-повар Фёдор готовит авторские блюда из локальных продуктов: татарская кухня, мясо на углях, фирменная утка, десерты и чайная церемония. Меню можно скачать в разделе «Кухня» или запросить при бронировании.</p></div>
+      </div>
+      <div class="fq">
+        <button class="fq-btn">Как добраться до комплекса?<span class="fq-ico">+</span></button>
+        <div class="fq-a"><p>Адрес: <strong>Республика Татарстан, Высокогорский район, д. Эстачи, ул. Лодочная, 14</strong>. На автомобиле из Казани — около 25–30 минут. Точные координаты и маршрут есть в разделе «Контакты» на этой странице. При необходимости можем прислать подробную схему в мессенджер.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BOOKING -->
+<section id="booking" class="sec sec--dark">
+  <div class="wrap">
+    <div class="book-grid">
+      <div class="rl">
+        <div class="eyebrow">Бронирование</div>
+        <h2 class="htitle">Забронировать <em>визит</em></h2>
+        <a href="tel:+79503196915" class="bphone">+7 950 319-69-15</a>
+        <p class="bsub">Звоните или пишите — ответим в течение 15 минут. Работаем ежедневно, уточняйте расписание при бронировании.</p>
+        <div class="bmess">
+          <a href="https://wa.me/79503196915" class="btn btn-outline-w">WhatsApp</a>
+          <a href="https://t.me/munchatashi_kazan" class="btn btn-outline-w">Telegram</a>
+        </div>
+      </div>
+      <div class="rr">
+        <div class="eyebrow">Онлайн-заявка</div>
+        <form class="bform" id="bform" onsubmit="sendForm(event)">
+          <div class="frow">
+            <input class="ff" type="text" name="name" placeholder="Ваше имя *" required/>
+            <input class="ff" type="tel" name="phone" placeholder="+7 (___) ___-__-__" required/>
+          </div>
+          <div class="frow">
+            <input class="ff" type="text" name="date" placeholder="Желаемая дата"/>
+            <input class="ff" type="number" name="guests" placeholder="Количество гостей" min="1" max="16"/>
+          </div>
+          <select class="ff" name="program">
+            <option value="" disabled selected>Выберите программу</option>
+            <option>Баня по-чёрному</option>
+            <option>SPA для двоих</option>
+            <option>Банный день (компания)</option>
+            <option>Семейный день с детьми</option>
+            <option>Банный чан</option>
+            <option>Корпоратив / Event</option>
+            <option>Хочу подобрать с менеджером</option>
+          </select>
+          <textarea class="ff" rows="3" name="comment" placeholder="Пожелания, вопросы..."></textarea>
+          <div class="cb-row">
+            <input type="checkbox" id="agree" required/>
+            <label for="agree">Нажимая «Отправить», я соглашаюсь с <a href="#" onclick="openPrivacy(event)">политикой конфиденциальности</a> и даю согласие на обработку персональных данных.</label>
+          </div>
+          <button type="submit" class="btn btn-green" style="align-self:flex-start">Отправить заявку →</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTS + MAP -->
+<section id="contacts" style="padding-bottom:0">
+  <div class="wrap ctop">
+    <div class="eyebrow">Как нас найти</div>
+    <h2 class="htitle">Казань, <em>д. Эстачи</em></h2>
+    <div class="cgrid" style="margin-top:36px">
+      <div>
+        <div class="ci-lab">Адрес</div>
+        <div class="ci-val">Республика Татарстан<br/>Высокогорский район, д. Эстачи<br/>ул. Лодочная, 14</div>
+      </div>
+      <div>
+        <div class="ci-lab">Телефон</div>
+        <div class="ci-val"><a href="tel:+79503196915">+7 950 319-69-15</a></div>
+      </div>
+      <div>
+        <div class="ci-lab">Мессенджеры</div>
+        <div class="ci-val">
+          <a href="https://wa.me/79503196915">WhatsApp</a><br/>
+          <a href="https://t.me/munchatashi_kazan">Telegram @munchatashi_kazan</a>
+        </div>
+      </div>
+      <div>
+        <div class="ci-lab">Ориентир</div>
+        <div class="ci-val">~25 мин от Казани<br/>Высокогорский район<br/>д. Эстачи</div>
+      </div>
+    </div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:32px;margin-bottom:8px">
+      <a href="https://yandex.ru/maps/-/CHD8Qmy0" target="_blank" class="btn btn-green">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        Открыть в Яндекс.Картах
+      </a>
+      <a href="https://2gis.ru/kazan/firm/70000001089301618" target="_blank" class="btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        Открыть в 2ГИС
+      </a>
+    </div>
+  </div>
+  <div class="mapblock">
+    <iframe
+      src="https://yandex.ru/map-widget/v1/?ll=49.365285%2C55.860647&z=15&pt=49.365285%2C55.860647%2Cpm2rdm~55.860647%2C49.365285&text=%D0%9C%D1%83%D0%BD%D1%87%D0%B0%20%D0%A2%D0%B0%D1%88%D1%8B%20%D0%B1%D0%B0%D0%BD%D0%BD%D1%8B%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BF%D0%BB%D0%B5%D0%BA%D1%81&lang=ru_RU"
+      title="Мунча Ташы на Яндекс.Картах — д. Эстачи, Высокогорский район"
+      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="forn"></div>
+  <div class="fmain">
+    <div style="display:flex;align-items:center;gap:10px">
+      <img src="images/logo.png" alt="Мунча Ташы" style="height:44px;width:auto;object-fit:contain" onerror="this.style.display='none'"/>
+      <div class="flogo">Мунча Ташы <small>Банный комплекс · д. Эстачи, Казань</small></div>
+    </div>
+    <nav class="fnav">
+      <a href="#about">О нас</a>
+      <a href="#services">Услуги</a>
+      <a href="#kitchen">Кухня</a>
+      <a href="#gallery">Галерея</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="fsoc">
+      <a href="https://wa.me/79503196915" class="fs" title="WhatsApp">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+      </a>
+      <a href="https://t.me/munchatashi_kazan" class="fs" title="Telegram">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+      </a>
+      <a href="https://2gis.ru/kazan/firm/70000001089301618" target="_blank" class="fs" title="2ГИС">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+      </a>
+    </div>
+  </div>
+  <div class="fbot">
+    <span>© 2025 Мунча Ташы · Банный комплекс · д. Эстачи, Высокогорский район</span>
+    <a href="#" onclick="openPrivacy(event)">Политика конфиденциальности</a>
+  </div>
+</footer>
+
+<!-- STICKY CTA -->
+<div id="scta">
+  <button onclick="openBook()" class="btn btn-green">Забронировать</button>
+</div>
+
+<!-- POPUP (12 сек) -->
+<div class="ov" id="popup">
+  <div class="modal">
+    <span class="mc" onclick="closeOv('popup')">✕</span>
+    <div class="eyebrow">Акция для новых гостей</div>
+    <div class="mt">Первый визит<br/><em style="font-style:italic;color:var(--gold2)">−10%</em></div>
+    <p class="ms">Оставьте номер — перезвоним, подберём программу и применим скидку.</p>
+    <form style="display:flex;flex-direction:column;gap:10px" onsubmit="sendPopup(event)">
+      <input class="ff" type="text" placeholder="Ваше имя *" required/>
+      <input class="ff" type="tel" placeholder="+7 (___) ___-__-__" required/>
+      <button type="submit" class="btn btn-green btn-full">Получить скидку →</button>
+      <button type="button" onclick="closeOv('popup')" style="font-size:10px;color:rgba(255,255,255,.28);letter-spacing:.1em;margin-top:2px">Нет, спасибо</button>
+    </form>
+  </div>
+</div>
+
+<!-- BOOKING MODAL -->
+<div class="ov" id="bmodal">
+  <div class="modal">
+    <span class="mc" onclick="closeOv('bmodal')">✕</span>
+    <div class="eyebrow">Онлайн-заявка</div>
+    <div class="mt">Забронировать <em>визит</em></div>
+    <p class="ms">Ответим в течение 15 минут и подтвердим время.</p>
+    <form style="display:flex;flex-direction:column;gap:10px" onsubmit="sendBooking(event)">
+      <div class="frow">
+        <input class="ff" type="text" placeholder="Имя *" required/>
+        <input class="ff" type="tel" placeholder="Телефон *" required/>
+      </div>
+      <select class="ff">
+        <option value="" disabled selected>Программа</option>
+        <option>Баня по-чёрному</option>
+        <option>SPA для двоих</option>
+        <option>Банный день (компания)</option>
+        <option>Семейный день с детьми</option>
+        <option>Банный чан</option>
+        <option>Корпоратив / Event</option>
+        <option>Хочу подобрать с менеджером</option>
+      </select>
+      <textarea class="ff" rows="2" placeholder="Дата, время, пожелания..."></textarea>
+      <div class="cb-row">
+        <input type="checkbox" id="agm" required/>
+        <label for="agm">Согласен с <a href="#" onclick="openPrivacy(event)">политикой конфиденциальности</a></label>
+      </div>
+      <button type="submit" class="btn btn-green btn-full">Отправить →</button>
+    </form>
+  </div>
+</div>
+
+<!-- PRIVACY MODAL -->
+<div class="ov" id="privacy">
+  <div class="modal" style="max-width:640px">
+    <span class="mc" onclick="closeOv('privacy')">✕</span>
+    <div class="mt" style="font-size:26px;margin-bottom:16px">Политика конфиденциальности</div>
+    <p style="font-size:12px;color:rgba(255,255,255,.45);line-height:1.8;margin-bottom:12px">Банный комплекс «Мунча Ташы» уважает конфиденциальность персональных данных гостей.</p>
+    <p style="font-size:12px;color:rgba(255,255,255,.45);line-height:1.8;margin-bottom:12px"><strong style="color:rgba(255,255,255,.65)">Какие данные собираем:</strong> имя, номер телефона — только при заполнении формы обратной связи с вашего добровольного согласия.</p>
+    <p style="font-size:12px;color:rgba(255,255,255,.45);line-height:1.8;margin-bottom:12px"><strong style="color:rgba(255,255,255,.65)">Цель:</strong> связь с вами по вопросам бронирования. Данные не передаются третьим лицам.</p>
+    <p style="font-size:12px;color:rgba(255,255,255,.45);line-height:1.8"><strong style="color:rgba(255,255,255,.65)">Вопросы:</strong> <a href="tel:+79503196915" style="color:var(--gold)">+7 950 319-69-15</a></p>
+  </div>
+</div>
+
+<script>
+// ── HEADER SCROLL ─────────────────────────────────────────────
+const hdr=document.getElementById('hdr');
+const scta=document.getElementById('scta');
+window.addEventListener('scroll',()=>{
+  const s=window.scrollY;
+  hdr.classList.toggle('on',s>60);
+  scta.classList.toggle('vis',s>500);
+},{ passive:true });
+
+// ── HERO IMAGE ────────────────────────────────────────────────
+const himg=document.getElementById('himg');
+if(himg){
+  himg.addEventListener('load',()=>himg.classList.add('rdy'));
+  window.addEventListener('scroll',()=>{
+    himg.style.transform=`scale(1) translateY(${window.scrollY*.2}px)`;
+  },{ passive:true });
+}
+
+// ── MOBILE NAV ────────────────────────────────────────────────
+function openMnav(){document.getElementById('mnav').classList.add('open');document.body.style.overflow='hidden'}
+function closeMnav(){document.getElementById('mnav').classList.remove('open');document.body.style.overflow=''}
+
+// ── MODALS ────────────────────────────────────────────────────
+function openOv(id){document.getElementById(id).classList.add('open');document.body.style.overflow='hidden'}
+function closeOv(id){document.getElementById(id).classList.remove('open');document.body.style.overflow=''}
+function openBook(){openOv('bmodal')}
+function openPrivacy(e){e.preventDefault();openOv('privacy')}
+document.querySelectorAll('.ov').forEach(o=>o.addEventListener('click',e=>{if(e.target===o)closeOv(o.id)}));
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.querySelectorAll('.ov.open').forEach(o=>closeOv(o.id))});
+
+// ── POPUP ─────────────────────────────────────────────────────
+let pshown=false;
+setTimeout(()=>{if(!pshown){pshown=true;openOv('popup')}},12000);
+window.addEventListener('scroll',()=>{
+  if(!pshown&&window.scrollY/(document.body.scrollHeight-window.innerHeight)>.6){pshown=true;openOv('popup')}
+},{ passive:true });
+
+// ── FORMS ─────────────────────────────────────────────────────
+function sendForm(e){
+  e.preventDefault();e.target.reset();
+  alert('Спасибо! Заявка отправлена. Мы свяжемся с вами в течение 15 минут.');
+}
+function sendPopup(e){
+  e.preventDefault();closeOv('popup');
+  setTimeout(()=>alert('Спасибо! Ожидайте звонка — применим скидку 10%.'),300);
+}
+function sendBooking(e){
+  e.preventDefault();closeOv('bmodal');
+  setTimeout(()=>alert('Заявка принята! Ответим в течение 15 минут.'),300);
+}
+
+// ── SERVICE FILTER ────────────────────────────────────────────
+document.getElementById('filters').addEventListener('click',e=>{
+  const b=e.target.closest('.fbtn');if(!b)return;
+  document.querySelectorAll('.fbtn').forEach(x=>x.classList.remove('act'));
+  b.classList.add('act');
+  const f=b.dataset.f;
+  document.querySelectorAll('.scard').forEach(c=>{
+    const show=f==='all'||c.dataset.cat===f;
+    c.classList.toggle('hide',!show);
+  });
+});
+
+// ── FAQ ───────────────────────────────────────────────────────
+document.querySelectorAll('.fq-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item=btn.closest('.fq');
+    const wasOpen=item.classList.contains('open');
+    document.querySelectorAll('.fq').forEach(i=>i.classList.remove('open'));
+    if(!wasOpen)item.classList.add('open');
+  });
+});
+
+// ── SLIDER ────────────────────────────────────────────────────
+const track=document.getElementById('str');
+const slides=document.querySelectorAll('.slide');
+const dotsC=document.getElementById('sdots');
+let cur=0;
+
+function visCount(){return window.innerWidth<=640?1:2}
+function slideW(){
+  if(!slides[0])return 0;
+  return slides[0].getBoundingClientRect().width+14;
+}
+
+function buildDots(){
+  dotsC.innerHTML='';
+  const vc=visCount();
+  const total=Math.ceil(slides.length/vc);
+  for(let i=0;i<total;i++){
+    const d=document.createElement('div');
+    d.className='sl-dot'+(i===0?' on':'');
+    d.onclick=()=>goTo(i*vc);
+    dotsC.appendChild(d);
+  }
+}
+
+function goTo(idx){
+  const max=Math.max(0,slides.length-visCount());
+  cur=Math.max(0,Math.min(idx,max));
+  track.style.transform=`translateX(-${cur*slideW()}px)`;
+  const vc=visCount();
+  document.querySelectorAll('.sl-dot').forEach((d,i)=>d.classList.toggle('on',Math.floor(cur/vc)===i));
+}
+
+document.getElementById('sprev').onclick=()=>goTo(cur-1);
+document.getElementById('snext').onclick=()=>goTo(cur+1);
+
+// touch/swipe
+let tx=0;
+track.addEventListener('touchstart',e=>{tx=e.touches[0].clientX},{passive:true});
+track.addEventListener('touchend',e=>{
+  const d=tx-e.changedTouches[0].clientX;
+  if(Math.abs(d)>40)goTo(d>0?cur+1:cur-1);
+});
+
+window.addEventListener('resize',()=>{buildDots();goTo(0)});
+buildDots();
+
+// ── SCROLL REVEAL ─────────────────────────────────────────────
+const robs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('vis')});
+},{threshold:.1,rootMargin:'0px 0px -48px 0px'});
+document.querySelectorAll('.rv,.rl,.rr').forEach(el=>robs.observe(el));
+
+const fobs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='translateY(0)'}
+  });
+},{threshold:.1});
+document.querySelectorAll('.af,.fcard,.aimg,.stat-item').forEach(el=>{
+  el.style.opacity='0';el.style.transform='translateY(26px)';
+  el.style.transition='opacity .7s cubic-bezier(.25,.46,.45,.94),transform .7s cubic-bezier(.25,.46,.45,.94)';
+  fobs.observe(el);
+});
+</script>
+</body>
+</html>
