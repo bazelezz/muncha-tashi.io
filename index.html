@@ -92,19 +92,25 @@ h2.htitle em{font-style:italic;color:var(--gold2)}
 
 /* ══ STICKY HEADER ══════════════════════════════════ */
 #hdr{
-  position:fixed;top:0;left:0;right:0;z-index:500;
+  position:fixed;top:0;left:0;right:0;z-index:9000;
   padding:18px clamp(16px,5vw,80px);
   display:flex;align-items:center;justify-content:space-between;gap:12px;
   transition:background .5s,padding .4s,box-shadow .4s;
+  /* всегда минимально виден — нет просвета под хедером */
+  background:rgba(17,20,16,.0);
 }
 #hdr.on{
-  background:rgba(17,20,16,.93);
+  background:rgba(17,20,16,.94);
   backdrop-filter:blur(18px);
+  -webkit-backdrop-filter:blur(18px);
   padding-top:11px;padding-bottom:11px;
   box-shadow:0 1px 0 var(--line);
 }
-.hdr-logo{font-family:var(--ff-h);font-size:20px;font-weight:400;letter-spacing:.06em;color:#fff;flex-shrink:0}
-.hdr-logo small{display:block;font-family:var(--ff-b);font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:3px}
+.hdr-logo{display:flex;align-items:center;gap:10px;flex-shrink:0;color:#fff}
+.hdr-logo img{height:40px;width:auto;object-fit:contain}
+.hdr-logo-text{display:flex;flex-direction:column;line-height:1}
+.hdr-logo-name{font-family:var(--ff-h);font-size:20px;font-weight:400;letter-spacing:.06em;color:#fff}
+.hdr-logo-sub{font-family:var(--ff-b);font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:3px}
 .hdr-nav{display:flex;gap:28px}
 .hdr-nav a{font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.6);transition:color .3s}
 .hdr-nav a:hover{color:var(--gold2)}
@@ -123,7 +129,7 @@ h2.htitle em{font-style:italic;color:var(--gold2)}
 
 /* Mobile nav */
 #mnav{
-  display:none;position:fixed;inset:0;z-index:600;
+  display:none;position:fixed;inset:0;z-index:9500;
   background:var(--dark);flex-direction:column;
   align-items:center;justify-content:center;gap:24px;
 }
@@ -245,7 +251,7 @@ h2.htitle em{font-style:italic;color:var(--gold2)}
 .filters{display:flex;gap:8px;flex-wrap:wrap}
 .fbtn{
   padding:8px 18px;font-size:10px;font-weight:600;letter-spacing:.12em;
-  text-transform:uppercase;border:1px solid rgba(42,42,42,.15);color:var(--muted);
+  text-transform:uppercase;border:1px solid rgba(42,42,42,.25);color:var(--graphite);
   cursor:pointer;background:transparent;transition:all .3s;
 }
 .fbtn.act,.fbtn:hover{background:var(--emerald);border-color:var(--emerald);color:#fff}
@@ -398,7 +404,7 @@ footer{
 
 /* ══ STICKY CTA ══════════════════════════════════════ */
 #scta{
-  position:fixed;bottom:28px;right:28px;z-index:400;
+  position:fixed;bottom:28px;right:28px;z-index:8000;
   opacity:0;transform:translateY(14px);
   transition:opacity .4s,transform .4s;pointer-events:none;
 }
@@ -407,8 +413,9 @@ footer{
 
 /* ══ MODALS ══════════════════════════════════════════ */
 .ov{
-  position:fixed;inset:0;z-index:700;
+  position:fixed;inset:0;z-index:9900;
   background:rgba(8,11,9,.88);backdrop-filter:blur(8px);
+  -webkit-backdrop-filter:blur(8px);
   display:flex;align-items:center;justify-content:center;padding:16px;
   opacity:0;pointer-events:none;transition:opacity .4s;
 }
@@ -476,7 +483,13 @@ footer{
 
 <!-- HEADER -->
 <header id="hdr">
-  <a href="#" class="hdr-logo">Мунча Ташы <small>Казань · Высокогорский район</small></a>
+  <a href="#" class="hdr-logo">
+    <img src="images/logo.png" alt="Мунча Ташы — логотип" onerror="this.style.display='none'"/>
+    <div class="hdr-logo-text">
+      <span class="hdr-logo-name">Мунча Ташы</span>
+      <span class="hdr-logo-sub">Банный комплекс · Казань</span>
+    </div>
+  </a>
   <nav class="hdr-nav">
     <a href="#about">О нас</a>
     <a href="#services">Услуги</a>
@@ -694,37 +707,49 @@ footer{
       <div>
         <div class="eyebrow">Авторская кухня</div>
         <h2 class="htitle">Вкус <em>настоящего</em></h2>
-        <p class="sub" style="color:rgba(255,255,255,.42)">Шеф-повар Фёдор готовит из локальных продуктов — по отзывам гостей, утка и десерты вызывают отдельный восторг</p>
+        <p class="sub" style="color:rgba(255,255,255,.42)">Фермерские продукты, национальные блюда в новом прочтении, приготовлено с заботой — специально для вас</p>
       </div>
     </div>
     <div class="kgrid">
       <div class="fcard rv">
         <div class="fiw">
-          <img class="fimg" src="images/food-1.jpg" alt="Авторская кухня Мунча Ташы — горячие блюда"
-               onerror="this.outerHTML='<div class=\'ph\' style=\'height:195px\'>🍲<br><span>food-1.jpg</span></div>'"/>
+          <img class="fimg" src="images/food-1.jpg" alt="Банный стол — чайный сет"
+               onerror="this.outerHTML='<div class=\'ph\' style=\'height:195px\'>☕<br><span>food-1.jpg</span></div>'"/>
         </div>
-        <div class="fbody"><div class="fname">Утиная ножка</div><p class="fdesc">Фирменное блюдо шефа Фёдора. Томлёная утка с соусом из местных трав — гости отмечают особо.</p></div>
+        <div class="fbody">
+          <div class="fname">Чайный сет</div>
+          <p class="fdesc">Мёд с местной пасеки · Домашнее варенье · Конфеты ручной работы из сухофруктов и орехов · Блины по рецепту бабушки</p>
+        </div>
       </div>
       <div class="fcard rv d1">
         <div class="fiw">
-          <img class="fimg" src="images/food-2.jpg" alt="Мясные блюда и конина в Мунча Ташы"
-               onerror="this.outerHTML='<div class=\'ph\' style=\'height:195px\'>🥩<br><span>food-2.jpg</span></div>'"/>
+          <img class="fimg" src="images/food-2.jpg" alt="Банный стол — закуски"
+               onerror="this.outerHTML='<div class=\'ph\' style=\'height:195px\'>🥗<br><span>food-2.jpg</span></div>'"/>
         </div>
-        <div class="fbody"><div class="fname">Конина и казылык</div><p class="fdesc">Традиционные татарские мясные блюда — конина, жареная на углях. Поставщики — местные фермеры.</p></div>
+        <div class="fbody">
+          <div class="fname">Банный стол</div>
+          <p class="fdesc">Овощи фермерские · Соленья · Ассорти заморских сыров · Мясные деликатесы Halal · Плато сезонных и экзотических фруктов</p>
+        </div>
       </div>
       <div class="fcard rv d2">
         <div class="fiw">
-          <img class="fimg" src="images/food-3.jpg" alt="Десерты и чак-чак — татарская кухня"
-               onerror="this.outerHTML='<div class=\'ph\' style=\'height:195px\'>🍯<br><span>food-3.jpg</span></div>'"/>
+          <img class="fimg" src="images/food-3.jpg" alt="Горячее — Урдэк конфи и горячие блюда"
+               onerror="this.outerHTML='<div class=\'ph\' style=\'height:195px\'>🍗<br><span>food-3.jpg</span></div>'"/>
         </div>
-        <div class="fbody"><div class="fname">Десерты от шефа</div><p class="fdesc">Чак-чак ручной работы, татарские сладости с башкирским мёдом. По отзывам — отдельная история.</p></div>
+        <div class="fbody">
+          <div class="fname">Горячее</div>
+          <p class="fdesc">Урдэк конфи — утиная ножка с ягодным соусом и шафрановым пюре · Говядина с картофелем в горшочке · Дикий сазан в дровяной печи</p>
+        </div>
       </div>
       <div class="fcard rv d3">
         <div class="fiw">
-          <img class="fimg" src="images/food-4.jpg" alt="Чайная церемония с самоваром в Мунча Ташы"
-               onerror="this.outerHTML='<div class=\'ph\' style=\'height:195px\'>☕<br><span>food-4.jpg</span></div>'"/>
+          <img class="fimg" src="images/food-4.jpg" alt="Татарское меню — бэлеш, кыстыбый, треугольник"
+               onerror="this.outerHTML='<div class=\'ph\' style=\'height:195px\'>🥟<br><span>food-4.jpg</span></div>'"/>
         </div>
-        <div class="fbody"><div class="fname">Чайная церемония</div><p class="fdesc">Самовар, чай с чабрецом и мятой, сухофрукты. Традиционное завершение любой банной программы.</p></div>
+        <div class="fbody">
+          <div class="fname">Татарское меню</div>
+          <p class="fdesc">Бэлеш с картошкой и говядиной · Кыстыбый · Треугольник · Шурпа с говядиной · Куриная лапша — вкусно, как дома</p>
+        </div>
       </div>
     </div>
     <div style="text-align:center">
@@ -919,20 +944,26 @@ footer{
         </div>
       </div>
       <div>
-        <div class="ci-lab">Сайт</div>
-        <div class="ci-val"><a href="http://muncha-tashi.ru" target="_blank">muncha-tashi.ru</a></div>
-      </div>
-      <div>
         <div class="ci-lab">Ориентир</div>
-        <div class="ci-val">~25 мин от Казани<br/>Высокогорский район<br/><a href="https://2gis.ru/kazan/firm/70000001089301618" target="_blank">Открыть в 2ГИС</a></div>
+        <div class="ci-val">~25 мин от Казани<br/>Высокогорский район<br/>д. Эстачи</div>
       </div>
+    </div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:32px;margin-bottom:8px">
+      <a href="https://yandex.ru/maps/-/CHD8Qmy0" target="_blank" class="btn btn-green">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        Открыть в Яндекс.Картах
+      </a>
+      <a href="https://2gis.ru/kazan/firm/70000001089301618" target="_blank" class="btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+        Открыть в 2ГИС
+      </a>
     </div>
   </div>
   <div class="mapblock">
     <iframe
-      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2256.0!2d49.3653!3d55.8606!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNTXCsDUxJzM4LjIiTiA0OcKwMjEnNTUuMSJF!5e0!3m2!1sru!2sru!4v1700000000000"
-      title="Мунча Ташы на карте — д. Эстачи, Высокогорский район"
-      allowfullscreen="" loading="lazy">
+      src="https://yandex.ru/map-widget/v1/?ll=49.365285%2C55.860647&z=15&pt=49.365285%2C55.860647%2Cpm2rdm~55.860647%2C49.365285&text=%D0%9C%D1%83%D0%BD%D1%87%D0%B0%20%D0%A2%D0%B0%D1%88%D1%8B%20%D0%B1%D0%B0%D0%BD%D0%BD%D1%8B%D0%B9%20%D0%BA%D0%BE%D0%BC%D0%BF%D0%BB%D0%B5%D0%BA%D1%81&lang=ru_RU"
+      title="Мунча Ташы на Яндекс.Картах — д. Эстачи, Высокогорский район"
+      allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
     </iframe>
   </div>
 </section>
@@ -941,7 +972,10 @@ footer{
 <footer>
   <div class="forn"></div>
   <div class="fmain">
-    <div class="flogo">Мунча Ташы <small>Банный комплекс · д. Эстачи, Казань</small></div>
+    <div style="display:flex;align-items:center;gap:10px">
+      <img src="images/logo.png" alt="Мунча Ташы" style="height:44px;width:auto;object-fit:contain" onerror="this.style.display='none'"/>
+      <div class="flogo">Мунча Ташы <small>Банный комплекс · д. Эстачи, Казань</small></div>
+    </div>
     <nav class="fnav">
       <a href="#about">О нас</a>
       <a href="#services">Услуги</a>
