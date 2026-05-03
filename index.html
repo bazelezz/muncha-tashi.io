@@ -106,11 +106,12 @@ h2.htitle em{font-style:italic;color:var(--gold2)}
   padding-top:11px;padding-bottom:11px;
   box-shadow:0 1px 0 var(--line);
 }
-.hdr-logo{display:flex;align-items:center;gap:10px;flex-shrink:0;color:#fff}
-.hdr-logo img{height:40px;width:auto;object-fit:contain}
+.hdr-logo{display:flex;align-items:center;gap:12px;flex-shrink:0;color:#fff}
+.hdr-logo img{height:52px;width:auto;object-fit:contain;filter:drop-shadow(0 1px 4px rgba(0,0,0,.3))}
 .hdr-logo-text{display:flex;flex-direction:column;line-height:1}
 .hdr-logo-name{font-family:var(--ff-h);font-size:20px;font-weight:400;letter-spacing:.06em;color:#fff}
 .hdr-logo-sub{font-family:var(--ff-b);font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:3px}
+@media(max-width:480px){.hdr-logo img{height:42px}.hdr-logo-name{font-size:17px}}
 .hdr-nav{display:flex;gap:28px}
 .hdr-nav a{font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.6);transition:color .3s}
 .hdr-nav a:hover{color:var(--gold2)}
@@ -166,8 +167,9 @@ h2.htitle em{font-style:italic;color:var(--gold2)}
 }
 .hero-c{
   position:relative;z-index:2;
-  text-align:center;padding:0 clamp(16px,8vw,140px);max-width:880px;width:100%;
+  text-align:center;padding:80px clamp(16px,8vw,140px) 0;max-width:880px;width:100%;
 }
+@media(max-width:960px){.hero-c{padding-top:90px}}
 .hero-ey{
   font-size:10px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;
   color:var(--gold);margin-bottom:22px;
@@ -353,6 +355,15 @@ h2.htitle em{font-style:italic;color:var(--gold2)}
 }
 .ff::placeholder{color:rgba(255,255,255,.32)}
 .ff:focus{border-color:var(--gold)}
+/* Фикс выпадающего списка — опции всегда тёмные */
+.ff option{
+  background:#1a1f1c;
+  color:#fff;
+  font-family:'Manrope',sans-serif;
+  font-size:13px;
+  padding:8px 12px;
+}
+.ff option:disabled{color:rgba(255,255,255,.4)}
 .cb-row{display:flex;align-items:flex-start;gap:9px}
 .cb-row input{margin-top:3px;accent-color:var(--gold);flex-shrink:0}
 .cb-row label{font-size:11px;color:rgba(255,255,255,.38);line-height:1.6}
@@ -484,7 +495,7 @@ footer{
 <!-- HEADER -->
 <header id="hdr">
   <a href="#" class="hdr-logo">
-    <img src="images/logo.png" alt="Мунча Ташы — логотип" onerror="this.style.display='none'"/>
+    <img src="logo-icon.png" alt="Мунча Ташы — логотип" onerror="this.style.display='none'"/>
     <div class="hdr-logo-text">
       <span class="hdr-logo-name">Мунча Ташы</span>
       <span class="hdr-logo-sub">Банный комплекс · Казань</span>
@@ -973,7 +984,7 @@ footer{
   <div class="forn"></div>
   <div class="fmain">
     <div style="display:flex;align-items:center;gap:10px">
-      <img src="images/logo.png" alt="Мунча Ташы" style="height:44px;width:auto;object-fit:contain" onerror="this.style.display='none'"/>
+      <img src="logo-icon.png" alt="Мунча Ташы" style="height:48px;width:auto;object-fit:contain;filter:drop-shadow(0 1px 4px rgba(0,0,0,.4))" onerror="this.style.display='none'"/>
       <div class="flogo">Мунча Ташы <small>Банный комплекс · д. Эстачи, Казань</small></div>
     </div>
     <nav class="fnav">
