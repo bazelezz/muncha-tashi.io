@@ -22,11 +22,7 @@ body{
   background:#fff;color:#2A2A2A;font-family:'Manrope',sans-serif;
   line-height:1.65;overflow-x:hidden;
   margin:0;padding:0;
-  /* Запрет резинового скролла на iOS */
   overscroll-behavior-y:none;
-  /* Safe area для Dynamic Island / notch */
-  padding-top:env(safe-area-inset-top);
-  padding-top:constant(safe-area-inset-top);
 }
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
@@ -108,11 +104,8 @@ h2.htitle em{font-style:italic;color:var(--gold2)}
 #hdr{
   position:fixed;
   top:0;left:0;right:0;
-  /* На iOS с Dynamic Island учитываем безопасную зону */
-  top:env(safe-area-inset-top);
-  top:constant(safe-area-inset-top);
   z-index:9000;
-  padding:18px clamp(16px,5vw,80px);
+  padding:16px clamp(16px,5vw,80px);
   display:flex;align-items:center;justify-content:space-between;gap:12px;
   transition:background .5s,padding .4s,box-shadow .4s;
   background:transparent;
@@ -121,22 +114,23 @@ h2.htitle em{font-style:italic;color:var(--gold2)}
   background:rgba(17,20,16,.94);
   backdrop-filter:blur(18px);
   -webkit-backdrop-filter:blur(18px);
-  padding-top:11px;padding-bottom:11px;
+  padding-top:10px;padding-bottom:10px;
   box-shadow:0 1px 0 var(--line);
 }
-.hdr-logo{display:flex;align-items:center;gap:12px;flex-shrink:0;color:#fff}
+.hdr-logo{display:flex;align-items:center;gap:10px;flex-shrink:0;color:#fff}
 .hdr-logo-icon{
-  width:48px;height:48px;border-radius:10px;
-  background:var(--emerald);
+  width:44px;height:44px;flex-shrink:0;
   display:flex;align-items:center;justify-content:center;
-  overflow:hidden;flex-shrink:0;
-  box-shadow:0 2px 12px rgba(0,0,0,.35);
 }
-.hdr-logo-icon img{width:36px;height:36px;object-fit:contain}
+.hdr-logo-icon img{
+  width:44px;height:44px;object-fit:contain;
+  /* убираем чёрный фон — чёрный становится прозрачным */
+  mix-blend-mode:screen;
+}
 .hdr-logo-text{display:flex;flex-direction:column;line-height:1}
 .hdr-logo-name{font-family:var(--ff-h);font-size:20px;font-weight:400;letter-spacing:.06em;color:#fff}
 .hdr-logo-sub{font-family:var(--ff-b);font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:3px}
-@media(max-width:480px){.hdr-logo-icon{width:40px;height:40px}.hdr-logo-icon img{width:30px;height:30px}.hdr-logo-name{font-size:17px}}
+@media(max-width:480px){.hdr-logo-icon img{width:36px;height:36px}.hdr-logo-name{font-size:17px}}
 .hdr-nav{display:flex;gap:28px}
 .hdr-nav a{font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.6);transition:color .3s}
 .hdr-nav a:hover{color:var(--gold2)}
@@ -158,9 +152,6 @@ h2.htitle em{font-style:italic;color:var(--gold2)}
   display:none;position:fixed;inset:0;z-index:9500;
   background:var(--dark);flex-direction:column;
   align-items:center;justify-content:center;gap:24px;
-  /* Учитываем safe area */
-  padding-top:env(safe-area-inset-top);
-  padding-top:constant(safe-area-inset-top);
 }
 #mnav.open{display:flex}
 #mnav a{font-family:var(--ff-h);font-size:30px;font-weight:300;color:#fff}
@@ -207,23 +198,7 @@ h2.htitle em{font-style:italic;color:var(--gold2)}
 @media(max-width:960px){
   .hero-c{padding-top:clamp(80px,14vh,120px)}
 }
-.hero-logo{
-  margin:0 auto 28px;
-  width:clamp(100px,14vw,160px);
-  height:clamp(100px,14vw,160px);
-  border-radius:24px;
-  background:rgba(17,20,16,.55);
-  backdrop-filter:blur(12px);
-  -webkit-backdrop-filter:blur(12px);
-  border:1px solid rgba(201,168,124,.2);
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 8px 40px rgba(0,0,0,.45), 0 0 0 1px rgba(201,168,124,.1);
-  opacity:0;animation:fup 1s var(--ease) .2s forwards;
-}
-.hero-logo img{
-  width:75%;height:75%;object-fit:contain;
-  filter:drop-shadow(0 2px 8px rgba(0,0,0,.4));
-}
+.hero-ey{
   font-size:10px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;
   color:var(--gold);margin-bottom:22px;
   opacity:0;animation:fup .9s var(--ease) .3s forwards;
@@ -588,9 +563,6 @@ footer{
   <div class="hero-ov"></div>
   <div class="hero-orn"></div>
   <div class="hero-c">
-    <div class="hero-logo">
-      <img src="images/logo-icon.png" alt="Мунча Ташы"/>
-    </div>
     <div class="hero-ey">д. Эстачи, Казань · Официальный сайт</div>
     <h1 class="hero-h">Мунча Ташы<em>Отдых и здоровье</em></h1>
     <p class="hero-p">Парение, купели, SPA и авторская кухня для вашего идеального отдыха</p>
