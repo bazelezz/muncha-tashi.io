@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover"/>
 <title>Мунча Ташы — Банный комплекс в Казани | Парение, SPA, кухня</title>
 <meta name="description" content="Банный комплекс «Мунча Ташы» — Казань, д. Эстачи. Баня по-чёрному, купели, тёплый бассейн, банный чан, SPA, авторская кухня. До 16 человек. Тел: +7 950 319-69-15"/>
 <meta name="keywords" content="баня Казань, Мунча Ташы, банный комплекс Казань, баня по черному, купели Казань, SPA Казань, банный чан, парение Казань"/>
@@ -12,8 +12,22 @@
 <style>
 /* ══ RESET ══════════════════════════════════════════ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth;font-size:16px}
-body{background:#fff;color:#2A2A2A;font-family:'Manrope',sans-serif;line-height:1.65;overflow-x:hidden}
+html{
+  scroll-behavior:smooth;font-size:16px;
+  /* Запрет резинового скролла вверх на iOS */
+  overscroll-behavior-y:none;
+  height:100%;
+}
+body{
+  background:#fff;color:#2A2A2A;font-family:'Manrope',sans-serif;
+  line-height:1.65;overflow-x:hidden;
+  margin:0;padding:0;
+  /* Запрет резинового скролла на iOS */
+  overscroll-behavior-y:none;
+  /* Safe area для Dynamic Island / notch */
+  padding-top:env(safe-area-inset-top);
+  padding-top:constant(safe-area-inset-top);
+}
 img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 button{border:none;background:none;cursor:pointer;font-family:inherit}
@@ -92,12 +106,16 @@ h2.htitle em{font-style:italic;color:var(--gold2)}
 
 /* ══ STICKY HEADER ══════════════════════════════════ */
 #hdr{
-  position:fixed;top:0;left:0;right:0;z-index:9000;
+  position:fixed;
+  top:0;left:0;right:0;
+  /* На iOS с Dynamic Island учитываем безопасную зону */
+  top:env(safe-area-inset-top);
+  top:constant(safe-area-inset-top);
+  z-index:9000;
   padding:18px clamp(16px,5vw,80px);
   display:flex;align-items:center;justify-content:space-between;gap:12px;
   transition:background .5s,padding .4s,box-shadow .4s;
-  /* всегда минимально виден — нет просвета под хедером */
-  background:rgba(17,20,16,.0);
+  background:transparent;
 }
 #hdr.on{
   background:rgba(17,20,16,.94);
@@ -107,11 +125,18 @@ h2.htitle em{font-style:italic;color:var(--gold2)}
   box-shadow:0 1px 0 var(--line);
 }
 .hdr-logo{display:flex;align-items:center;gap:12px;flex-shrink:0;color:#fff}
-.hdr-logo img{height:52px;width:auto;object-fit:contain;filter:drop-shadow(0 1px 4px rgba(0,0,0,.3))}
+.hdr-logo-icon{
+  width:48px;height:48px;border-radius:10px;
+  background:var(--emerald);
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;flex-shrink:0;
+  box-shadow:0 2px 12px rgba(0,0,0,.35);
+}
+.hdr-logo-icon img{width:36px;height:36px;object-fit:contain}
 .hdr-logo-text{display:flex;flex-direction:column;line-height:1}
 .hdr-logo-name{font-family:var(--ff-h);font-size:20px;font-weight:400;letter-spacing:.06em;color:#fff}
 .hdr-logo-sub{font-family:var(--ff-b);font-size:8px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-top:3px}
-@media(max-width:480px){.hdr-logo img{height:42px}.hdr-logo-name{font-size:17px}}
+@media(max-width:480px){.hdr-logo-icon{width:40px;height:40px}.hdr-logo-icon img{width:30px;height:30px}.hdr-logo-name{font-size:17px}}
 .hdr-nav{display:flex;gap:28px}
 .hdr-nav a{font-size:10px;font-weight:600;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.6);transition:color .3s}
 .hdr-nav a:hover{color:var(--gold2)}
@@ -133,6 +158,9 @@ h2.htitle em{font-style:italic;color:var(--gold2)}
   display:none;position:fixed;inset:0;z-index:9500;
   background:var(--dark);flex-direction:column;
   align-items:center;justify-content:center;gap:24px;
+  /* Учитываем safe area */
+  padding-top:env(safe-area-inset-top);
+  padding-top:constant(safe-area-inset-top);
 }
 #mnav.open{display:flex}
 #mnav a{font-family:var(--ff-h);font-size:30px;font-weight:300;color:#fff}
@@ -145,9 +173,14 @@ h2.htitle em{font-style:italic;color:var(--gold2)}
 
 /* ══ HERO ════════════════════════════════════════ */
 #hero{
-  min-height:100dvh;min-height:100vh;
+  /* svh — учитывает адресную строку мобильного браузера */
+  min-height:100svh;
+  min-height:100dvh;
+  min-height:100vh;
   position:relative;display:flex;align-items:center;justify-content:center;
   overflow:hidden;
+  /* Без margin и padding на самом секции */
+  margin:0;padding:0;
 }
 .hero-bg{position:absolute;inset:0;background:var(--dark)}
 .hero-bg img{
@@ -167,10 +200,30 @@ h2.htitle em{font-style:italic;color:var(--gold2)}
 }
 .hero-c{
   position:relative;z-index:2;
-  text-align:center;padding:80px clamp(16px,8vw,140px) 0;max-width:880px;width:100%;
+  text-align:center;
+  padding:clamp(80px,12vh,140px) clamp(16px,8vw,140px) clamp(60px,8vh,100px);
+  max-width:880px;width:100%;
 }
-@media(max-width:960px){.hero-c{padding-top:90px}}
-.hero-ey{
+@media(max-width:960px){
+  .hero-c{padding-top:clamp(80px,14vh,120px)}
+}
+.hero-logo{
+  margin:0 auto 28px;
+  width:clamp(100px,14vw,160px);
+  height:clamp(100px,14vw,160px);
+  border-radius:24px;
+  background:rgba(17,20,16,.55);
+  backdrop-filter:blur(12px);
+  -webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(201,168,124,.2);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 8px 40px rgba(0,0,0,.45), 0 0 0 1px rgba(201,168,124,.1);
+  opacity:0;animation:fup 1s var(--ease) .2s forwards;
+}
+.hero-logo img{
+  width:75%;height:75%;object-fit:contain;
+  filter:drop-shadow(0 2px 8px rgba(0,0,0,.4));
+}
   font-size:10px;font-weight:600;letter-spacing:.3em;text-transform:uppercase;
   color:var(--gold);margin-bottom:22px;
   opacity:0;animation:fup .9s var(--ease) .3s forwards;
@@ -495,7 +548,9 @@ footer{
 <!-- HEADER -->
 <header id="hdr">
   <a href="#" class="hdr-logo">
-    <img src="logo-icon.png" alt="Мунча Ташы — логотип" onerror="this.style.display='none'"/>
+    <div class="hdr-logo-icon">
+      <img src="images/logo.png" alt="Мунча Ташы"/>
+    </div>
     <div class="hdr-logo-text">
       <span class="hdr-logo-name">Мунча Ташы</span>
       <span class="hdr-logo-sub">Банный комплекс · Казань</span>
@@ -533,6 +588,9 @@ footer{
   <div class="hero-ov"></div>
   <div class="hero-orn"></div>
   <div class="hero-c">
+    <div class="hero-logo">
+      <img src="images/logo-icon.png" alt="Мунча Ташы"/>
+    </div>
     <div class="hero-ey">д. Эстачи, Казань · Официальный сайт</div>
     <h1 class="hero-h">Мунча Ташы<em>Отдых и здоровье</em></h1>
     <p class="hero-p">Парение, купели, SPA и авторская кухня для вашего идеального отдыха</p>
@@ -983,8 +1041,10 @@ footer{
 <footer>
   <div class="forn"></div>
   <div class="fmain">
-    <div style="display:flex;align-items:center;gap:10px">
-      <img src="logo-icon.png" alt="Мунча Ташы" style="height:48px;width:auto;object-fit:contain;filter:drop-shadow(0 1px 4px rgba(0,0,0,.4))" onerror="this.style.display='none'"/>
+    <div style="display:flex;align-items:center;gap:12px">
+      <div style="width:44px;height:44px;border-radius:9px;background:var(--emerald);display:flex;align-items:center;justify-content:center;flex-shrink:0">
+        <img src="images/logo.png" alt="Мунча Ташы" style="width:32px;height:32px;object-fit:contain" onerror="this.style.display='none'"/>
+      </div>
       <div class="flogo">Мунча Ташы <small>Банный комплекс · д. Эстачи, Казань</small></div>
     </div>
     <nav class="fnav">
