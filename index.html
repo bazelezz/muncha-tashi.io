@@ -29,7 +29,7 @@ button{border:none;background:none;cursor:pointer;font-family:inherit}
 ::-webkit-scrollbar-thumb{background:#C17A53;border-radius:3px}
 
 /* ══════════════════════════════════════════════════
-   CSS VARIABLES — пастельная коричнево-оранжевая палитра
+   CSS VARIABLES
 ══════════════════════════════════════════════════ */
 :root{
   --cream:   #F5EDE3;
@@ -75,7 +75,7 @@ h2.htitle{
 h2.htitle em{font-style:italic;color:var(--accent)}
 
 /* ══════════════════════════════════════════════════
-   BUTTONS — скругленные, с hover эффектом
+   BUTTONS
 ══════════════════════════════════════════════════ */
 .btn{
   display:inline-flex;align-items:center;justify-content:center;gap:8px;
@@ -101,7 +101,7 @@ h2.htitle em{font-style:italic;color:var(--accent)}
 .btn-full{width:100%}
 
 /* ══════════════════════════════════════════════════
-   HEADER — фиксированный, не sticky
+   HEADER
 ══════════════════════════════════════════════════ */
 header{
   position:relative;
@@ -117,7 +117,6 @@ header{
   padding:18px clamp(20px,5vw,72px);
   max-width:1200px;margin:0 auto;
 }
-/* Логотип */
 .hlogo{
   display:flex;align-items:center;gap:12px;
   font-family:var(--ff-h);font-size:22px;font-weight:500;
@@ -129,14 +128,12 @@ header{
   font-size:9px;font-weight:600;letter-spacing:.18em;
   text-transform:uppercase;color:var(--accent);margin-top:1px;
 }
-/* Навигация */
 .hnav{display:flex;align-items:center;gap:28px}
 .hnav a{
   font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
   color:var(--bark);opacity:.7;transition:opacity .2s,color .2s;
 }
 .hnav a:hover{opacity:1;color:var(--accent)}
-/* Контакт */
 .hcontact{
   display:flex;align-items:center;gap:20px;
 }
@@ -144,7 +141,6 @@ header{
   font-size:14px;font-weight:600;color:var(--bark);
 }
 .hphone:hover{color:var(--accent)}
-/* Мобильное меню */
 .hburger{
   display:none;flex-direction:column;gap:5px;
   width:28px;cursor:pointer;padding:4px 0;
@@ -155,24 +151,21 @@ header{
 }
 
 /* ══════════════════════════════════════════════════
-   HERO — видео фон только в первой секции
+   HERO
 ══════════════════════════════════════════════════ */
 .hero{
   position:relative;
   min-height:88vh;
-  overflow:hidden; /* видео не выходит за пределы секции */
+  overflow:hidden;
   display:flex;align-items:center;justify-content:center;
 }
-/* Видео контейнер */
 .hero-video{
   position:absolute;inset:0;z-index:0;
   overflow:hidden;
 }
 .hero-video video{
   width:100%;height:100%;object-fit:cover;
-  /* ЗАМЕНИТЕ src на путь к вашему видео, например: videos/banya.mp4 */
 }
-/* Затемняющий слой поверх видео */
 .hero-overlay{
   position:absolute;inset:0;z-index:1;
   background:linear-gradient(
@@ -182,7 +175,6 @@ header{
     rgba(58,42,26,.55) 100%
   );
 }
-/* Контент поверх видео */
 .hero-content{
   position:relative;z-index:2;
   text-align:center;
@@ -212,7 +204,6 @@ header{
 .hero-btns{
   display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;
 }
-/* Скролл индикатор */
 .hero-scroll{
   position:absolute;bottom:32px;left:50%;transform:translateX(-50%);
   z-index:2;
@@ -226,41 +217,98 @@ header{
 @keyframes scrollpulse{0%,100%{opacity:.3;transform:scaleY(1)}50%{opacity:.8;transform:scaleY(1.3)}}
 
 /* ══════════════════════════════════════════════════
-   INTRO — краткое описание
+   INTRO — СТРОГАЯ ВЕРСИЯ (без иконок и излишних украшений)
 ══════════════════════════════════════════════════ */
 .intro-grid{
-  display:grid;grid-template-columns:1fr 1fr;
-  gap:64px;align-items:center;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:64px;
+  align-items:center;
 }
 .intro-img{
-  position:relative;border-radius:var(--r);overflow:hidden;
+  position:relative;
+  border-radius:var(--r);
+  overflow:hidden;
   box-shadow:var(--shadow2);
 }
-.intro-img img{width:100%;height:480px;object-fit:cover}
+.intro-img img{
+  width:100%;
+  height:480px;
+  object-fit:cover;
+}
 .intro-badge{
-  position:absolute;bottom:24px;right:24px;
-  background:rgba(245,237,227,.95);backdrop-filter:blur(8px);
-  border-radius:14px;padding:16px 20px;
+  position:absolute;
+  bottom:24px;
+  right:24px;
+  background:rgba(245,237,227,.95);
+  backdrop-filter:blur(8px);
+  border-radius:14px;
+  padding:16px 20px;
   box-shadow:var(--shadow);
   font-family:var(--ff-h);
 }
-.intro-badge-num{font-size:32px;font-weight:400;color:var(--accent);line-height:1}
-.intro-badge-txt{font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--bark);opacity:.6}
-.intro-features{
-  display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:36px;
+.intro-badge-num{
+  font-size:32px;
+  font-weight:400;
+  color:var(--accent);
+  line-height:1;
 }
-.intro-feat{
-  background:var(--white);border-radius:14px;padding:20px;
-  box-shadow:0 2px 16px rgba(58,42,26,.07);
-  transition:transform .3s var(--ease),box-shadow .3s;
+.intro-badge-txt{
+  font-size:10px;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--bark);
+  opacity:.6;
 }
-.intro-feat:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
-.intro-feat-icon{font-size:24px;margin-bottom:8px}
-.intro-feat-title{font-size:13px;font-weight:600;color:var(--bark);margin-bottom:4px}
-.intro-feat-txt{font-size:12px;color:var(--bark);opacity:.6;line-height:1.6}
+
+/* Строгий список преимуществ — без иконок, только текст и линии */
+.intro-features-strict{
+  margin-top:40px;
+  border-top:1px solid var(--taupe);
+  padding-top:32px;
+}
+.intro-features-strict .feature-item{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  padding:16px 0;
+  border-bottom:1px solid rgba(58,42,26,.08);
+}
+.intro-features-strict .feature-item:last-child{
+  border-bottom:none;
+}
+.intro-features-strict .feature-title{
+  font-family:var(--ff-h);
+  font-size:15px;
+  font-weight:500;
+  letter-spacing:.03em;
+  color:var(--bark);
+}
+.intro-features-strict .feature-desc{
+  font-size:12px;
+  font-weight:400;
+  color:var(--bark);
+  opacity:.65;
+  text-align:right;
+  max-width:240px;
+}
+.intro-text-primary{
+  font-size:15px;
+  line-height:1.75;
+  color:var(--bark);
+  opacity:.8;
+  margin-bottom:24px;
+}
+.intro-text-secondary{
+  font-size:13px;
+  line-height:1.7;
+  color:var(--bark);
+  opacity:.55;
+  margin-bottom:32px;
+}
 
 /* ══════════════════════════════════════════════════
-   BАНИ — описание типов бань
+   BANI
 ══════════════════════════════════════════════════ */
 .bani-grid{
   display:grid;grid-template-columns:repeat(3,1fr);gap:28px;
@@ -302,7 +350,7 @@ header{
 .bani-notice p{font-size:13px;color:var(--bark);opacity:.8}
 
 /* ══════════════════════════════════════════════════
-   ПРОГРАММЫ — карточки программ
+   PROGRAMS
 ══════════════════════════════════════════════════ */
 .prog-filter{
   display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px;
@@ -371,6 +419,15 @@ header{
 .prog-price-new{font-size:16px;font-weight:700;color:var(--accent)}
 .prog-price-per{font-size:9px;color:var(--bark);opacity:.5}
 
+.show-all-wrapper{
+  text-align:center;
+  margin-top:40px;
+}
+.btn-show-all{
+  padding:14px 42px;
+  font-size:12px;
+}
+
 /* ══════════════════════════════════════════════════
    ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ
 ══════════════════════════════════════════════════ */
@@ -412,7 +469,7 @@ header{
 .kids-tier-items li::before{content:'· ';color:var(--accent)}
 
 /* ══════════════════════════════════════════════════
-   ФОТО ГАЛЕРЕЯ — 3 колонки с подписями
+   ГАЛЕРЕЯ
 ══════════════════════════════════════════════════ */
 .gallery-grid{
   display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
@@ -436,7 +493,7 @@ header{
 }
 
 /* ══════════════════════════════════════════════════
-   ВМЕСТИМОСТЬ И ИНФОРМАЦИЯ
+   ИНФОРМАЦИЯ
 ══════════════════════════════════════════════════ */
 .info-grid{
   display:grid;grid-template-columns:repeat(4,1fr);gap:24px;
@@ -474,7 +531,7 @@ header{
 .info-timing-list li strong{color:var(--accent)}
 
 /* ══════════════════════════════════════════════════
-   БРОНИРОВАНИЕ ФОРМА
+   БРОНИРОВАНИЕ
 ══════════════════════════════════════════════════ */
 .book-grid{
   display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;
@@ -633,7 +690,7 @@ footer{
 }
 
 /* ══════════════════════════════════════════════════
-   SCROLL REVEAL анимации
+   SCROLL REVEAL
 ══════════════════════════════════════════════════ */
 .rv{
   opacity:0;transform:translateY(32px);
@@ -645,7 +702,7 @@ footer{
 .rv.vis{opacity:1;transform:translateY(0)}
 
 /* ══════════════════════════════════════════════════
-   АДАПТИВ — мобильные экраны
+   АДАПТИВ
 ══════════════════════════════════════════════════ */
 @media(max-width:1024px){
   .intro-grid,.kids-grid{grid-template-columns:1fr}
@@ -670,6 +727,14 @@ footer{
   .frow{grid-template-columns:1fr}
   .hero-btns{flex-direction:column}
   .dop-grid{grid-template-columns:1fr}
+  .intro-features-strict .feature-item{
+    flex-direction:column;
+    align-items:flex-start;
+    gap:6px;
+  }
+  .intro-features-strict .feature-desc{
+    text-align:left;
+  }
 }
 @media(max-width:480px){
   .info-grid{grid-template-columns:1fr 1fr}
@@ -679,9 +744,7 @@ footer{
 </head>
 <body>
 
-<!-- ════════════════════════════════════════════════
-     HEADER
-════════════════════════════════════════════════ -->
+<!-- HEADER -->
 <header>
   <div class="hdr-inner">
     <a href="#" class="hlogo">
@@ -691,7 +754,6 @@ footer{
         <small>Банный комплекс</small>
       </span>
     </a>
-
     <nav class="hnav">
       <a href="#bani">Бани</a>
       <a href="#programs">Программы</a>
@@ -700,12 +762,10 @@ footer{
       <a href="#info">О нас</a>
       <a href="#contacts">Контакты</a>
     </nav>
-
     <div class="hcontact">
       <a href="tel:+79503196915" class="hphone">+7 950 319-69-15</a>
       <button class="btn btn-accent" onclick="openBook()">Забронировать</button>
     </div>
-
     <div class="hburger" onclick="openMnav()" aria-label="Меню">
       <span></span><span></span><span></span>
     </div>
@@ -724,28 +784,14 @@ footer{
   <a href="tel:+79503196915">+7 950 319-69-15</a>
 </nav>
 
-
-<!-- ════════════════════════════════════════════════
-     HERO — видео фон (только внутри этой секции)
-     ЗАМЕНИТЕ src="videos/your-video.mp4" на ваш файл
-════════════════════════════════════════════════ -->
+<!-- HERO Секция -->
 <section class="hero" id="hero">
-  <!-- Видео фон — НЕ выходит за пределы этой секции -->
   <div class="hero-video">
-    <!-- 
-      ИНСТРУКЦИЯ: Поместите ваше видео в папку videos/ 
-      и замените src ниже на videos/ваш-файл.mp4
-      Пример: <source src="videos/banya.mp4" type="video/mp4"/>
-    -->
     <video autoplay muted loop playsinline poster="images/exterior-pool.png">
       <source src="videos/IMG_2748.MP4" type="video/mp4"/>
-      <!-- Запасной вариант — фоновое изображение показывается если видео не загружено -->
     </video>
   </div>
-  <!-- Затемняющий полупрозрачный слой поверх видео -->
   <div class="hero-overlay"></div>
-
-  <!-- Текстовый контент поверх видео -->
   <div class="hero-content">
     <div class="hero-eyebrow">Банный комплекс · Казань · д. Эстачи</div>
     <h1>Мунча <em>Ташы</em></h1>
@@ -755,18 +801,13 @@ footer{
       <a href="#programs" class="btn btn-outline-w">Наши программы</a>
     </div>
   </div>
-
-  <!-- Стрелка вниз -->
   <div class="hero-scroll">
     <div class="hero-scroll-line"></div>
     <span>Листайте</span>
   </div>
 </section>
 
-
-<!-- ════════════════════════════════════════════════
-     О КОМПЛЕКСЕ — краткое введение
-════════════════════════════════════════════════ -->
+<!-- О КОМПЛЕКСЕ — СТРОГАЯ ВЕРСИЯ (без иконок и смайликов) -->
 <section class="sec" id="about">
   <div class="wrap">
     <div class="intro-grid">
@@ -780,28 +821,28 @@ footer{
       <div>
         <div class="eyebrow rv">О комплексе</div>
         <h2 class="htitle rv">Тепло камня,<br/><em>тишина леса</em></h2>
-        <p class="rv" style="font-size:15px;opacity:.7;margin-bottom:28px">Мунча Ташы — это место, где время замедляется. Настоящая баня по-чёрному и по-серому, горячий чан на пихтовом пару, холодная купель, тёплый бассейн на свежем воздухе и застолье от шефа — всё под одной крышей.</p>
-        <p class="rv" style="font-size:13px;opacity:.55;margin-bottom:36px">Расположены в 25 минутах от Казани, д. Эстачи, Высокогорский район — среди природы, вдали от городского шума.</p>
-        <div class="intro-features rv">
-          <div class="intro-feat">
-            <div class="intro-feat-icon">🔥</div>
-            <div class="intro-feat-title">Баня по-чёрному</div>
-            <div class="intro-feat-txt">Аутентичный жаркий пар, дымный аромат древесины</div>
+        
+        <p class="intro-text-primary rv">Мунча Ташы — это место, где время замедляется. Настоящая баня по-чёрному и по-серому, горячий чан на пихтовом пару, холодная купель, тёплый бассейн на свежем воздухе и застолье от шефа — всё под одной крышей.</p>
+        
+        <p class="intro-text-secondary rv">Расположены в 25 минутах от Казани, д. Эстачи, Высокогорский район — среди природы, вдали от городского шума.</p>
+        
+        <!-- Строгий список преимуществ: без иконок, только текст и разделители -->
+        <div class="intro-features-strict rv">
+          <div class="feature-item">
+            <span class="feature-title">Баня по-чёрному</span>
+            <span class="feature-desc">Аутентичный жаркий пар, дымный аромат древесины</span>
           </div>
-          <div class="intro-feat">
-            <div class="intro-feat-icon">💧</div>
-            <div class="intro-feat-title">Тёплый бассейн</div>
-            <div class="intro-feat-txt">Открытый бассейн с подогревом на свежем воздухе</div>
+          <div class="feature-item">
+            <span class="feature-title">Тёплый бассейн</span>
+            <span class="feature-desc">Открытый бассейн с подогревом на свежем воздухе</span>
           </div>
-          <div class="intro-feat">
-            <div class="intro-feat-icon">🌿</div>
-            <div class="intro-feat-title">Авторские программы</div>
-            <div class="intro-feat-txt">8 уникальных программ под любой случай</div>
+          <div class="feature-item">
+            <span class="feature-title">Авторские программы</span>
+            <span class="feature-desc">8 уникальных программ под любой случай</span>
           </div>
-          <div class="intro-feat">
-            <div class="intro-feat-icon">🍽️</div>
-            <div class="intro-feat-title">Кухня шефа</div>
-            <div class="intro-feat-txt">Татарская кухня, мясо на углях, свежие десерты</div>
+          <div class="feature-item">
+            <span class="feature-title">Кухня шефа</span>
+            <span class="feature-desc">Татарская кухня, мясо на углях, свежие десерты</span>
           </div>
         </div>
       </div>
@@ -809,20 +850,16 @@ footer{
   </div>
 </section>
 
-
-<!-- ════════════════════════════════════════════════
-     БАНИ — типы бань в комплексе
-════════════════════════════════════════════════ -->
+<!-- БАНИ -->
 <section class="sec sec--light" id="bani">
   <div class="wrap">
     <div class="eyebrow rv">Наши бани</div>
     <h2 class="htitle rv">У нас есть баня <em>по серому</em><br/>и <em>по черному</em></h2>
 
     <div class="bani-grid">
-      <!-- Баня по-серому -->
       <div class="bani-card rv">
         <div class="bani-card-img">
-          <img src="images/НАДО ФОТО" alt="Баня по-серому — вид изнутри с видом на природу"/>
+          <img src="images/НАДО ФОТО" alt="Баня по-серому"/>
           <span class="bani-badge">По-серому</span>
         </div>
         <div class="bani-card-body">
@@ -833,10 +870,9 @@ footer{
         </div>
       </div>
 
-      <!-- Баня по-чёрному -->
       <div class="bani-card rv d1">
         <div class="bani-card-img">
-          <img src="images/ЧернаяБаня.jpg" alt="Баня по-чёрному — аутентичная атмосфера"/>
+          <img src="images/ЧернаяБаня.jpg" alt="Баня по-чёрному"/>
           <span class="bani-badge">По-чёрному</span>
         </div>
         <div class="bani-card-body">
@@ -847,11 +883,10 @@ footer{
         </div>
       </div>
 
-      <!-- Баня по-белому (строится) -->
       <div class="bani-card rv d2">
         <div class="bani-card-img">
           <img src="images/НАДО ФОТО" alt="Баня по-белому — строится"/>
-          <span class="bani-badge bani-badge-build">🔨 Строится</span>
+          <span class="bani-badge bani-badge-build">Строится</span>
         </div>
         <div class="bani-card-body">
           <div class="bani-card-title">Баня по-белому</div>
@@ -862,27 +897,20 @@ footer{
       </div>
     </div>
 
-    <!-- Уведомление о строящихся банях -->
     <div class="bani-notice rv">
       <span>🏗️</span>
-      <p>В разработке ещё <strong>2 бани по белому</strong> — откроются ??????. Оставьте заявку и мы сообщим вам первыми, как только они будут готовы!</p>
+      <p>В разработке ещё <strong>2 бани по белому</strong> — откроются осенью 2026 года. Оставьте заявку и мы сообщим вам первыми, как только они будут готовы!</p>
     </div>
   </div>
 </section>
 
-
-<!-- ════════════════════════════════════════════════
-     ПРОГРАММЫ — все авторские программы
-════════════════════════════════════════════════ -->
+<!-- ПРОГРАММЫ -->
 <section class="sec" id="programs">
   <div class="wrap">
     <div class="eyebrow rv">Авторские программы</div>
     <h2 class="htitle rv">Программы <em>на любой случай</em></h2>
-    <p class="rv" style="font-size:14px;opacity:.65;max-width:520px;margin-bottom:36px">
-      Каждая программа включает встречу гостей, чайный сет, профессиональное парение и застолье от шеф-повара
-    </p>
+    <p class="rv" style="font-size:14px;opacity:.65;max-width:520px;margin-bottom:36px">Каждая программа включает встречу гостей, чайный сет, профессиональное парение и застолье от шеф-повара</p>
 
-    <!-- Фильтр программ -->
     <div class="prog-filter rv">
       <button class="pfbtn act" data-f="all">Все</button>
       <button class="pfbtn" data-f="pair">Для двоих</button>
@@ -892,394 +920,80 @@ footer{
     </div>
 
     <div class="prog-grid" id="prog-grid">
-
-      <!-- Пар балдаклар — от 2 взрослых -->
+      <!-- 1 -->
       <div class="prog-card rv" data-cat="pair">
-        <div class="prog-card-img">
-          <img src="images/prog-par-baldaklar.png" alt="Программа Пар балдаклар"/>
-          <span class="prog-card-tag">от 2 взрослых</span>
-        </div>
+        <div class="prog-card-img"><img src="images/8.png" alt="Пар балдаклар"/><span class="prog-card-tag">от 2 взрослых</span></div>
         <div class="prog-card-body">
-          <div class="prog-card-guests">👥 от 2 взрослых</div>
-          <div class="prog-card-title">"Пар балдаклар"</div>
-          <ul class="prog-card-items">
-            <li>Чайный сет</li>
-            <li>Ароматный пар с различными травами</li>
-            <li>Авторское парение 🍀🍀🍀 (40-45 мин)</li>
-            <li>Контраст в холодной купели</li>
-            <li>Флоатинг в обогреваемом бассейне</li>
-            <li>Скрабирование натуральными компонентами</li>
-            <li>Помывка лыковым мочалом под тропическим душем</li>
-            <li>Отдых на сенной качели</li>
-            <li>Блюда от шеф-повара</li>
-          </ul>
-          <div class="prog-card-prices">
-            <div class="prog-price-slot">
-              <div class="prog-price-time">Заезд 11:00–15:00</div>
-              <div class="prog-price-old">25.000</div>
-              <div class="prog-price-new">22.000 ₽</div>
-              <div class="prog-price-per">на человека</div>
-            </div>
-            <div class="prog-price-slot">
-              <div class="prog-price-time">Заезд 17:00–22:00</div>
-              <div class="prog-price-old">27.000</div>
-              <div class="prog-price-new">24.000 ₽</div>
-              <div class="prog-price-per">на человека</div>
-            </div>
-          </div>
+          <div class="prog-card-guests">от 2 взрослых</div>
+          <div class="prog-card-title">Пар балдаклар</div>
+          <ul class="prog-card-items"><li>Чайный сет</li><li>Ароматный пар с различными травами</li><li>Авторское парение (40-45 мин)</li><li>Контраст в холодной купели</li><li>Флоатинг в обогреваемом бассейне</li><li>Скрабирование натуральными компонентами</li><li>Помывка лыковым мочалом под тропическим душем</li><li>Отдых на сенной качели</li><li>Блюда от шеф-повара</li></ul>
+          <div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">Заезд 11:00–15:00</div><div class="prog-price-old">25.000</div><div class="prog-price-new">22.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">Заезд 17:00–22:00</div><div class="prog-price-old">27.000</div><div class="prog-price-new">24.000 ₽</div><div class="prog-price-per">на человека</div></div></div>
           <button class="btn btn-accent btn-full" onclick="openBook()">Забронировать</button>
         </div>
       </div>
-
-      <!-- Алтын Таш — от 2 взрослых -->
+      <!-- 2 -->
       <div class="prog-card rv d1" data-cat="pair">
-        <div class="prog-card-img">
-          <img src="images/prog-altyn-tash.png" alt="Программа Алтын Таш"/>
-          <span class="prog-card-tag">от 2 взрослых</span>
-        </div>
+        <div class="prog-card-img"><img src="images/3.png" alt="Алтын Таш"/><span class="prog-card-tag">от 2 взрослых</span></div>
         <div class="prog-card-body">
-          <div class="prog-card-guests">👥 от 2 взрослых</div>
-          <div class="prog-card-title">"Алтын Таш"</div>
-          <ul class="prog-card-items">
-            <li>Чайный сет</li>
-            <li>Первый пар с ароматом различных трав</li>
-            <li>Греющий пар 🍀🍀🍀 (40-45 мин)</li>
-            <li>Контраст в холодной купели</li>
-            <li>Флоатинг в обогреваемом бассейне</li>
-            <li>Скрабирование на горячем камне</li>
-            <li>Массаж всего тела (40 минут)</li>
-            <li>Горячий чан на пихте или травах</li>
-            <li>Застолье от шеф-повара</li>
-          </ul>
-          <div class="prog-card-prices">
-            <div class="prog-price-slot">
-              <div class="prog-price-time">Заезд 11:00–15:00</div>
-              <div class="prog-price-old">32.000</div>
-              <div class="prog-price-new">29.000 ₽</div>
-              <div class="prog-price-per">на человека</div>
-            </div>
-            <div class="prog-price-slot">
-              <div class="prog-price-time">Заезд 17:00–22:00</div>
-              <div class="prog-price-old">34.000</div>
-              <div class="prog-price-new">31.000 ₽</div>
-              <div class="prog-price-per">на человека</div>
-            </div>
-          </div>
+          <div class="prog-card-guests">от 2 взрослых</div>
+          <div class="prog-card-title">Алтын Таш</div>
+          <ul class="prog-card-items"><li>Чайный сет</li><li>Первый пар с ароматом различных трав</li><li>Греющий пар (40-45 мин)</li><li>Контраст в холодной купели</li><li>Флоатинг в обогреваемом бассейне</li><li>Скрабирование на горячем камне</li><li>Массаж всего тела (40 минут)</li><li>Горячий чан на пихте или травах</li><li>Застолье от шеф-повара</li></ul>
+          <div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">Заезд 11:00–15:00</div><div class="prog-price-old">32.000</div><div class="prog-price-new">29.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">Заезд 17:00–22:00</div><div class="prog-price-old">34.000</div><div class="prog-price-new">31.000 ₽</div><div class="prog-price-per">на человека</div></div></div>
           <button class="btn btn-accent btn-full" onclick="openBook()">Забронировать</button>
         </div>
       </div>
-
-      <!-- Туган Як — от 3 взрослых -->
+      <!-- 3 -->
       <div class="prog-card rv d2" data-cat="small">
-        <div class="prog-card-img">
-          <img src="images/prog-tugan-yak.png" alt="Программа Туган Як"/>
-          <span class="prog-card-tag">от 3 взрослых</span>
-        </div>
+        <div class="prog-card-img"><img src="images/5.png" alt="Туган Як"/><span class="prog-card-tag">от 3 взрослых</span></div>
         <div class="prog-card-body">
-          <div class="prog-card-guests">👥 от 3 взрослых</div>
-          <div class="prog-card-title">"Туган Як"</div>
-          <ul class="prog-card-items">
-            <li>Чайный сет</li>
-            <li>Ароматный пар с различными травами</li>
-            <li>Авторское парение 🍀🍀🍀 (40-45 мин)</li>
-            <li>Скрабирование на горячем камне</li>
-            <li>Контраст в холодной купели</li>
-            <li>Флоатинг в обогреваемом бассейне</li>
-            <li>Расслабление на сенной качели</li>
-            <li>Застолье от шеф-повара</li>
-          </ul>
-          <div class="prog-card-prices">
-            <div class="prog-price-slot">
-              <div class="prog-price-time">Заезд 11:00–15:00</div>
-              <div class="prog-price-old">20.000</div>
-              <div class="prog-price-new">17.000 ₽</div>
-              <div class="prog-price-per">на человека</div>
-            </div>
-            <div class="prog-price-slot">
-              <div class="prog-price-time">Заезд 17:00–22:00</div>
-              <div class="prog-price-old">22.000</div>
-              <div class="prog-price-new">19.000 ₽</div>
-              <div class="prog-price-per">на человека</div>
-            </div>
-          </div>
+          <div class="prog-card-guests">от 3 взрослых</div>
+          <div class="prog-card-title">Туган Як</div>
+          <ul class="prog-card-items"><li>Чайный сет</li><li>Ароматный пар с различными травами</li><li>Авторское парение (40-45 мин)</li><li>Скрабирование на горячем камне</li><li>Контраст в холодной купели</li><li>Флоатинг в обогреваемом бассейне</li><li>Расслабление на сенной качели</li><li>Застолье от шеф-повара</li></ul>
+          <div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">Заезд 11:00–15:00</div><div class="prog-price-old">20.000</div><div class="prog-price-new">17.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">Заезд 17:00–22:00</div><div class="prog-price-old">22.000</div><div class="prog-price-new">19.000 ₽</div><div class="prog-price-per">на человека</div></div></div>
           <button class="btn btn-accent btn-full" onclick="openBook()">Забронировать</button>
         </div>
       </div>
+      <!-- скрытые программы (остальные) -->
+      <div class="prog-card rv" data-cat="small" style="display:none;"><div class="prog-card-img"><img src="images/9.png" alt="Жиңел пар"/><span class="prog-card-tag">от 4 взрослых</span></div><div class="prog-card-body"><div class="prog-card-guests">от 4 взрослых</div><div class="prog-card-title">Жиңел пар</div><ul class="prog-card-items"><li>Чайный сет</li><li>Ароматный пар с различными травами</li><li>Витаминный шот</li><li>Традиционное парение (25-30 мин)</li><li>Флоатинг в обогреваемом бассейне</li><li>Контраст в холодной купели</li><li>Отдых на сенной качели</li><li>Застолье от шеф-повара</li></ul><div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">Заезд 11:00–15:00</div><div class="prog-price-old">17.000</div><div class="prog-price-new">15.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">Заезд 17:00–22:00</div><div class="prog-price-old">19.000</div><div class="prog-price-new">17.000 ₽</div><div class="prog-price-per">на человека</div></div></div><button class="btn btn-accent btn-full" onclick="openBook()">Забронировать</button></div></div>
+      <div class="prog-card rv d1" data-cat="small" style="display:none;"><div class="prog-card-img"><img src="images/11.png" alt="Эх, сез матур кызлар"/><span class="prog-card-tag">от 5 взрослых</span></div><div class="prog-card-body"><div class="prog-card-guests">от 5 взрослых</div><div class="prog-card-title">Эх, сез матур кызлар</div><ul class="prog-card-items"><li>Чайный сет</li><li>Ароматный прогрев с различными травами</li><li>Скрабирование на горячем камне</li><li>Прогрев кавказскими дубовыми вениками</li><li>Обогреваемый бассейн на свежем воздухе</li><li>Горячий чан на пихте</li><li>Застолье от шеф-повара</li></ul><div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">Заезд 11:00–15:00</div><div class="prog-price-old">13.000</div><div class="prog-price-new">11.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">Заезд 17:00–22:00</div><div class="prog-price-old">15.000</div><div class="prog-price-new">13.000 ₽</div><div class="prog-price-per">на человека</div></div></div><button class="btn btn-accent btn-full" onclick="openBook()">Забронировать</button></div></div>
+      <div class="prog-card rv d2" data-cat="group" style="display:none;"><div class="prog-card-img"><img src="images/10.png" alt="Банкет"/><span class="prog-card-tag">от 8 взрослых</span></div><div class="prog-card-body"><div class="prog-card-guests">от 8 взрослых</div><div class="prog-card-title">Банкет</div><ul class="prog-card-items"><li>Чайный сет</li><li>Стол от шеф-повара (мясные, сырные, фруктовые нарезки, соленья, салат, суп, горячее)</li><li>Горячий чан на пихте</li><li>Расслабление на сенной качели</li><li>Холодная купель</li><li>Обогреваемый бассейн</li></ul><div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">Заезд 11:00–15:00</div><div class="prog-price-new">8.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">Заезд 17:00–22:00</div><div class="prog-price-new">10.000 ₽</div><div class="prog-price-per">на человека</div></div></div><button class="btn btn-accent btn-full" onclick="openBook()">Забронировать</button></div></div>
+      <div class="prog-card rv" data-cat="group" style="display:none;"><div class="prog-card-img"><img src="images/1.png" alt="Детокс"/><span class="prog-card-tag">от 8 взрослых</span></div><div class="prog-card-body"><div class="prog-card-guests">от 8 взрослых</div><div class="prog-card-title">Детокс</div><ul class="prog-card-items"><li>Чайный сет</li><li>Парение всего тела (10-15 мин)</li><li>Иммунный шот (из цитрусов, имбиря и приправ)</li><li>Обогреваемый бассейн</li><li>Расслабление на сенной качели</li><li>Холодная купель</li><li>Горячий чан на свежем воздухе</li></ul><div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">Заезд 11:00–15:00</div><div class="prog-price-new">9.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">Заезд 17:00–22:00</div><div class="prog-price-new">11.000 ₽</div><div class="prog-price-per">на человека</div></div></div><button class="btn btn-accent btn-full" onclick="openBook()">Забронировать</button></div></div>
+      <div class="prog-card rv d1" data-cat="group" style="display:none;"><div class="prog-card-img"><img src="images/7.png" alt="Корпоратив"/><span class="prog-card-tag">от 10 взрослых</span></div><div class="prog-card-body"><div class="prog-card-guests">от 10 взрослых</div><div class="prog-card-title">Корпоратив</div><ul class="prog-card-items"><li>Домашнее гостеприимство — Чайный сет</li><li>Травяной сбор — Приветственный пар с ароматами трав</li><li>Лесная сказка — Пробивка кавказскими дубовыми вениками</li><li>Теплая лагуна — Заплыв в обогреваемом бассейне</li><li>Нырок в северно-ледовитый океан — Контраст в холодной купели</li><li>Эликсир молодости — Горячий чан на пихте</li><li>Вкус праздника — Роскошное застолье</li></ul><div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">Заезд 11:00–15:00</div><div class="prog-price-old">14.000</div><div class="prog-price-new">12.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">Заезд 17:00–22:00</div><div class="prog-price-old">16.000</div><div class="prog-price-new">14.000 ₽</div><div class="prog-price-per">на человека</div></div></div><button class="btn btn-accent btn-full" onclick="openBook()">Забронировать</button></div></div>
+      <div class="prog-card rv d2" data-cat="vip" style="display:none;"><div class="prog-card-img"><img src="images/6.png" alt="Кара мунча"/><span class="prog-card-tag">от 4 взрослых · VIP</span></div><div class="prog-card-body"><div class="prog-card-guests">от 4 взрослых</div><div class="prog-card-title">Кара мунча</div><ul class="prog-card-items"><li>Чайный сет</li><li>Ароматный пар с травами в бане по-серому</li><li>Сет из 1 кг чёрной икры с закусками</li><li>Авторское парение в бане по-чёрному (40-60 мин)</li><li>Флоатинг в обогреваемом бассейне</li><li>Массаж всего тела (40 минут)</li><li>Горячий чан на пихте или травах</li><li>Застолье от шеф-повара</li></ul><div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">Заезд 10:00–15:00</div><div class="prog-price-new">52.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">Заезд 17:00–22:00</div><div class="prog-price-new">54.000 ₽</div><div class="prog-price-per">на человека</div></div></div><button class="btn btn-accent btn-full" onclick="openBook()">Забронировать</button></div></div>
+    </div>
 
-      <!-- Жиңел пар — от 4 взрослых -->
-      <div class="prog-card rv" data-cat="small">
-        <div class="prog-card-img">
-          <img src="images/prog-zhingel.png" alt="Программа Жиңел пар"/>
-          <span class="prog-card-tag">от 4 взрослых</span>
-        </div>
-        <div class="prog-card-body">
-          <div class="prog-card-guests">👥 от 4 взрослых</div>
-          <div class="prog-card-title">"Жиңел пар"</div>
-          <ul class="prog-card-items">
-            <li>Чайный сет</li>
-            <li>Ароматный пар с различными травами</li>
-            <li>Витаминный шот</li>
-            <li>Традиционное парение 🍀🍀 (25-30 мин)</li>
-            <li>Флоатинг в обогреваемом бассейне</li>
-            <li>Контраст в холодной купели</li>
-            <li>Отдых на сенной качели</li>
-            <li>Застолье от шеф-повара</li>
-          </ul>
-          <div class="prog-card-prices">
-            <div class="prog-price-slot">
-              <div class="prog-price-time">Заезд 11:00–15:00</div>
-              <div class="prog-price-old">17.000</div>
-              <div class="prog-price-new">15.000 ₽</div>
-              <div class="prog-price-per">на человека</div>
-            </div>
-            <div class="prog-price-slot">
-              <div class="prog-price-time">Заезд 17:00–22:00</div>
-              <div class="prog-price-old">19.000</div>
-              <div class="prog-price-new">17.000 ₽</div>
-              <div class="prog-price-per">на человека</div>
-            </div>
-          </div>
-          <button class="btn btn-accent btn-full" onclick="openBook()">Забронировать</button>
-        </div>
-      </div>
-
-      <!-- Эх, сез матур кызлар — от 5 взрослых -->
-      <div class="prog-card rv d1" data-cat="small">
-        <div class="prog-card-img">
-          <img src="images/prog-eh-sez.png" alt="Программа Эх, сез матур кызлар"/>
-          <span class="prog-card-tag">от 5 взрослых</span>
-        </div>
-        <div class="prog-card-body">
-          <div class="prog-card-guests">👥 от 5 взрослых</div>
-          <div class="prog-card-title">"Эх, сез матур кызлар"</div>
-          <ul class="prog-card-items">
-            <li>Чайный сет</li>
-            <li>Ароматный прогрев с различными травами</li>
-            <li>Скрабирование на горячем камне</li>
-            <li>Прогрев кавказскими дубовыми вениками</li>
-            <li>Обогреваемый бассейн на свежем воздухе</li>
-            <li>Горячий чан на пихте</li>
-            <li>Застолье от шеф-повара</li>
-          </ul>
-          <div class="prog-card-prices">
-            <div class="prog-price-slot">
-              <div class="prog-price-time">Заезд 11:00–15:00</div>
-              <div class="prog-price-old">13.000</div>
-              <div class="prog-price-new">11.000 ₽</div>
-              <div class="prog-price-per">на человека</div>
-            </div>
-            <div class="prog-price-slot">
-              <div class="prog-price-time">Заезд 17:00–22:00</div>
-              <div class="prog-price-old">15.000</div>
-              <div class="prog-price-new">13.000 ₽</div>
-              <div class="prog-price-per">на человека</div>
-            </div>
-          </div>
-          <button class="btn btn-accent btn-full" onclick="openBook()">Забронировать</button>
-        </div>
-      </div>
-
-      <!-- Банкет — от 8 взрослых -->
-      <div class="prog-card rv d2" data-cat="group">
-        <div class="prog-card-img">
-          <img src="images/prog-banket.png" alt="Программа Банкет"/>
-          <span class="prog-card-tag">от 8 взрослых</span>
-        </div>
-        <div class="prog-card-body">
-          <div class="prog-card-guests">👥 от 8 взрослых</div>
-          <div class="prog-card-title">"Банкет"</div>
-          <ul class="prog-card-items">
-            <li>Чайный сет</li>
-            <li>Стол от шеф-повара (мясные, сырные, фруктовые нарезки, соленья, салат, суп, горячее)</li>
-            <li>Горячий чан на пихте</li>
-            <li>Расслабление на сенной качели</li>
-            <li>Холодная купель</li>
-            <li>Обогреваемый бассейн</li>
-          </ul>
-          <div class="prog-card-prices">
-            <div class="prog-price-slot">
-              <div class="prog-price-time">Заезд 11:00–15:00</div>
-              <div class="prog-price-new">8.000 ₽</div>
-              <div class="prog-price-per">на человека</div>
-            </div>
-            <div class="prog-price-slot">
-              <div class="prog-price-time">Заезд 17:00–22:00</div>
-              <div class="prog-price-new">10.000 ₽</div>
-              <div class="prog-price-per">на человека</div>
-            </div>
-          </div>
-          <button class="btn btn-accent btn-full" onclick="openBook()">Забронировать</button>
-        </div>
-      </div>
-
-      <!-- Детокс — от 8 взрослых -->
-      <div class="prog-card rv" data-cat="group">
-        <div class="prog-card-img">
-          <img src="images/prog-detox.png" alt="Программа Детокс"/>
-          <span class="prog-card-tag">от 8 взрослых</span>
-        </div>
-        <div class="prog-card-body">
-          <div class="prog-card-guests">👥 от 8 взрослых</div>
-          <div class="prog-card-title">"Детокс"</div>
-          <ul class="prog-card-items">
-            <li>Чайный сет</li>
-            <li>Парение всего тела (10-15 мин)</li>
-            <li>Иммунный шот (из цитрусов, имбиря и приправ)</li>
-            <li>Обогреваемый бассейн</li>
-            <li>Расслабление на сенной качели</li>
-            <li>Холодная купель</li>
-            <li>Горячий чан на свежем воздухе</li>
-          </ul>
-          <div class="prog-card-prices">
-            <div class="prog-price-slot">
-              <div class="prog-price-time">Заезд 11:00–15:00</div>
-              <div class="prog-price-new">9.000 ₽</div>
-              <div class="prog-price-per">на человека</div>
-            </div>
-            <div class="prog-price-slot">
-              <div class="prog-price-time">Заезд 17:00–22:00</div>
-              <div class="prog-price-new">11.000 ₽</div>
-              <div class="prog-price-per">на человека</div>
-            </div>
-          </div>
-          <button class="btn btn-accent btn-full" onclick="openBook()">Забронировать</button>
-        </div>
-      </div>
-
-      <!-- Корпоратив — от 10 взрослых -->
-      <div class="prog-card rv d1" data-cat="group">
-        <div class="prog-card-img">
-          <img src="images/prog-kara-muncha.png" alt="Программа Корпоратив"/>
-          <span class="prog-card-tag">от 10 взрослых</span>
-        </div>
-        <div class="prog-card-body">
-          <div class="prog-card-guests">👥 от 10 взрослых</div>
-          <div class="prog-card-title">"Корпоратив"</div>
-          <ul class="prog-card-items">
-            <li>"Домашнее гостеприимство" — Чайный сет</li>
-            <li>"Травяной сбор" — Приветственный пар с ароматами трав</li>
-            <li>"Лесная сказка" 🍀 — Пробивка кавказскими дубовыми вениками</li>
-            <li>"Теплая лагуна" — Заплыв в обогреваемом бассейне</li>
-            <li>"Нырок в северно-ледовитый океан" — Контраст в холодной купели</li>
-            <li>"Эликсир молодости" — Горячий чан на пихте</li>
-            <li>"Вкус праздника" — Роскошное застолье</li>
-          </ul>
-          <div class="prog-card-prices">
-            <div class="prog-price-slot">
-              <div class="prog-price-time">Заезд 11:00–15:00</div>
-              <div class="prog-price-old">14.000</div>
-              <div class="prog-price-new">12.000 ₽</div>
-              <div class="prog-price-per">на человека</div>
-            </div>
-            <div class="prog-price-slot">
-              <div class="prog-price-time">Заезд 17:00–22:00</div>
-              <div class="prog-price-old">16.000</div>
-              <div class="prog-price-new">14.000 ₽</div>
-              <div class="prog-price-per">на человека</div>
-            </div>
-          </div>
-          <button class="btn btn-accent btn-full" onclick="openBook()">Забронировать</button>
-        </div>
-      </div>
-
-      <!-- Кара мунча — VIP от 4 взрослых -->
-      <div class="prog-card rv d2" data-cat="vip">
-        <div class="prog-card-img">
-          <img src="images/prog-kara-muncha.png" alt="Программа Кара мунча"/>
-          <span class="prog-card-tag">от 4 взрослых · VIP</span>
-        </div>
-        <div class="prog-card-body">
-          <div class="prog-card-guests">👥 от 4 взрослых</div>
-          <div class="prog-card-title">"Кара мунча"</div>
-          <ul class="prog-card-items">
-            <li>Чайный сет</li>
-            <li>Ароматный пар с травами в бане по-серому</li>
-            <li>Сет из 1 кг чёрной икры с закусками</li>
-            <li>Авторское парение в бане по-чёрному (40-60 мин)</li>
-            <li>Флоатинг в обогреваемом бассейне</li>
-            <li>Массаж всего тела (40 минут)</li>
-            <li>Горячий чан на пихте или травах</li>
-            <li>Застолье от шеф-повара</li>
-          </ul>
-          <div class="prog-card-prices">
-            <div class="prog-price-slot">
-              <div class="prog-price-time">Заезд 10:00–15:00</div>
-              <div class="prog-price-new">52.000 ₽</div>
-              <div class="prog-price-per">на человека</div>
-            </div>
-            <div class="prog-price-slot">
-              <div class="prog-price-time">Заезд 17:00–22:00</div>
-              <div class="prog-price-new">54.000 ₽</div>
-              <div class="prog-price-per">на человека</div>
-            </div>
-          </div>
-          <button class="btn btn-accent btn-full" onclick="openBook()">Забронировать</button>
-        </div>
-      </div>
-
-    </div><!-- /prog-grid -->
+    <div class="show-all-wrapper">
+      <button class="btn btn-accent btn-show-all" id="show-all-programs-btn">Показать все программы</button>
+    </div>
   </div>
 </section>
 
-
-<!-- ════════════════════════════════════════════════
-     ДЕТСКАЯ ПРОГРАММА
-════════════════════════════════════════════════ -->
+<!-- ДЕТСКАЯ ПРОГРАММА -->
 <section class="sec sec--sand" id="kids">
   <div class="wrap">
     <div class="kids-grid">
       <div>
         <div class="eyebrow rv">Детская программа</div>
-        <h2 class="htitle rv">"Бала Чага"<br/><em>для маленьких гостей</em></h2>
-        <p class="rv" style="font-size:14px;opacity:.65;margin-bottom:8px">
-          Специальная программа для детей — щадящий пар, детская комната, возможность пригласить няню.
-        </p>
-        <p class="rv" style="font-size:12px;opacity:.5;margin-bottom:28px">
-          * по предъявлению свидетельства о рождении или паспорта ребёнка
-        </p>
-
+        <h2 class="htitle rv">Бала Чага<br/><em>для маленьких гостей</em></h2>
+        <p class="rv" style="font-size:14px;opacity:.65;margin-bottom:8px">Специальная программа для детей — щадящий пар, детская комната, возможность пригласить няню.</p>
+        <p class="rv" style="font-size:12px;opacity:.5;margin-bottom:28px">* по предъявлению свидетельства о рождении или паспорта ребёнка</p>
         <div class="kids-tiers">
-          <div class="kids-tier rv">
-            <div class="kids-tier-title">Грудничкам — <span style="color:var(--accent)">бесплатно</span></div>
-          </div>
-          <div class="kids-tier rv d1">
-            <div class="kids-tier-title">Дети до 7 лет (включительно)</div>
-            <div class="kids-tier-price">~6.000 ₽</div>
-            <ul class="kids-tier-items">
-              <li>Чайный сет</li>
-              <li>Общий пар с ароматом трав</li>
-              <li>Тёплый душ или обогреваемый бассейн</li>
-              <li>Отдых в детской комнате</li>
-              <li>Основное блюдо из детского меню</li>
-            </ul>
-          </div>
-          <div class="kids-tier rv d2">
-            <div class="kids-tier-title">Дети до 12 лет (включительно)</div>
-            <div class="kids-tier-price">~ 50% скидка</div>
-            <p style="font-size:12px;opacity:.6">(программа, выбранная взрослыми)</p>
-          </div>
+          <div class="kids-tier rv"><div class="kids-tier-title">Грудничкам — бесплатно</div></div>
+          <div class="kids-tier rv d1"><div class="kids-tier-title">Дети до 7 лет (включительно)</div><div class="kids-tier-price">~6.000 ₽</div><ul class="kids-tier-items"><li>Чайный сет</li><li>Общий пар с ароматом трав</li><li>Тёплый душ или обогреваемый бассейн</li><li>Отдых в детской комнате</li><li>Основное блюдо из детского меню</li></ul></div>
+          <div class="kids-tier rv d2"><div class="kids-tier-title">Дети до 12 лет (включительно)</div><div class="kids-tier-price">~ 50% скидка</div><p style="font-size:12px;opacity:.6">(программа, выбранная взрослыми)</p></div>
         </div>
       </div>
-      <div class="kids-img rv">
-        <img src="images/prog-bala-chaga.png" alt="Детская программа Бала Чага — банный комплекс для семей"/>
-      </div>
+      <div class="kids-img rv"><img src="images/4.png" alt="Детская программа Бала Чага"/></div>
     </div>
   </div>
 </section>
 
-
-<!-- ════════════════════════════════════════════════
-     ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ
-════════════════════════════════════════════════ -->
+<!-- ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ -->
 <section class="sec" id="dop">
   <div class="wrap">
     <div class="eyebrow rv">Дополнительно</div>
     <h2 class="htitle rv">Дополнительные <em>услуги</em></h2>
-    <p class="rv" style="font-size:13px;opacity:.55">
-      * дополнительные услуги согласовываются перед бронированием<br/>
-      🍀 — насыщенность парения
-    </p>
-
+    <p class="rv" style="font-size:13px;opacity:.55">* дополнительные услуги согласовываются перед бронированием</p>
     <div class="dop-grid">
       <div class="dop-item rv"><span class="dop-name">Баня по-чёрному</span><span class="dop-price">15.000 ₽</span></div>
       <div class="dop-item rv d1"><span class="dop-name">Чан Фурако (на пихте, на розах, с солью)</span><span class="dop-price">5.000–9.000 ₽</span></div>
@@ -1287,10 +1001,10 @@ footer{
       <div class="dop-item rv"><span class="dop-name">Массаж 20/40/60 минут</span><span class="dop-price">3.000/5.000/6.000 ₽</span></div>
       <div class="dop-item rv d1"><span class="dop-name">Медовое скрабирование</span><span class="dop-price">3.000 ₽</span></div>
       <div class="dop-item rv d2"><span class="dop-name">Пенная помывка</span><span class="dop-price">3.000 ₽</span></div>
-      <div class="dop-item rv"><span class="dop-name">Авторское парение 🍀🍀🍀</span><span class="dop-price">7.500 ₽</span></div>
-      <div class="dop-item rv d1"><span class="dop-name">Парение в 4 руки 🍀🍀🍀</span><span class="dop-price">7.500 ₽</span></div>
-      <div class="dop-item rv d2"><span class="dop-name">Традиционное парение 🍀🍀</span><span class="dop-price">6.000 ₽</span></div>
-      <div class="dop-item rv"><span class="dop-name">Лёгкое парение 🍀</span><span class="dop-price">4.500 ₽</span></div>
+      <div class="dop-item rv"><span class="dop-name">Авторское парение</span><span class="dop-price">7.500 ₽</span></div>
+      <div class="dop-item rv d1"><span class="dop-name">Парение в 4 руки</span><span class="dop-price">7.500 ₽</span></div>
+      <div class="dop-item rv d2"><span class="dop-name">Традиционное парение</span><span class="dop-price">6.000 ₽</span></div>
+      <div class="dop-item rv"><span class="dop-name">Лёгкое парение</span><span class="dop-price">4.500 ₽</span></div>
       <div class="dop-item rv d1"><span class="dop-name">Детское парение</span><span class="dop-price">3.000 ₽</span></div>
       <div class="dop-item rv d2"><span class="dop-name">Услуги няни (1-2 ребёнка)</span><span class="dop-price">5.000 ₽</span></div>
       <div class="dop-item rv"><span class="dop-name">Услуги няни (3-4 ребёнка)</span><span class="dop-price">8.000 ₽</span></div>
@@ -1299,349 +1013,88 @@ footer{
   </div>
 </section>
 
-
-<!-- ════════════════════════════════════════════════
-     ГАЛЕРЕЯ — 3 фото камней и природы
-════════════════════════════════════════════════ -->
+<!-- ГАЛЕРЕЯ -->
 <section class="sec sec--light" id="gallery">
   <div class="wrap">
     <div class="eyebrow rv">Атмосфера</div>
     <h2 class="htitle rv">Камень <em>хранит тепло</em></h2>
-    <p class="rv" style="font-size:14px;opacity:.6;max-width:480px">
-      Натуральные материалы, живой огонь, тишина природы — атмосфера, которую невозможно описать словами
-    </p>
-
+    <p class="rv" style="font-size:14px;opacity:.6;max-width:480px">Натуральные материалы, живой огонь, тишина природы — атмосфера, которую невозможно описать словами</p>
     <div class="gallery-grid">
-      <div class="gal-item rv">
-        <img src="images/exterior-pool.png" alt="Натуральный камень — банный комплекс Мунча Ташы"/>
-        <div class="gal-caption">Натуральный камень</div>
-      </div>
-      <div class="gal-item rv d1">
-        <img src="images/sauna-window.png" alt="Долгое тепло — парная с видом на природу"/>
-        <div class="gal-caption">Долгое тепло</div>
-      </div>
-      <div class="gal-item rv d2">
-        <img src="images/interior-table.png" alt="Мягкий пар — интерьер банного комплекса"/>
-        <div class="gal-caption">Мягкий пар</div>
-      </div>
+      <div class="gal-item rv"><img src="images/exterior-pool.png" alt="Натуральный камень"/><div class="gal-caption">Натуральный камень</div></div>
+      <div class="gal-item rv d1"><img src="images/sauna-window.png" alt="Долгое тепло"/><div class="gal-caption">Долгое тепло</div></div>
+      <div class="gal-item rv d2"><img src="images/interior-table.png" alt="Мягкий пар"/><div class="gal-caption">Мягкий пар</div></div>
     </div>
   </div>
 </section>
 
-
-<!-- ════════════════════════════════════════════════
-     ВМЕСТИМОСТЬ И ИНФОРМАЦИЯ
-════════════════════════════════════════════════ -->
+<!-- ИНФОРМАЦИЯ -->
 <section class="sec" id="info">
   <div class="wrap">
     <div class="eyebrow rv">Практическая информация</div>
     <h2 class="htitle rv">Количество гостей<br/>и <em>расписание</em></h2>
-
     <div class="info-grid">
-      <div class="info-stat rv">
-        <div class="info-stat-num">16</div>
-        <div class="info-stat-label">Гостей максимум</div>
-      </div>
-      <div class="info-stat rv d1">
-        <div class="info-stat-num">2</div>
-        <div class="info-stat-label">Типа бань</div>
-      </div>
-      <div class="info-stat rv d2">
-        <div class="info-stat-num">8+</div>
-        <div class="info-stat-label">Программ</div>
-      </div>
-      <div class="info-stat rv d3">
-        <div class="info-stat-num">25</div>
-        <div class="info-stat-label">Минут от Казани</div>
-      </div>
+      <div class="info-stat rv"><div class="info-stat-num">16</div><div class="info-stat-label">Гостей максимум</div></div>
+      <div class="info-stat rv d1"><div class="info-stat-num">2</div><div class="info-stat-label">Типа бань</div></div>
+      <div class="info-stat rv d2"><div class="info-stat-num">8+</div><div class="info-stat-label">Программ</div></div>
+      <div class="info-stat rv d3"><div class="info-stat-num">25</div><div class="info-stat-label">Минут от Казани</div></div>
     </div>
-
     <div class="info-timing">
-      <div class="info-timing-card rv">
-        <div class="info-timing-title">Время заездов</div>
-        <ul class="info-timing-list">
-          <li><strong>Утренний заезд:</strong> 11:00 — 15:00</li>
-          <li><strong>Вечерний заезд:</strong> 17:00 — 22:00</li>
-          <li><strong>Специальный VIP:</strong> 10:00 — 15:00</li>
-          <li>При необходимости время можно продлить (+8.000₽/час)</li>
-        </ul>
-      </div>
-      <div class="info-timing-card rv d1">
-        <div class="info-timing-title">Что включено</div>
-        <ul class="info-timing-list">
-          <li>Полотенца, простыни, тапочки</li>
-          <li>Шапочки для парной, веники</li>
-          <li>Чайный сет при каждом визите</li>
-          <li>Приватное использование комплекса</li>
-          <li>Парковка на территории</li>
-          <li>Детская комната (при наличии детей)</li>
-        </ul>
-      </div>
+      <div class="info-timing-card rv"><div class="info-timing-title">Время заездов</div><ul class="info-timing-list"><li><strong>Утренний заезд:</strong> 11:00 — 15:00</li><li><strong>Вечерний заезд:</strong> 17:00 — 22:00</li><li><strong>Специальный VIP:</strong> 10:00 — 15:00</li><li>При необходимости время можно продлить (+8.000₽/час)</li></ul></div>
+      <div class="info-timing-card rv d1"><div class="info-timing-title">Что включено</div><ul class="info-timing-list"><li>Полотенца, простыни, тапочки</li><li>Шапочки для парной, веники</li><li>Чайный сет при каждом визите</li><li>Приватное использование комплекса</li><li>Парковка на территории</li><li>Детская комната (при наличии детей)</li></ul></div>
     </div>
   </div>
 </section>
 
-
-<!-- ════════════════════════════════════════════════
-     БРОНИРОВАНИЕ
-════════════════════════════════════════════════ -->
+<!-- БРОНИРОВАНИЕ -->
 <section class="sec sec--dark" id="booking">
   <div class="wrap">
     <div class="book-grid">
-      <div>
-        <div class="eyebrow rv">Бронирование</div>
-        <h2 class="htitle rv" style="color:var(--white)">Забронировать <em style="color:#E8C89A">визит</em></h2>
-        <a href="tel:+79503196915" class="book-phone rv">+7 950 319-69-15</a>
-        <p class="book-sub rv">Звоните или пишите — ответим в течение 15 минут.<br/>Работаем ежедневно, уточняйте расписание при бронировании.</p>
-        <div class="book-messengers rv">
-          <a href="https://wa.me/79503196915" class="btn btn-outline-w" target="_blank">WhatsApp</a>
-          <a href="https://t.me/munchatashi_kazan" class="btn btn-outline-w" target="_blank">Telegram</a>
-        </div>
-      </div>
-      <div>
-        <div class="eyebrow rv" style="color:var(--warm)">Онлайн-заявка</div>
-        <form class="bform rv" onsubmit="sendForm(event)">
-          <div class="frow">
-            <input class="ff" type="text" placeholder="Ваше имя *" required/>
-            <input class="ff" type="tel" placeholder="+7 (___) ___-__-__" required/>
-          </div>
-          <div class="frow">
-            <input class="ff" type="text" placeholder="Желаемая дата"/>
-            <input class="ff" type="number" placeholder="Кол-во гостей" min="1" max="16"/>
-          </div>
-          <select class="ff">
-            <option value="" disabled selected>Выберите программу</option>
-            <option>Пар балдаклар (от 2 чел.)</option>
-            <option>Алтын Таш (от 2 чел.)</option>
-            <option>Туган Як (от 3 чел.)</option>
-            <option>Жиңел пар (от 4 чел.)</option>
-            <option>Кара мунча VIP (от 4 чел.)</option>
-            <option>Эх, сез матур кызлар (от 5 чел.)</option>
-            <option>Банкет (от 8 чел.)</option>
-            <option>Детокс (от 8 чел.)</option>
-            <option>Корпоратив (от 10 чел.)</option>
-            <option>Хочу подобрать с менеджером</option>
-          </select>
-          <textarea class="ff" rows="3" placeholder="Пожелания, вопросы..."></textarea>
-          <div class="cb-row">
-            <input type="checkbox" id="agree" required/>
-            <label for="agree">Нажимая «Отправить», я соглашаюсь с <a href="#" onclick="openPrivacy(event)">политикой конфиденциальности</a></label>
-          </div>
-          <button type="submit" class="btn btn-accent" style="align-self:flex-start">Отправить заявку →</button>
-        </form>
-      </div>
+      <div><div class="eyebrow rv">Бронирование</div><h2 class="htitle rv" style="color:var(--white)">Забронировать <em style="color:#E8C89A">визит</em></h2><a href="tel:+79503196915" class="book-phone rv">+7 950 319-69-15</a><p class="book-sub rv">Звоните или пишите — ответим в течение 15 минут.<br/>Работаем ежедневно, уточняйте расписание при бронировании.</p><div class="book-messengers rv"><a href="https://wa.me/79503196915" class="btn btn-outline-w" target="_blank">WhatsApp</a><a href="https://t.me/munchatashi_kazan" class="btn btn-outline-w" target="_blank">Telegram</a></div></div>
+      <div><div class="eyebrow rv" style="color:var(--warm)">Онлайн-заявка</div><form class="bform rv" onsubmit="sendForm(event)"><div class="frow"><input class="ff" type="text" placeholder="Ваше имя *" required/><input class="ff" type="tel" placeholder="+7 (___) ___-__-__" required/></div><div class="frow"><input class="ff" type="text" placeholder="Желаемая дата"/><input class="ff" type="number" placeholder="Кол-во гостей" min="1" max="16"/></div><select class="ff"><option value="" disabled selected>Выберите программу</option><option>Пар балдаклар (от 2 чел.)</option><option>Алтын Таш (от 2 чел.)</option><option>Туган Як (от 3 чел.)</option><option>Жиңел пар (от 4 чел.)</option><option>Кара мунча VIP (от 4 чел.)</option><option>Эх, сез матур кызлар (от 5 чел.)</option><option>Банкет (от 8 чел.)</option><option>Детокс (от 8 чел.)</option><option>Корпоратив (от 10 чел.)</option><option>Хочу подобрать с менеджером</option></select><textarea class="ff" rows="3" placeholder="Пожелания, вопросы..."></textarea><div class="cb-row"><input type="checkbox" id="agree" required/><label for="agree">Нажимая «Отправить», я соглашаюсь с <a href="#" onclick="openPrivacy(event)">политикой конфиденциальности</a></label></div><button type="submit" class="btn btn-accent" style="align-self:flex-start">Отправить заявку →</button></form></div>
     </div>
   </div>
 </section>
 
-
-<!-- ════════════════════════════════════════════════
-     КОНТАКТЫ
-════════════════════════════════════════════════ -->
+<!-- КОНТАКТЫ -->
 <section class="sec" id="contacts">
   <div class="wrap">
     <div class="eyebrow rv">Как нас найти</div>
     <h2 class="htitle rv">Казань,<br/><em>деревня Эстачи</em></h2>
-
-    <div class="contacts-grid">
-      <div class="rv">
-        <div class="ci-label">Адрес</div>
-        <div class="ci-value">Республика Татарстан<br/>Высокогорский район<br/>д. Эстачи, ул. Лодочная, 14</div>
-      </div>
-      <div class="rv d1">
-        <div class="ci-label">Телефон</div>
-        <div class="ci-value"><a href="tel:+79503196915">+7 950 319-69-15</a></div>
-      </div>
-      <div class="rv d2">
-        <div class="ci-label">Мессенджеры</div>
-        <div class="ci-value">
-          <a href="https://wa.me/79503196915">WhatsApp</a><br/>
-          <a href="https://t.me/munchatashi_kazan">Telegram @munchatashi_kazan</a>
-        </div>
-      </div>
-      <div class="rv d3">
-        <div class="ci-label">Ориентир</div>
-        <div class="ci-value">~25 мин от Казани<br/>Высокогорский район</div>
-      </div>
-    </div>
-
-    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px" class="rv">
-      <a href="https://yandex.ru/maps/-/CHD8Qmy0" target="_blank" class="btn btn-accent">📍 Яндекс.Карты</a>
-      <a href="https://2gis.ru/kazan/firm/70000001089301618" target="_blank" class="btn btn-outline">📍 2ГИС</a>
-    </div>
-
-    <div class="map-block rv">
-      <iframe
-        src="https://yandex.ru/map-widget/v1/?ll=49.365285%2C55.860647&z=15&pt=49.365285%2C55.860647%2Cpm2rdm&text=%D0%9C%D1%83%D0%BD%D1%87%D0%B0%20%D0%A2%D0%B0%D1%88%D1%8B&lang=ru_RU"
-        title="Мунча Ташы на Яндекс.Картах"
-        allowfullscreen="" loading="lazy">
-      </iframe>
-    </div>
+    <div class="contacts-grid"><div class="rv"><div class="ci-label">Адрес</div><div class="ci-value">Республика Татарстан<br/>Высокогорский район<br/>д. Эстачи, ул. Лодочная, 14</div></div><div class="rv d1"><div class="ci-label">Телефон</div><div class="ci-value"><a href="tel:+79503196915">+7 950 319-69-15</a></div></div><div class="rv d2"><div class="ci-label">Мессенджеры</div><div class="ci-value"><a href="https://wa.me/79503196915">WhatsApp</a><br/><a href="https://t.me/munchatashi_kazan">Telegram @munchatashi_kazan</a></div></div><div class="rv d3"><div class="ci-label">Ориентир</div><div class="ci-value">~25 мин от Казани<br/>Высокогорский район</div></div></div>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px" class="rv"><a href="https://yandex.ru/maps/-/CHD8Qmy0" target="_blank" class="btn btn-accent">📍 Яндекс.Карты</a><a href="https://2gis.ru/kazan/firm/70000001089301618" target="_blank" class="btn btn-outline">📍 2ГИС</a></div>
+    <div class="map-block rv"><iframe src="https://yandex.ru/map-widget/v1/?ll=49.365285%2C55.860647&z=15&pt=49.365285%2C55.860647%2Cpm2rdm&text=%D0%9C%D1%83%D0%BD%D1%87%D0%B0%20%D0%A2%D0%B0%D1%88%D1%8B&lang=ru_RU" title="Мунча Ташы" allowfullscreen="" loading="lazy"></iframe></div>
   </div>
 </section>
 
-
-<!-- ════════════════════════════════════════════════
-     FOOTER
-════════════════════════════════════════════════ -->
 <footer>
   <div class="wrap">
-    <div class="footer-main">
-      <div class="flogo">
-        <img src="images/logo.png" alt="Мунча Ташы" onerror="this.style.display='none'"/>
-        <div class="flogo-text">
-          Мунча Ташы
-          <small>Банный комплекс · д. Эстачи, Казань</small>
-        </div>
-      </div>
-
-      <nav class="fnav">
-        <a href="#bani">Бани</a>
-        <a href="#programs">Программы</a>
-        <a href="#dop">Услуги</a>
-        <a href="#kids">Детям</a>
-        <a href="#gallery">Галерея</a>
-        <a href="#booking">Бронирование</a>
-        <a href="#contacts">Контакты</a>
-      </nav>
-
-      <div class="fsoc">
-        <a href="https://wa.me/79503196915" class="fsi" title="WhatsApp" target="_blank">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
-        </a>
-        <a href="https://t.me/munchatashi_kazan" class="fsi" title="Telegram" target="_blank">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
-        </a>
-        <a href="https://2gis.ru/kazan/firm/70000001089301618" class="fsi" title="2ГИС" target="_blank">
-          <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
-        </a>
-      </div>
-    </div>
-
-    <div class="footer-bot">
-      <span>© 2025 Мунча Ташы · Банный комплекс · Республика Татарстан, Высокогорский район</span>
-      <a href="#" onclick="openPrivacy(event)">Политика конфиденциальности</a>
-    </div>
+    <div class="footer-main"><div class="flogo"><img src="images/logo.png" alt="Мунча Ташы" onerror="this.style.display='none'"/><div class="flogo-text">Мунча Ташы<small>Банный комплекс · д. Эстачи, Казань</small></div></div><nav class="fnav"><a href="#bani">Бани</a><a href="#programs">Программы</a><a href="#dop">Услуги</a><a href="#kids">Детям</a><a href="#gallery">Галерея</a><a href="#booking">Бронирование</a><a href="#contacts">Контакты</a></nav><div class="fsoc"><a href="https://wa.me/79503196915" class="fsi" target="_blank">W</a><a href="https://t.me/munchatashi_kazan" class="fsi" target="_blank">T</a><a href="https://2gis.ru/kazan/firm/70000001089301618" class="fsi" target="_blank">2G</a></div></div>
+    <div class="footer-bot"><span>© 2026 Мунча Ташы · Банный комплекс · Республика Татарстан, Высокогорский район</span><a href="#" onclick="openPrivacy(event)">Политика конфиденциальности</a></div>
   </div>
 </footer>
 
+<div id="sticky-cta"><button class="btn btn-accent" onclick="openBook()">Забронировать</button></div>
 
-<!-- ════════════════════════════════════════════════
-     STICKY CTA кнопка
-════════════════════════════════════════════════ -->
-<div id="sticky-cta">
-  <button class="btn btn-accent" onclick="openBook()">Забронировать</button>
-</div>
+<div class="overlay" id="book-modal"><div class="modal"><button class="modal-close" onclick="closeModal('book-modal')">✕</button><div class="eyebrow" style="color:var(--warm)">Онлайн-заявка</div><div class="modal-title">Забронировать <em style="color:#E8C89A">визит</em></div><p class="modal-sub">Ответим в течение 15 минут и подтвердим время</p><form style="display:flex;flex-direction:column;gap:12px" onsubmit="sendBooking(event)"><div class="frow"><input class="ff" type="text" placeholder="Имя *" required/><input class="ff" type="tel" placeholder="+7 (___) ___-__-__" required/></div><select class="ff"><option value="" disabled selected>Выберите программу</option><option>Пар балдаклар (от 2 чел.)</option><option>Алтын Таш (от 2 чел.)</option><option>Туган Як (от 3 чел.)</option><option>Жиңел пар (от 4 чел.)</option><option>Кара мунча VIP (от 4 чел.)</option><option>Эх, сез матур кызлар (от 5 чел.)</option><option>Банкет (от 8 чел.)</option><option>Детокс (от 8 чел.)</option><option>Корпоратив (от 10 чел.)</option><option>Подобрать с менеджером</option></select><textarea class="ff" rows="2" placeholder="Дата, время, количество гостей, пожелания..."></textarea><div class="cb-row"><input type="checkbox" id="agm" required/><label for="agm">Согласен с <a href="#" onclick="openPrivacy(event)">политикой конфиденциальности</a></label></div><button type="submit" class="btn btn-accent btn-full">Отправить →</button></form></div></div>
 
+<div class="overlay" id="privacy-modal"><div class="modal" style="max-width:600px"><button class="modal-close" onclick="closeModal('privacy-modal')">✕</button><div class="modal-title">Политика конфиденциальности</div><p style="font-size:12px;color:rgba(255,255,255,.45);line-height:1.8;margin:16px 0">Банный комплекс «Мунча Ташы» уважает конфиденциальность персональных данных гостей. Собираем только имя и номер телефона для связи по вопросам бронирования. Данные не передаются третьим лицам.</p></div></div>
 
-<!-- ════════════════════════════════════════════════
-     МОДАЛЬНОЕ ОКНО — БРОНИРОВАНИЕ
-════════════════════════════════════════════════ -->
-<div class="overlay" id="book-modal">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal('book-modal')">✕</button>
-    <div class="eyebrow" style="color:var(--warm)">Онлайн-заявка</div>
-    <div class="modal-title">Забронировать <em style="color:#E8C89A">визит</em></div>
-    <p class="modal-sub">Ответим в течение 15 минут и подтвердим время</p>
-    <form style="display:flex;flex-direction:column;gap:12px" onsubmit="sendBooking(event)">
-      <div class="frow">
-        <input class="ff" type="text" placeholder="Имя *" required/>
-        <input class="ff" type="tel" placeholder="+7 (___) ___-__-__" required/>
-      </div>
-      <select class="ff">
-        <option value="" disabled selected>Выберите программу</option>
-        <option>Пар балдаклар (от 2 чел.)</option>
-        <option>Алтын Таш (от 2 чел.)</option>
-        <option>Туган Як (от 3 чел.)</option>
-        <option>Жиңел пар (от 4 чел.)</option>
-        <option>Кара мунча VIP (от 4 чел.)</option>
-        <option>Эх, сез матур кызлар (от 5 чел.)</option>
-        <option>Банкет (от 8 чел.)</option>
-        <option>Детокс (от 8 чел.)</option>
-        <option>Корпоратив (от 10 чел.)</option>
-        <option>Подобрать с менеджером</option>
-      </select>
-      <textarea class="ff" rows="2" placeholder="Дата, время, количество гостей, пожелания..."></textarea>
-      <div class="cb-row">
-        <input type="checkbox" id="agm" required/>
-        <label for="agm">Согласен с <a href="#" onclick="openPrivacy(event)">политикой конфиденциальности</a></label>
-      </div>
-      <button type="submit" class="btn btn-accent btn-full">Отправить →</button>
-    </form>
-  </div>
-</div>
-
-
-<!-- ════════════════════════════════════════════════
-     МОДАЛЬНОЕ ОКНО — ПОЛИТИКА
-════════════════════════════════════════════════ -->
-<div class="overlay" id="privacy-modal">
-  <div class="modal" style="max-width:600px">
-    <button class="modal-close" onclick="closeModal('privacy-modal')">✕</button>
-    <div class="modal-title" style="font-size:26px">Политика конфиденциальности</div>
-    <p style="font-size:12px;color:rgba(255,255,255,.45);line-height:1.8;margin:16px 0 10px">Банный комплекс «Мунча Ташы» уважает конфиденциальность персональных данных гостей.</p>
-    <p style="font-size:12px;color:rgba(255,255,255,.45);line-height:1.8;margin-bottom:10px"><strong style="color:rgba(255,255,255,.65)">Какие данные собираем:</strong> имя, номер телефона — только при заполнении формы обратной связи с вашего добровольного согласия.</p>
-    <p style="font-size:12px;color:rgba(255,255,255,.45);line-height:1.8;margin-bottom:10px"><strong style="color:rgba(255,255,255,.65)">Цель:</strong> связь с вами по вопросам бронирования. Данные не передаются третьим лицам.</p>
-    <p style="font-size:12px;color:rgba(255,255,255,.45);line-height:1.8"><strong style="color:rgba(255,255,255,.65)">Вопросы:</strong> <a href="tel:+79503196915" style="color:var(--warm)">+7 950 319-69-15</a></p>
-  </div>
-</div>
-
-
-<!-- ════════════════════════════════════════════════
-     JAVASCRIPT
-════════════════════════════════════════════════ -->
 <script>
-// ── STICKY CTA — показывается после скролла ────────────
 const stickyCta = document.getElementById('sticky-cta');
-window.addEventListener('scroll', () => {
-  stickyCta.classList.toggle('vis', window.scrollY > 600);
-}, { passive: true });
+window.addEventListener('scroll', () => { stickyCta.classList.toggle('vis', window.scrollY > 600); }, { passive: true });
 
-// ── МОБИЛЬНАЯ НАВИГАЦИЯ ────────────────────────────────
-function openMnav() {
-  document.getElementById('mnav').classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeMnav() {
-  document.getElementById('mnav').classList.remove('open');
-  document.body.style.overflow = '';
-}
-
-// ── МОДАЛЬНЫЕ ОКНА ─────────────────────────────────────
-function openModal(id) {
-  document.getElementById(id).classList.add('open');
-  document.body.style.overflow = 'hidden';
-}
-function closeModal(id) {
-  document.getElementById(id).classList.remove('open');
-  document.body.style.overflow = '';
-}
+function openMnav() { document.getElementById('mnav').classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeMnav() { document.getElementById('mnav').classList.remove('open'); document.body.style.overflow = ''; }
+function openModal(id) { document.getElementById(id).classList.add('open'); document.body.style.overflow = 'hidden'; }
+function closeModal(id) { document.getElementById(id).classList.remove('open'); document.body.style.overflow = ''; }
 function openBook() { openModal('book-modal'); }
 function openPrivacy(e) { e.preventDefault(); openModal('privacy-modal'); }
+document.querySelectorAll('.overlay').forEach(o => { o.addEventListener('click', e => { if (e.target === o) closeModal(o.id); }); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') document.querySelectorAll('.overlay.open').forEach(o => closeModal(o.id)); });
+function sendForm(e) { e.preventDefault(); e.target.reset(); alert('Спасибо! Заявка отправлена. Мы свяжемся с вами в течение 15 минут.'); }
+function sendBooking(e) { e.preventDefault(); closeModal('book-modal'); setTimeout(() => alert('Заявка принята! Ответим в течение 15 минут.'), 300); }
 
-// Закрытие по клику вне окна
-document.querySelectorAll('.overlay').forEach(o => {
-  o.addEventListener('click', e => { if (e.target === o) closeModal(o.id); });
-});
-document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') {
-    document.querySelectorAll('.overlay.open').forEach(o => closeModal(o.id));
-  }
-});
-
-// ── ФОРМЫ ──────────────────────────────────────────────
-function sendForm(e) {
-  e.preventDefault();
-  e.target.reset();
-  alert('Спасибо! Заявка отправлена. Мы свяжемся с вами в течение 15 минут.');
-}
-function sendBooking(e) {
-  e.preventDefault();
-  closeModal('book-modal');
-  setTimeout(() => alert('Заявка принята! Ответим в течение 15 минут.'), 300);
-}
-
-// ── ФИЛЬТР ПРОГРАММ ────────────────────────────────────
+// Фильтр программ (без изменений)
 document.querySelectorAll('.pfbtn').forEach(btn => {
   btn.addEventListener('click', () => {
     document.querySelectorAll('.pfbtn').forEach(b => b.classList.remove('act'));
@@ -1649,33 +1102,38 @@ document.querySelectorAll('.pfbtn').forEach(btn => {
     const filter = btn.dataset.f;
     document.querySelectorAll('.prog-card').forEach(card => {
       const show = filter === 'all' || card.dataset.cat === filter;
-      card.classList.toggle('hidden', !show);
+      if (!card.classList.contains('show-all-override')) {
+        card.classList.toggle('hidden', !show);
+      } else {
+        card.classList.toggle('hidden', false);
+      }
     });
   });
 });
 
-// ── SCROLL REVEAL — плавное появление элементов ────────
-const revealObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) e.target.classList.add('vis');
-  });
-}, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+let allProgramsVisible = false;
+const showAllBtn = document.getElementById('show-all-programs-btn');
+const allProgCards = document.querySelectorAll('.prog-card');
+showAllBtn.addEventListener('click', () => {
+  if (!allProgramsVisible) {
+    allProgCards.forEach(card => { card.style.display = ''; card.classList.remove('hidden'); card.classList.add('show-all-override'); });
+    showAllBtn.textContent = 'Скрыть программы';
+    allProgramsVisible = true;
+  } else {
+    allProgCards.forEach((card, idx) => { if (idx >= 3) { card.style.display = 'none'; card.classList.add('hidden'); } card.classList.remove('show-all-override'); });
+    showAllBtn.textContent = 'Показать все программы';
+    allProgramsVisible = false;
+  }
+});
+function initProgramsVisibility() { allProgCards.forEach((card, idx) => { if (idx >= 3) { card.style.display = 'none'; card.classList.add('hidden'); } }); }
+initProgramsVisibility();
 
+const revealObs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); }); }, { threshold: 0.08 });
 document.querySelectorAll('.rv').forEach(el => revealObs.observe(el));
-
-// ── ВИДЕО — обработка если не загружается ──────────────
 const heroVideo = document.querySelector('.hero-video video');
-if (heroVideo) {
-  heroVideo.addEventListener('error', () => {
-    // Если видео не загрузилось — показываем фоновое изображение
-    const heroSection = document.querySelector('.hero');
-    heroSection.style.backgroundImage = "url('images/exterior-pool.png')";
-    heroSection.style.backgroundSize = 'cover';
-    heroSection.style.backgroundPosition = 'center';
-    heroVideo.parentElement.style.display = 'none';
-  });
-}
+if (heroVideo) { heroVideo.addEventListener('error', () => { const heroSection = document.querySelector('.hero'); heroSection.style.backgroundImage = "url('images/exterior-pool.png')"; heroSection.style.backgroundSize = 'cover'; heroSection.style.backgroundPosition = 'center'; heroVideo.parentElement.style.display = 'none'; }); }
 </script>
 
 </body>
 </html>
+```
