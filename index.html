@@ -4,7 +4,7 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Мунча Ташы — Банный комплекс | Казань, д. Эстачи</title>
-<meta name="description" content="Мунча Ташы — банный комплекс в Казани. Баня по-чёрному, по-серому, авторские программы парения, SPA, купели, бассейн, кухня от шефа. +7 950 319-69-15"/>
+<meta name="description" content="Мунча Ташы — банный комплекс в Казани. Баня по-чёрному, по-серому, авторские программы парения, SPA, купели, бассейн, кухня от шефа. +267-14-67"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet"/>
@@ -106,7 +106,9 @@ h2.htitle em{font-style:italic;color:var(--accent)}
 .btn-full{width:100%}
 .btn-scroll{cursor:pointer}
 
-/* HEADER */
+/* ══════════════════════════════════════════════════
+   HEADER — logo left, nav center, phone+button right
+══════════════════════════════════════════════════ */
 header{
   position:relative;
   width:100%;
@@ -117,21 +119,93 @@ header{
   border-bottom:1px solid var(--sand);
 }
 .hdr-inner{
-  display:flex;align-items:center;justify-content:space-between;
+  display:grid;
+  grid-template-columns:1fr auto 1fr;
+  align-items:center;
   padding:18px clamp(20px,5vw,72px);
-  max-width:1200px;margin:0 auto;
+  max-width:1200px;
+  margin:0 auto;
+  gap:16px;
 }
-.hlogo{display:flex;align-items:center;gap:12px;font-family:var(--ff-h);font-size:22px;font-weight:500;color:var(--bark);letter-spacing:.02em;flex-shrink:0;}
-.hlogo img{width:46px;height:46px;object-fit:contain}
-.hlogo span small{display:block;font-family:var(--ff-b);font-size:9px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-top:1px;}
-.hnav{display:flex;align-items:center;gap:28px}
-.hnav a{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--bark);opacity:.7;transition:opacity .2s,color .2s;}
-.hnav a:hover{opacity:1;color:var(--accent)}
-.hcontact{display:flex;align-items:center;gap:20px;}
-.hphone{font-size:14px;font-weight:600;color:var(--bark);}
-.hphone:hover{color:var(--accent)}
-.hburger{display:none;flex-direction:column;gap:5px;width:28px;cursor:pointer;padding:4px 0;}
-.hburger span{height:2px;background:var(--bark);border-radius:2px;transition:all .3s;}
+/* Logo — left column */
+.hlogo{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-family:var(--ff-h);
+  font-size:20px;
+  font-weight:500;
+  color:var(--bark);
+  letter-spacing:.02em;
+  justify-self:start;
+  white-space:nowrap;
+}
+.hlogo img{
+  width:46px;
+  height:46px;
+  object-fit:contain;
+}
+.hlogo span small{
+  display:block;
+  font-family:var(--ff-b);
+  font-size:9px;
+  font-weight:600;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:var(--accent);
+  margin-top:1px;
+}
+/* Nav — center column */
+.hnav{
+  display:flex;
+  align-items:center;
+  gap:24px;
+  justify-self:center;
+}
+.hnav a{
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.1em;
+  text-transform:uppercase;
+  color:var(--bark);
+  opacity:.7;
+  transition:opacity .2s,color .2s;
+  white-space:nowrap;
+}
+.hnav a:hover{
+  opacity:1;
+  color:var(--accent);
+}
+/* Contact — right column */
+.hcontact{
+  display:flex;
+  align-items:center;
+  gap:16px;
+  justify-self:end;
+}
+.hphone{
+  font-size:14px;
+  font-weight:600;
+  color:var(--bark);
+  white-space:nowrap;
+}
+.hphone:hover{
+  color:var(--accent);
+}
+.hburger{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  width:28px;
+  cursor:pointer;
+  padding:4px 0;
+}
+.hburger span{
+  height:2px;
+  background:var(--bark);
+  border-radius:2px;
+  transition:all .3s;
+}
 
 /* HERO */
 .hero{position:relative;min-height:88vh;overflow:hidden;display:flex;align-items:center;justify-content:center;}
@@ -177,22 +251,22 @@ header{
 .bani-card-title{font-family:var(--ff-h);font-size:26px;font-weight:400;color:var(--bark);margin-bottom:10px;}
 .bani-card-desc{font-size:13px;line-height:1.7;color:var(--bark);opacity:.7;margin-bottom:16px}
 .bani-card-price{font-size:14px;font-weight:600;color:var(--accent);margin-bottom:18px;}
-.bani-notice{background:var(--light);border-radius:14px;padding:20px 24px;margin-top:28px;display:flex;align-items:center;gap:14px;border-left:4px solid var(--accent);}
-.bani-notice p{font-size:13px;color:var(--bark);opacity:.8}
+.bani-card .btn-outline{display:none;}
+.bani-notice{display:none;}
 
 /* PROGRAMS */
 .prog-filter{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:40px;}
 .pfbtn{padding:9px 22px;border-radius:30px;font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;border:1.5px solid var(--taupe);color:var(--bark);cursor:pointer;transition:all .25s var(--ease);}
 .pfbtn:hover,.pfbtn.act{background:var(--accent);border-color:var(--accent);color:var(--white);}
 .prog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:28px;}
-.prog-card{background:var(--white);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);transition:transform .35s var(--ease),box-shadow .35s,opacity .3s;}
+.prog-card{background:var(--white);border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow);transition:transform .35s var(--ease),box-shadow .35s,opacity .3s;display:flex;flex-direction:column;}
 .prog-card:hover{transform:translateY(-5px);box-shadow:var(--shadow2)}
 .prog-card.hidden{display:none}
 .prog-card-img{height:200px;overflow:hidden;position:relative;}
 .prog-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s var(--ease);}
 .prog-card:hover .prog-card-img img{transform:scale(1.07)}
 .prog-card-tag{position:absolute;top:12px;left:12px;background:rgba(250,246,240,.92);backdrop-filter:blur(6px);border-radius:30px;padding:4px 12px;font-size:9px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);}
-.prog-card-body{padding:22px 24px 26px}
+.prog-card-body{padding:22px 24px 26px;display:flex;flex-direction:column;flex:1;}
 .prog-card-title{font-family:var(--ff-h);font-size:24px;font-weight:400;color:var(--bark);margin-bottom:8px;line-height:1.2;}
 .prog-card-guests{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent-light);margin-bottom:10px;}
 .prog-card-items{list-style:none;margin-bottom:18px;}
@@ -203,7 +277,7 @@ header{
 .prog-price-time{font-size:10px;font-weight:600;letter-spacing:.08em;color:var(--bark);opacity:.5;margin-bottom:3px}
 .prog-price-old{font-size:11px;text-decoration:line-through;color:var(--bark);opacity:.4}
 .prog-price-new{font-size:16px;font-weight:700;color:var(--accent)}
-.prog-price-per{font-size:9px;color:var(--bark);opacity:.5}
+.prog-card-body .btn-accent.btn-full{margin-top:auto;}
 .show-all-wrapper{text-align:center;margin-top:40px;}
 .btn-show-all{padding:14px 42px;font-size:12px;}
 
@@ -453,7 +527,7 @@ header{
   }
 }
 
-/* ВИДЕО БЛОК (кнопка вместо галереи) */
+/* ВИДЕО БЛОК */
 .video-block{
   text-align:center;
   padding:60px 20px;
@@ -559,6 +633,25 @@ header{
 .cb-row label{font-size:11px;color:rgba(255,255,255,.4);line-height:1.6}
 .cb-row a{color:var(--warm);text-decoration:underline}
 
+select.ff {
+  background-color: rgba(42,58,37,0.95);
+  color: #FAF6F0;
+  cursor: pointer;
+}
+select.ff option {
+  background-color: #FAF6F0;
+  color: #2C3E2B;
+  padding: 10px;
+}
+.modal select.ff {
+  background-color: rgba(42,58,37,0.95);
+  color: #FAF6F0;
+}
+.modal select.ff option {
+  background-color: #FAF6F0;
+  color: #2C3E2B;
+}
+
 /* КОНТАКТЫ */
 .contacts-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:28px;margin:40px 0;}
 .ci-label{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);margin-bottom:8px;}
@@ -602,7 +695,9 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.5);padding:48px 0 32px;
 .rv{opacity:0;transform:translateY(32px);transition:opacity .7s var(--ease),transform .7s var(--ease);}
 .rv.vis{opacity:1;transform:translateY(0);}
 
-/* АДАПТИВ */
+/* ══════════════════════════════════════════════════
+   АДАПТИВ
+══════════════════════════════════════════════════ */
 @media(max-width:1024px){
   .intro-grid,.kids-grid{grid-template-columns:1fr}
   .info-grid{grid-template-columns:repeat(2,1fr)}
@@ -611,11 +706,27 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.5);padding:48px 0 32px;
   .menu-duo{grid-template-columns:1fr;gap:32px;}
   .carousel-arrow.prev{left:0;}
   .carousel-arrow.next{right:0;}
+  /* On medium screens collapse nav if it gets too tight */
+  .hnav{gap:16px;}
+  .hnav a{font-size:10px;}
+}
+@media(max-width:900px){
+  /* Switch header to simple flex when 3-column grid is too tight */
+  .hdr-inner{
+    grid-template-columns:1fr auto;
+    grid-template-areas:
+      "logo actions";
+  }
+  .hlogo{grid-area:logo;}
+  .hcontact{grid-area:actions;}
+  .hnav{display:none;}
+  .hburger{display:flex;}
+  .hphone{display:none;}
 }
 @media(max-width:768px){
-  .hnav{display:none}
-  .hphone{display:none}
-  .hburger{display:flex}
+  .hdr-inner{
+    grid-template-columns:1fr auto;
+  }
   .bani-grid{grid-template-columns:1fr}
   .album-grid{grid-template-columns:1fr}
   .prog-grid{grid-template-columns:1fr}
@@ -626,6 +737,8 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.5);padding:48px 0 32px;
   .intro-features-strict .feature-item{flex-direction:column;align-items:flex-start;gap:6px;}
   .intro-features-strict .feature-desc{text-align:left}
   .carousel-arrow{width:32px;height:32px;font-size:16px;top:30%;}
+  /* Hide booking button text on very small screens to save space */
+  .hcontact .btn-accent{padding:11px 18px;font-size:10px;}
 }
 </style>
 </head>
@@ -633,13 +746,43 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.5);padding:48px 0 32px;
 
 <header>
   <div class="hdr-inner">
-    <a href="#" class="hlogo"><img src="images/logo.png" alt="Мунча Ташы" onerror="this.style.display='none'"/><span>Мунча Ташы<small>Банный комплекс</small></span></a>
-    <nav class="hnav"><a href="#bani">Бани</a><a href="#programs">Программы</a><a href="#menu">Меню</a><a href="#dop">Услуги</a><a href="#album">Галерея</a><a href="#info">О нас</a><a href="#faq">Вопросы</a><a href="#contacts">Контакты</a></nav>
-    <div class="hcontact"><a href="tel:+79503196915" class="hphone" style="white-space: nowrap;">+7 950 319-69-15</a><button class="btn btn-accent btn-scroll" onclick="scrollToBooking()">Забронировать</button></div>
-    <div class="hburger" onclick="openMnav()"><span></span><span></span><span></span></div>
+    <!-- LEFT: Logo -->
+    <a href="#" class="hlogo">
+      <img src="images/logo.png" alt="Мунча Ташы" onerror="this.style.display='none'"/>
+      <span>Мунча Ташы<small>Банный комплекс</small></span>
+    </a>
+    <!-- CENTER: Navigation -->
+    <nav class="hnav">
+      <a href="#bani">Бани</a>
+      <a href="#programs">Программы</a>
+      <a href="#menu">Меню</a>
+      <a href="#dop">Услуги</a>
+      <a href="#album">Галерея</a>
+      <a href="#info">О нас</a>
+      <a href="#faq">Вопросы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <!-- RIGHT: Phone + Book button + Burger -->
+    <div class="hcontact">
+      <a href="tel:+26714-67" class="hphone">+267-14-67</a>
+      <button class="btn btn-accent btn-scroll" onclick="scrollToBooking()">Забронировать</button>
+      <div class="hburger" onclick="openMnav()"><span></span><span></span><span></span></div>
+    </div>
   </div>
 </header>
-<nav class="mobile-nav" id="mnav"><span class="mnav-close" onclick="closeMnav()">✕</span><a href="#bani" onclick="closeMnav()">Бани</a><a href="#programs" onclick="closeMnav()">Программы</a><a href="#menu" onclick="closeMnav()">Меню</a><a href="#dop" onclick="closeMnav()">Услуги</a><a href="#album" onclick="closeMnav()">Галерея</a><a href="#info" onclick="closeMnav()">О нас</a><a href="#faq" onclick="closeMnav()">Вопросы</a><a href="#contacts" onclick="closeMnav()">Контакты</a><a href="tel:+79503196915">+7 950 319-69-15</a></nav>
+
+<nav class="mobile-nav" id="mnav">
+  <span class="mnav-close" onclick="closeMnav()">✕</span>
+  <a href="#bani" onclick="closeMnav()">Бани</a>
+  <a href="#programs" onclick="closeMnav()">Программы</a>
+  <a href="#menu" onclick="closeMnav()">Меню</a>
+  <a href="#dop" onclick="closeMnav()">Услуги</a>
+  <a href="#album" onclick="closeMnav()">Галерея</a>
+  <a href="#info" onclick="closeMnav()">О нас</a>
+  <a href="#faq" onclick="closeMnav()">Вопросы</a>
+  <a href="#contacts" onclick="closeMnav()">Контакты</a>
+  <a href="tel:+26714-67">+267-14-67</a>
+</nav>
 
 <!-- HERO -->
 <section class="hero" id="hero">
@@ -669,7 +812,7 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.5);padding:48px 0 32px;
 </section>
 
 <!-- БАНИ -->
-<section class="sec sec--light" id="bani"><div class="wrap"><div class="eyebrow rv">Наши бани</div><h2 class="htitle rv">Эксклюзив. <em>Старые традиции.</em><br/>Топка на дровах</h2><div class="bani-grid"><div class="bani-card rv"><div class="bani-card-img"><img src="images/НАДО ФОТО" alt="Баня по-серому"/><span class="bani-badge">По-серому</span></div><div class="bani-card-body"><div class="bani-card-title">Баня по-серому</div><p class="bani-card-desc">Классическая русская парная с мягким, бархатным паром. Идеальна для первого знакомства с банными ритуалами.</p><div class="bani-card-price">от 2 500 ₽/час</div><button class="btn btn-accent btn-full btn-scroll" onclick="scrollToBooking()">Забронировать</button></div></div><div class="bani-card rv"><div class="bani-card-img"><img src="images/ЧернаяБаня.jpg" alt="Баня по-чёрному"/><span class="bani-badge">По-чёрному</span></div><div class="bani-card-body"><div class="bani-card-title">Баня по-чёрному</div><p class="bani-card-desc">Аутентичная курная баня — жаркий и плотный пар. Самый традиционный и сильный вид бани.</p><div class="bani-card-price">от 3 000 ₽/час</div><button class="btn btn-accent btn-full btn-scroll" onclick="scrollToBooking()">Забронировать</button></div></div><div class="bani-card rv"><div class="bani-card-img"><img src="images/НАДО ФОТО" alt="Баня по-белому"/><span class="bani-badge bani-badge-build">Строится</span></div><div class="bani-card-body"><div class="bani-card-title">Баня по-белому</div><p class="bani-card-desc">Современная белая баня с печью-каменкой и чистым паром. Строятся 2 новые бани.</p><div class="bani-card-price">Стоимость уточняется</div><button class="btn btn-outline btn-full btn-scroll" onclick="scrollToBooking()">Узнать о открытии</button></div></div></div><div class="bani-notice rv"><span>🏗️</span><p>В разработке ещё <strong>2 бани по белому</strong> — откроются осенью 2026 года.</p></div></div></section>
+<section class="sec sec--light" id="bani"><div class="wrap"><div class="eyebrow rv">Наши бани</div><h2 class="htitle rv">Эксклюзив. <em>Старые традиции.</em><br/>Топка на дровах</h2><div class="bani-grid"><div class="bani-card rv"><div class="bani-card-img"><img src="images/НАДО ФОТО" alt="Баня по-серому"/><span class="bani-badge">По-серому</span></div><div class="bani-card-body"><div class="bani-card-title">Баня по-серому</div><p class="bani-card-desc">Классическая русская парная с мягким, бархатным паром. Идеальна для первого знакомства с банными ритуалами.</p><div class="bani-card-price">от 2 500 ₽/час</div><button class="btn btn-accent btn-full btn-scroll" onclick="scrollToBooking()">Забронировать</button></div></div><div class="bani-card rv"><div class="bani-card-img"><img src="images/ЧернаяБаня.jpg" alt="Баня по-чёрному"/><span class="bani-badge">По-чёрному</span></div><div class="bani-card-body"><div class="bani-card-title">Баня по-чёрному</div><p class="bani-card-desc">Аутентичная курная баня — жаркий и плотный пар. Самый традиционный и сильный вид бани.</p><div class="bani-card-price">от 3 000 ₽/час</div><button class="btn btn-accent btn-full btn-scroll" onclick="scrollToBooking()">Забронировать</button></div></div><div class="bani-card rv"><div class="bani-card-img"><img src="images/НАДО ФОТО" alt="Баня по-белому"/><span class="bani-badge bani-badge-build">Строится</span></div><div class="bani-card-body"><div class="bani-card-title">Баня по-белому</div><p class="bani-card-desc">Современная белая баня с печью-каменкой и чистым паром. Строятся 2 новые бани.</p><div class="bani-card-price">Стоимость уточняется</div></div></div></div></div></section>
 
 <!-- МЕНЮ -->
 <section class="sec" id="menu"><div class="wrap"><div class="eyebrow rv">Банный стол</div><h2 class="htitle rv">Кухня <em>от шефа</em></h2>
@@ -691,17 +834,123 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.5);padding:48px 0 32px;
 <div class="download-menu rv" style="text-align:center;"><a href="files/menu.pdf" class="btn btn-accent btn-download" download="Меню_Мунча_Ташы_2026.pdf">📄 Скачать меню (PDF)</a><p style="font-size:11px;margin-top:16px;opacity:.5;">* полные позиции и цены — в PDF-меню</p></div></div></section>
 
 <!-- ПРОГРАММЫ -->
-<section class="sec" id="programs"><div class="wrap"><div class="eyebrow rv">Авторские программы</div><h2 class="htitle rv">Программы <em>на любой случай</em></h2><p class="rv" style="font-size:14px;opacity:.65;max-width:520px;margin-bottom:36px">Каждая программа включает встречу гостей, чайный сет, профессиональное парение и застолье от шеф-повара</p><div class="prog-filter rv"><button class="pfbtn act" data-f="all">Все</button><button class="pfbtn" data-f="pair">Для двоих</button><button class="pfbtn" data-f="small">Малая группа</button><button class="pfbtn" data-f="group">Компания</button><button class="pfbtn" data-f="vip">VIP</button></div><div class="prog-grid" id="prog-grid">
-<div class="prog-card rv" data-cat="pair"><div class="prog-card-img"><img src="images/8.png" alt="Пар балдаклар"/><span class="prog-card-tag">от 2 взрослых</span></div><div class="prog-card-body"><div class="prog-card-guests">от 2 взрослых</div><div class="prog-card-title">Пар балдаклар</div><ul class="prog-card-items"><li>Чайный сет</li><li>Ароматный пар с травами</li><li>Авторское парение (40-45 мин)</li><li>Контраст в купели</li><li>Флоатинг в бассейне</li><li>Скрабирование</li><li>Помывка мочалом</li><li>Отдых на качели</li><li>Блюда от шефа</li></ul><div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">11:00–15:00</div><div class="prog-price-new">22.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">17:00–22:00</div><div class="prog-price-new">24.000 ₽</div><div class="prog-price-per">на человека</div></div></div><button class="btn btn-accent btn-full btn-scroll" onclick="scrollToBooking()">Забронировать</button></div></div>
-<div class="prog-card rv" data-cat="pair"><div class="prog-card-img"><img src="images/3.png" alt="Алтын Таш"/><span class="prog-card-tag">от 2 взрослых</span></div><div class="prog-card-body"><div class="prog-card-guests">от 2 взрослых</div><div class="prog-card-title">Алтын Таш</div><ul class="prog-card-items"><li>Чайный сет</li><li>Первый пар с травами</li><li>Греющий пар (40-45 мин)</li><li>Контраст в купели</li><li>Флоатинг в бассейне</li><li>Скрабирование</li><li>Массаж (40 мин)</li><li>Горячий чан</li><li>Застолье от шефа</li></ul><div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">11:00–15:00</div><div class="prog-price-new">29.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">17:00–22:00</div><div class="prog-price-new">31.000 ₽</div><div class="prog-price-per">на человека</div></div></div><button class="btn btn-accent btn-full btn-scroll" onclick="scrollToBooking()">Забронировать</button></div></div>
-<div class="prog-card rv" data-cat="small"><div class="prog-card-img"><img src="images/5.png" alt="Туган Як"/><span class="prog-card-tag">от 3 взрослых</span></div><div class="prog-card-body"><div class="prog-card-guests">от 3 взрослых</div><div class="prog-card-title">Туган Як</div><ul class="prog-card-items"><li>Чайный сет</li><li>Ароматный пар</li><li>Авторское парение (40-45 мин)</li><li>Скрабирование</li><li>Контраст в купели</li><li>Флоатинг в бассейне</li><li>Расслабление</li><li>Застолье от шефа</li></ul><div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">11:00–15:00</div><div class="prog-price-new">17.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">17:00–22:00</div><div class="prog-price-new">19.000 ₽</div><div class="prog-price-per">на человека</div></div></div><button class="btn btn-accent btn-full btn-scroll" onclick="scrollToBooking()">Забронировать</button></div></div>
-<div class="prog-card rv" data-cat="small"><div class="prog-card-img"><img src="images/9.png" alt="Жиңел пар"/><span class="prog-card-tag">от 4 взрослых</span></div><div class="prog-card-body"><div class="prog-card-guests">от 4 взрослых</div><div class="prog-card-title">Жиңел пар</div><ul class="prog-card-items"><li>Чайный сет</li><li>Ароматный пар</li><li>Традиционное парение (25-30 мин)</li><li>Флоатинг</li><li>Контраст</li><li>Застолье</li></ul><div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">11:00–15:00</div><div class="prog-price-new">15.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">17:00–22:00</div><div class="prog-price-new">17.000 ₽</div><div class="prog-price-per">на человека</div></div></div><button class="btn btn-accent btn-full btn-scroll" onclick="scrollToBooking()">Забронировать</button></div></div>
-<div class="prog-card rv" data-cat="small"><div class="prog-card-img"><img src="images/11.png" alt="Эх, сез матур кызлар"/><span class="prog-card-tag">от 5 взрослых</span></div><div class="prog-card-body"><div class="prog-card-guests">от 5 взрослых</div><div class="prog-card-title">Эх, сез матур кызлар</div><ul class="prog-card-items"><li>Чайный сет</li><li>Ароматный прогрев</li><li>Скрабирование</li><li>Прогрев дубовыми вениками</li><li>Обогреваемый бассейн</li><li>Горячий чан</li><li>Застолье от шефа</li></ul><div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">11:00–15:00</div><div class="prog-price-new">11.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">17:00–22:00</div><div class="prog-price-new">13.000 ₽</div><div class="prog-price-per">на человека</div></div></div><button class="btn btn-accent btn-full btn-scroll" onclick="scrollToBooking()">Забронировать</button></div></div>
-<div class="prog-card rv" data-cat="group"><div class="prog-card-img"><img src="images/10.png" alt="Банкет"/><span class="prog-card-tag">от 8 взрослых</span></div><div class="prog-card-body"><div class="prog-card-guests">от 8 взрослых</div><div class="prog-card-title">Банкет</div><ul class="prog-card-items"><li>Чайный сет</li><li>Стол от шеф-повара</li><li>Горячий чан</li><li>Расслабление</li><li>Холодная купель</li><li>Обогреваемый бассейн</li></ul><div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">11:00–15:00</div><div class="prog-price-new">8.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">17:00–22:00</div><div class="prog-price-new">10.000 ₽</div><div class="prog-price-per">на человека</div></div></div><button class="btn btn-accent btn-full btn-scroll" onclick="scrollToBooking()">Забронировать</button></div></div>
-<div class="prog-card rv" data-cat="group"><div class="prog-card-img"><img src="images/1.png" alt="Детокс"/><span class="prog-card-tag">от 8 взрослых</span></div><div class="prog-card-body"><div class="prog-card-guests">от 8 взрослых</div><div class="prog-card-title">Детокс</div><ul class="prog-card-items"><li>Чайный сет</li><li>Парение тела</li><li>Иммунный шот</li><li>Обогреваемый бассейн</li><li>Расслабление</li><li>Холодная купель</li><li>Горячий чан</li></ul><div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">11:00–15:00</div><div class="prog-price-new">9.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">17:00–22:00</div><div class="prog-price-new">11.000 ₽</div><div class="prog-price-per">на человека</div></div></div><button class="btn btn-accent btn-full btn-scroll" onclick="scrollToBooking()">Забронировать</button></div></div>
-<div class="prog-card rv" data-cat="group"><div class="prog-card-img"><img src="images/7.png" alt="Корпоратив"/><span class="prog-card-tag">от 10 взрослых</span></div><div class="prog-card-body"><div class="prog-card-guests">от 10 взрослых</div><div class="prog-card-title">Корпоратив</div><ul class="prog-card-items"><li>Чайный сет</li><li>Приветственный пар</li><li>Пробивка дубовыми вениками</li><li>Заплыв в бассейне</li><li>Контраст в купели</li><li>Горячий чан</li><li>Роскошное застолье</li></ul><div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">11:00–15:00</div><div class="prog-price-new">12.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">17:00–22:00</div><div class="prog-price-new">14.000 ₽</div><div class="prog-price-per">на человека</div></div></div><button class="btn btn-accent btn-full btn-scroll" onclick="scrollToBooking()">Забронировать</button></div></div>
-<div class="prog-card rv" data-cat="vip"><div class="prog-card-img"><img src="images/6.png" alt="Кара мунча"/><span class="prog-card-tag">VIP от 4 взрослых</span></div><div class="prog-card-body"><div class="prog-card-guests">от 4 взрослых</div><div class="prog-card-title">Кара мунча</div><ul class="prog-card-items"><li>Чайный сет</li><li>Пар в бане по-серому</li><li>Сет чёрной икры</li><li>Парение в бане по-чёрному</li><li>Массаж (40 мин)</li><li>Горячий чан</li><li>Застолье от шефа</li></ul><div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">10:00–15:00</div><div class="prog-price-new">52.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">17:00–22:00</div><div class="prog-price-new">54.000 ₽</div><div class="prog-price-per">на человека</div></div></div><button class="btn btn-accent btn-full btn-scroll" onclick="scrollToBooking()">Забронировать</button></div></div>
-</div><div class="show-all-wrapper"><button class="btn btn-accent btn-show-all" id="show-all-programs-btn">Показать все программы</button></div></div></section>
+<section class="sec" id="programs"><div class="wrap">
+  <div class="eyebrow rv">Авторские программы</div>
+  <h2 class="htitle rv">Программы <em>на любой случай</em></h2>
+  <p class="rv" style="font-size:14px;opacity:.65;max-width:520px;margin-bottom:36px">Каждая программа включает встречу гостей, чайный сет, профессиональное парение и застолье от шеф-повара</p>
+  <div class="prog-filter rv">
+    <button class="pfbtn act" data-f="all">Все</button>
+    <button class="pfbtn" data-f="pair">Для двоих</button>
+    <button class="pfbtn" data-f="small">Малая группа</button>
+    <button class="pfbtn" data-f="group">Компания</button>
+    <button class="pfbtn" data-f="vip">VIP</button>
+  </div>
+  <div class="prog-grid" id="prog-grid">
+
+    <div class="prog-card rv" data-cat="pair">
+      <div class="prog-card-img"><img src="images/8.png" alt="Пар балдаклар"/><span class="prog-card-tag">от 2 взрослых</span></div>
+      <div class="prog-card-body">
+        <div class="prog-card-guests">от 2 взрослых</div>
+        <div class="prog-card-title">Пар балдаклар</div>
+        <ul class="prog-card-items"><li>Чайный сет</li><li>Ароматный пар с травами</li><li>Авторское парение (40-45 мин)</li><li>Контраст в купели</li><li>Флоатинг в бассейне</li><li>Скрабирование</li><li>Помывка мочалом</li><li>Отдых на качели</li><li>Блюда от шефа</li></ul>
+        <div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">11:00–15:00</div><div class="prog-price-new">22.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">17:00–22:00</div><div class="prog-price-new">24.000 ₽</div><div class="prog-price-per">на человека</div></div></div>
+        <button class="btn btn-accent btn-full btn-scroll" onclick="scrollToBooking()">Забронировать</button>
+      </div>
+    </div>
+
+    <div class="prog-card rv" data-cat="pair">
+      <div class="prog-card-img"><img src="images/3.png" alt="Алтын Таш"/><span class="prog-card-tag">от 2 взрослых</span></div>
+      <div class="prog-card-body">
+        <div class="prog-card-guests">от 2 взрослых</div>
+        <div class="prog-card-title">Алтын Таш</div>
+        <ul class="prog-card-items"><li>Чайный сет</li><li>Первый пар с травами</li><li>Греющий пар (40-45 мин)</li><li>Контраст в купели</li><li>Флоатинг в бассейне</li><li>Скрабирование</li><li>Массаж (40 мин)</li><li>Горячий чан</li><li>Застолье от шефа</li></ul>
+        <div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">11:00–15:00</div><div class="prog-price-new">29.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">17:00–22:00</div><div class="prog-price-new">31.000 ₽</div><div class="prog-price-per">на человека</div></div></div>
+        <button class="btn btn-accent btn-full btn-scroll" onclick="scrollToBooking()">Забронировать</button>
+      </div>
+    </div>
+
+    <div class="prog-card rv" data-cat="small">
+      <div class="prog-card-img"><img src="images/5.png" alt="Туган Як"/><span class="prog-card-tag">от 3 взрослых</span></div>
+      <div class="prog-card-body">
+        <div class="prog-card-guests">от 3 взрослых</div>
+        <div class="prog-card-title">Туган Як</div>
+        <ul class="prog-card-items"><li>Чайный сет</li><li>Ароматный пар</li><li>Авторское парение (40-45 мин)</li><li>Скрабирование</li><li>Контраст в купели</li><li>Флоатинг в бассейне</li><li>Расслабление</li><li>Застолье от шефа</li></ul>
+        <div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">11:00–15:00</div><div class="prog-price-new">17.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">17:00–22:00</div><div class="prog-price-new">19.000 ₽</div><div class="prog-price-per">на человека</div></div></div>
+        <button class="btn btn-accent btn-full btn-scroll" onclick="scrollToBooking()">Забронировать</button>
+      </div>
+    </div>
+
+    <div class="prog-card rv" data-cat="small">
+      <div class="prog-card-img"><img src="images/9.png" alt="Жиңел пар"/><span class="prog-card-tag">от 4 взрослых</span></div>
+      <div class="prog-card-body">
+        <div class="prog-card-guests">от 4 взрослых</div>
+        <div class="prog-card-title">Жиңел пар</div>
+        <ul class="prog-card-items"><li>Чайный сет</li><li>Ароматный пар</li><li>Традиционное парение (25-30 мин)</li><li>Флоатинг</li><li>Контраст</li><li>Застолье</li></ul>
+        <div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">11:00–15:00</div><div class="prog-price-new">15.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">17:00–22:00</div><div class="prog-price-new">17.000 ₽</div><div class="prog-price-per">на человека</div></div></div>
+        <button class="btn btn-accent btn-full btn-scroll" onclick="scrollToBooking()">Забронировать</button>
+      </div>
+    </div>
+
+    <div class="prog-card rv" data-cat="small">
+      <div class="prog-card-img"><img src="images/11.png" alt="Эх, сез матур кызлар"/><span class="prog-card-tag">от 5 взрослых</span></div>
+      <div class="prog-card-body">
+        <div class="prog-card-guests">от 5 взрослых</div>
+        <div class="prog-card-title">Эх, сез матур кызлар</div>
+        <ul class="prog-card-items"><li>Чайный сет</li><li>Ароматный прогрев</li><li>Скрабирование</li><li>Прогрев дубовыми вениками</li><li>Обогреваемый бассейн</li><li>Горячий чан</li><li>Застолье от шефа</li></ul>
+        <div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">11:00–15:00</div><div class="prog-price-new">11.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">17:00–22:00</div><div class="prog-price-new">13.000 ₽</div><div class="prog-price-per">на человека</div></div></div>
+        <button class="btn btn-accent btn-full btn-scroll" onclick="scrollToBooking()">Забронировать</button>
+      </div>
+    </div>
+
+    <div class="prog-card rv" data-cat="group">
+      <div class="prog-card-img"><img src="images/10.png" alt="Банкет"/><span class="prog-card-tag">от 8 взрослых</span></div>
+      <div class="prog-card-body">
+        <div class="prog-card-guests">от 8 взрослых</div>
+        <div class="prog-card-title">Банкет</div>
+        <ul class="prog-card-items"><li>Чайный сет</li><li>Стол от шеф-повара</li><li>Горячий чан</li><li>Расслабление</li><li>Холодная купель</li><li>Обогреваемый бассейн</li></ul>
+        <div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">11:00–15:00</div><div class="prog-price-new">8.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">17:00–22:00</div><div class="prog-price-new">10.000 ₽</div><div class="prog-price-per">на человека</div></div></div>
+        <button class="btn btn-accent btn-full btn-scroll" onclick="scrollToBooking()">Забронировать</button>
+      </div>
+    </div>
+
+    <div class="prog-card rv" data-cat="group">
+      <div class="prog-card-img"><img src="images/1.png" alt="Детокс"/><span class="prog-card-tag">от 8 взрослых</span></div>
+      <div class="prog-card-body">
+        <div class="prog-card-guests">от 8 взрослых</div>
+        <div class="prog-card-title">Детокс</div>
+        <ul class="prog-card-items"><li>Чайный сет</li><li>Парение тела</li><li>Иммунный шот</li><li>Обогреваемый бассейн</li><li>Расслабление</li><li>Холодная купель</li><li>Горячий чан</li></ul>
+        <div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">11:00–15:00</div><div class="prog-price-new">9.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">17:00–22:00</div><div class="prog-price-new">11.000 ₽</div><div class="prog-price-per">на человека</div></div></div>
+        <button class="btn btn-accent btn-full btn-scroll" onclick="scrollToBooking()">Забронировать</button>
+      </div>
+    </div>
+
+    <div class="prog-card rv" data-cat="group">
+      <div class="prog-card-img"><img src="images/7.png" alt="Корпоратив"/><span class="prog-card-tag">от 10 взрослых</span></div>
+      <div class="prog-card-body">
+        <div class="prog-card-guests">от 10 взрослых</div>
+        <div class="prog-card-title">Корпоратив</div>
+        <ul class="prog-card-items"><li>Чайный сет</li><li>Приветственный пар</li><li>Пробивка дубовыми вениками</li><li>Заплыв в бассейне</li><li>Контраст в купели</li><li>Горячий чан</li><li>Роскошное застолье</li></ul>
+        <div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">11:00–15:00</div><div class="prog-price-new">12.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">17:00–22:00</div><div class="prog-price-new">14.000 ₽</div><div class="prog-price-per">на человека</div></div></div>
+        <button class="btn btn-accent btn-full btn-scroll" onclick="scrollToBooking()">Забронировать</button>
+      </div>
+    </div>
+
+    <div class="prog-card rv" data-cat="vip">
+      <div class="prog-card-img"><img src="images/6.png" alt="Кара мунча"/><span class="prog-card-tag">VIP от 4 взрослых</span></div>
+      <div class="prog-card-body">
+        <div class="prog-card-guests">от 4 взрослых</div>
+        <div class="prog-card-title">Кара мунча</div>
+        <ul class="prog-card-items"><li>Чайный сет</li><li>Пар в бане по-серому</li><li>Сет чёрной икры</li><li>Парение в бане по-чёрному</li><li>Массаж (40 мин)</li><li>Горячий чан</li><li>Застолье от шефа</li></ul>
+        <div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">10:00–15:00</div><div class="prog-price-new">52.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">17:00–22:00</div><div class="prog-price-new">54.000 ₽</div><div class="prog-price-per">на человека</div></div></div>
+        <button class="btn btn-accent btn-full btn-scroll" onclick="scrollToBooking()">Забронировать</button>
+      </div>
+    </div>
+
+  </div>
+  <div class="show-all-wrapper">
+    <button class="btn btn-accent btn-show-all" id="show-all-programs-btn">Показать все программы</button>
+  </div>
+</div></section>
 
 <!-- ДЕТСКАЯ ПРОГРАММА -->
 <section class="sec sec--sand" id="kids"><div class="wrap"><div class="kids-grid"><div><div class="eyebrow rv">Детская программа</div><h2 class="htitle rv">Бала Чага<br/><em>для маленьких гостей</em></h2><p class="rv" style="font-size:14px;opacity:.65;margin-bottom:8px">Специальная программа для детей — щадящий пар, детская комната, возможность пригласить няню.</p><p class="rv" style="font-size:12px;opacity:.5;margin-bottom:28px">* по предъявлению свидетельства о рождении или паспорта ребёнка</p><div class="kids-tiers"><div class="kids-tier rv"><div class="kids-tier-title">Грудничкам — бесплатно</div></div><div class="kids-tier rv"><div class="kids-tier-title">Дети до 7 лет (включительно)</div><div class="kids-tier-price">~6.000 ₽</div><ul class="kids-tier-items"><li>Чайный сет</li><li>Общий пар с ароматом трав</li><li>Тёплый душ или бассейн</li><li>Отдых в детской комнате</li><li>Основное блюдо из детского меню</li></ul></div><div class="kids-tier rv"><div class="kids-tier-title">Дети до 12 лет (включительно)</div><div class="kids-tier-price">~ 50% скидка</div><p style="font-size:12px;opacity:.6">(программа, выбранная взрослыми)</p></div></div></div><div class="kids-img rv"><img src="images/4.png" alt="Детская программа"/></div></div></div></section>
@@ -724,16 +973,15 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.5);padding:48px 0 32px;
 </div>
 </div></section>
 
-<!-- АЛЬБОМ БАНИ (вместо старой галереи "Атмосфера") -->
+<!-- АЛЬБОМ БАНИ -->
 <section class="sec sec--light" id="album"><div class="wrap"><div class="eyebrow rv">Галерея</div><h2 class="htitle rv">Наш комплекс <em>в деталях</em></h2><div class="album-grid">
-  <div class="album-item" onclick="openLightbox('images/photo1.jpg')"><img src="images/photo1.jpg" alt="Парная" onerror="this.src='https://placehold.co/600x400/E8DCD0/4A6B3C?text=Парная';"/><div class="album-caption">Парная</div></div>
-  <div class="album-item" onclick="openLightbox('images/photo2.jpg')"><img src="images/photo2.jpg" alt="Купель" onerror="this.src='https://placehold.co/600x400/E8DCD0/4A6B3C?text=Купель';"/><div class="album-caption">Купель</div></div>
-  <div class="album-item" onclick="openLightbox('images/photo3.jpg')"><img src="images/photo3.jpg" alt="Бассейн" onerror="this.src='https://placehold.co/600x400/E8DCD0/4A6B3C?text=Бассейн';"/><div class="album-caption">Бассейн</div></div>
-  <div class="album-item" onclick="openLightbox('images/photo4.jpg')"><img src="images/photo4.jpg" alt="Каменка" onerror="this.src='https://placehold.co/600x400/E8DCD0/4A6B3C?text=Каменка';"/><div class="album-caption">Каменка</div></div>
-  <div class="album-item" onclick="openLightbox('images/photo5.jpg')"><img src="images/photo5.jpg" alt="Зона отдыха" onerror="this.src='https://placehold.co/600x400/E8DCD0/4A6B3C?text=Зона+отдыха';"/><div class="album-caption">Зона отдыха</div></div>
-  <div class="album-item" onclick="openLightbox('images/photo6.jpg')"><img src="images/photo6.jpg" alt="Чан" onerror="this.src='https://placehold.co/600x400/E8DCD0/4A6B3C?text=Чан';"/><div class="album-caption">Чан</div></div>
+  <div class="album-item" onclick="openLightbox('images/photo1.jpg')"><img src="images/photo1.jpg" alt="Парная" onerror="this.src='https://placehold.co/600x400/E8DCD0/4A6B3C?text=';"/><div class="album-caption"></div></div>
+  <div class="album-item" onclick="openLightbox('images/photo2.jpg')"><img src="images/photo2.jpg" alt="Купель" onerror="this.src='https://placehold.co/600x400/E8DCD0/4A6B3C?text=Купель';"/><div class="album-caption"></div></div>
+  <div class="album-item" onclick="openLightbox('images/photo3.jpg')"><img src="images/photo3.jpg" alt="Бассейн" onerror="this.src='https://placehold.co/600x400/E8DCD0/4A6B3C?text=Бассейн';"/><div class="album-caption"></div></div>
+  <div class="album-item" onclick="openLightbox('images/photo4.jpg')"><img src="images/photo4.jpg" alt="Каменка" onerror="this.src='https://placehold.co/600x400/E8DCD0/4A6B3C?text=Каменка';"/><div class="album-caption"></div></div>
+  <div class="album-item" onclick="openLightbox('images/photo5.jpg')"><img src="images/photo5.jpg" alt="Зона отдыха" onerror="this.src='https://placehold.co/600x400/E8DCD0/4A6B3C?text=Зона+отдыха';"/><div class="album-caption"></div></div>
+  <div class="album-item" onclick="openLightbox('images/photo6.jpg')"><img src="images/photo6.jpg" alt="Чан" onerror="this.src='https://placehold.co/600x400/E8DCD0/4A6B3C?text=Чан';"/><div class="album-caption"></div></div>
 </div>
-<!-- Кнопка "Смотреть видео" вместо старой атмосферы -->
 <div class="video-block rv">
   <div class="video-icon">🎬</div>
   <h3>Видео-тур по комплексу</h3>
@@ -749,18 +997,23 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.5);padding:48px 0 32px;
 <section class="sec" id="faq"><div class="wrap"><div class="eyebrow rv">Часто задаваемые вопросы</div><h2 class="htitle rv">Ответы <em>на вопросы</em></h2><div class="faq-grid"><div class="faq-item"><div class="faq-question">Правила аренды<span class="arrow">▼</span></div><div class="faq-answer"><p>На нашем комплексе аренда бани возможна только с программой. Исключение: в двух новых банях возможна аренда на 3 часа без определённой программы.</p></div></div><div class="faq-item"><div class="faq-question">Халяльная ли у вас еда?<span class="arrow">▼</span></div><div class="faq-answer"><p>Да, все продукты, предоставляемые нашим комплексом — халяль.</p></div></div><div class="faq-item"><div class="faq-question">Как до вас добраться? Имеется ли парковка?<span class="arrow">▼</span></div><div class="faq-answer"><p>Да, у нас есть удобная бесплатная парковка. Посмотреть маршрут можно по ссылке ниже на этой странице (в разделе с картой/маршрутом).</p></div></div><div class="faq-item"><div class="faq-question">Имеются ли в комплексе услуги для детей?<span class="arrow">▼</span></div><div class="faq-answer"><p>Да, для наших маленьких гостей предусмотрены комфортные условия и безопасное пространство для отдыха.</p></div></div><div class="faq-item"><div class="faq-question">Имеются ли у вас пар-мастера женского пола?<span class="arrow">▼</span></div><div class="faq-answer"><p>Да, в нашем комплексе работают пар-мастера женского пола — с большим опытом и традиционными техниками парения.</p></div></div></div></div></section>
 
 <!-- БРОНИРОВАНИЕ -->
-<section class="sec sec--dark" id="booking"><div class="wrap"><div class="book-grid"><div><div class="eyebrow rv">Бронирование</div><h2 class="htitle rv" style="color:var(--white)">Забронировать <em style="color:#A8B89A">визит</em></h2><a href="tel:+79503196915" class="book-phone">+7 950 319-69-15</a><p class="book-sub">Звоните или пишите — ответим в течение 15 минут.<br/>Работаем ежедневно, уточняйте расписание при бронировании.</p><div class="book-messengers"><a href="https://wa.me/79503196915" class="btn btn-outline-w" target="_blank">WhatsApp</a><a href="https://t.me/munchatashi_kazan" class="btn btn-outline-w" target="_blank">Telegram</a></div></div><div><div class="eyebrow rv" style="color:var(--warm)">Онлайн-заявка</div><form class="bform" onsubmit="sendForm(event)"><div class="frow"><input class="ff" type="text" placeholder="Ваше имя *" required/><input class="ff" type="tel" placeholder="+7 (___) ___-__-__" required/></div><div class="frow"><input class="ff" type="text" placeholder="Желаемая дата"/><input class="ff" type="number" placeholder="Кол-во гостей" min="1" max="16"/></div><select class="ff"><option value="" disabled selected>Выберите программу</option><option>Пар балдаклар (от 2 чел.)</option><option>Алтын Таш (от 2 чел.)</option><option>Туган Як (от 3 чел.)</option><option>Жиңел пар (от 4 чел.)</option><option>Кара мунча VIP (от 4 чел.)</option><option>Эх, сез матур кызлар (от 5 чел.)</option><option>Банкет (от 8 чел.)</option><option>Детокс (от 8 чел.)</option><option>Корпоратив (от 10 чел.)</option><option>Хочу подобрать с менеджером</option></select><textarea class="ff" rows="3" placeholder="Пожелания, вопросы..."></textarea><div class="cb-row"><input type="checkbox" id="agree" required/><label for="agree">Нажимая «Отправить», я соглашаюсь с <a href="#" onclick="openPrivacy(event)">политикой конфиденциальности</a></label></div><button type="submit" class="btn btn-accent" style="align-self:flex-start">Отправить заявку →</button></form></div></div></div></section>
+<section class="sec sec--dark" id="booking"><div class="wrap"><div class="book-grid"><div><div class="eyebrow rv">Бронирование</div><h2 class="htitle rv" style="color:var(--white)">Забронировать <em style="color:#A8B89A">визит</em></h2><a href="tel:+26714-67" class="book-phone">+267-14-67</a><p class="book-sub">Звоните или пишите — ответим в течение 15 минут.<br/>Работаем ежедневно, уточняйте расписание при бронировании.</p><div class="book-messengers"><a href="https://wa.me/79503196915" class="btn btn-outline-w" target="_blank">WhatsApp</a><a href="https://t.me/munchatashi_kazan" class="btn btn-outline-w" target="_blank">Telegram</a></div></div><div><div class="eyebrow rv" style="color:var(--warm)">Онлайн-заявка</div><form class="bform" onsubmit="sendForm(event)"><div class="frow"><input class="ff" type="text" placeholder="Ваше имя *" required/><input class="ff" type="tel" placeholder="+7 (___) ___-__-__" required/></div><div class="frow"><input class="ff" type="text" placeholder="Желаемая дата"/><input class="ff" type="number" placeholder="Кол-во гостей" min="1" max="16"/></div><select class="ff"><option value="" disabled selected>Выберите программу</option><option>Пар балдаклар (от 2 чел.)</option><option>Алтын Таш (от 2 чел.)</option><option>Туган Як (от 3 чел.)</option><option>Жиңел пар (от 4 чел.)</option><option>Кара мунча VIP (от 4 чел.)</option><option>Эх, сез матур кызлар (от 5 чел.)</option><option>Банкет (от 8 чел.)</option><option>Детокс (от 8 чел.)</option><option>Корпоратив (от 10 чел.)</option><option>Хочу подобрать с менеджером</option></select><textarea class="ff" rows="3" placeholder="Пожелания, вопросы..."></textarea><div class="cb-row"><input type="checkbox" id="agree" required/><label for="agree">Нажимая «Отправить», я соглашаюсь с <a href="#" onclick="openPrivacy(event)">политикой конфиденциальности</a></label></div><button type="submit" class="btn btn-accent" style="align-self:flex-start">Отправить заявку →</button></form></div></div></div></section>
 
 <!-- КОНТАКТЫ -->
-<section class="sec" id="contacts"><div class="wrap"><div class="eyebrow rv">Как нас найти</div><h2 class="htitle rv">Казань,<br/><em>деревня Эстачи</em></h2><div class="contacts-grid"><div><div class="ci-label">Адрес</div><div class="ci-value">Республика Татарстан<br/>Высокогорский район<br/>д. Эстачи, ул. Лодочная, 14</div></div><div><div class="ci-label">Телефон</div><div class="ci-value"><a href="tel:+79503196915">+7 950 319-69-15</a></div></div><div><div class="ci-label">Мессенджеры</div><div class="ci-value"><a href="https://wa.me/79503196915">WhatsApp</a><br/><a href="https://t.me/munchatashi_kazan">Telegram @munchatashi_kazan</a></div></div><div><div class="ci-label">Ориентир</div><div class="ci-value">~25 мин от Казани<br/>Высокогорский район</div></div></div><div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px"><a href="https://yandex.ru/maps/-/CHD8Qmy0" target="_blank" class="btn btn-accent">Яндекс.Карты</a><a href="https://2gis.ru/kazan/firm/70000001089301618" target="_blank" class="btn btn-outline">2ГИС</a></div><div class="map-block"><iframe src="https://yandex.ru/map-widget/v1/?ll=49.365285%2C55.860647&z=15&pt=49.365285%2C55.860647%2Cpm2rdm&lang=ru_RU" title="Мунча Ташы" allowfullscreen="" loading="lazy"></iframe></div></div></section>
+<section class="sec" id="contacts"><div class="wrap"><div class="eyebrow rv">Как нас найти</div><h2 class="htitle rv">Казань,<br/><em>деревня Эстачи</em></h2><div class="contacts-grid"><div><div class="ci-label">Адрес</div><div class="ci-value">Республика Татарстан<br/>Высокогорский район<br/>д. Эстачи, ул. Лодочная, 14</div></div><div><div class="ci-label">Телефон</div><div class="ci-value"><a href="tel:+26714-67">+267-14-67</a></div></div><div><div class="ci-label">Мессенджеры</div><div class="ci-value"><a href="https://wa.me/79503196915">WhatsApp</a><br/><a href="https://t.me/munchatashi_kazan">Telegram @munchatashi_kazan</a></div></div><div><div class="ci-label">Ориентир</div><div class="ci-value">~25 мин от Казани<br/>Высокогорский район</div></div></div><div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px"><a href="https://yandex.ru/maps/-/CHD8Qmy0" target="_blank" class="btn btn-accent">Яндекс.Карты</a><a href="https://2gis.ru/kazan/firm/70000001089301618" target="_blank" class="btn btn-outline">2ГИС</a></div><div class="map-block"><iframe src="https://yandex.ru/map-widget/v1/?ll=49.365285%2C55.860647&z=15&pt=49.365285%2C55.860647%2Cpm2rdm&lang=ru_RU" title="Мунча Ташы" allowfullscreen="" loading="lazy"></iframe></div></div></section>
 
 <!-- FOOTER -->
 <footer><div class="wrap"><div class="footer-main"><div class="flogo"><img src="images/logo.png" alt="Мунча Ташы" onerror="this.style.display='none'"/><div class="flogo-text">Мунча Ташы<small>Банный комплекс · д. Эстачи, Казань</small></div></div><nav class="fnav"><a href="#bani">Бани</a><a href="#programs">Программы</a><a href="#menu">Меню</a><a href="#dop">Услуги</a><a href="#album">Галерея</a><a href="#info">О нас</a><a href="#faq">Вопросы</a><a href="#booking">Бронирование</a><a href="#contacts">Контакты</a></nav><div class="fsoc"><a href="https://wa.me/79503196915" class="fsi" target="_blank">W</a><a href="https://t.me/munchatashi_kazan" class="fsi" target="_blank">T</a><a href="https://2gis.ru/kazan/firm/70000001089301618" class="fsi" target="_blank">2G</a></div></div><div class="footer-bot"><span>© 2026 Мунча Ташы · Банный комплекс · Республика Татарстан, Высокогорский район</span><a href="#" onclick="openPrivacy(event)">Политика конфиденциальности</a></div></div></footer>
 
 <div id="sticky-cta"><button class="btn btn-accent btn-scroll" onclick="scrollToBooking()">Забронировать</button></div>
-<div class="overlay" id="book-modal"><div class="modal"><button class="modal-close" onclick="closeModal('book-modal')">✕</button><div class="modal-title">Забронировать</div><form onsubmit="sendBooking(event)"><input class="ff" type="text" placeholder="Имя *" required/><input class="ff" type="tel" placeholder="Телефон *" required/><textarea class="ff" rows="3" placeholder="Дата, гости, программа..."></textarea><button type="submit" class="btn btn-accent btn-full">Отправить</button></form></div></div>
+
+<!-- МОДАЛЬНОЕ ОКНО БРОНИРОВАНИЯ -->
+<div class="overlay" id="book-modal"><div class="modal"><button class="modal-close" onclick="closeModal('book-modal')">✕</button><div class="modal-title">Забронировать</div><form onsubmit="sendBooking(event)"><input class="ff" type="text" placeholder="Имя *" required/><input class="ff" type="tel" placeholder="Телефон *" required/><select class="ff"><option value="" disabled selected>Выберите программу</option><option>Пар балдаклар (от 2 чел.)</option><option>Алтын Таш (от 2 чел.)</option><option>Туган Як (от 3 чел.)</option><option>Жиңел пар (от 4 чел.)</option><option>Кара мунча VIP (от 4 чел.)</option><option>Эх, сез матур кызлар (от 5 чел.)</option><option>Банкет (от 8 чел.)</option><option>Детокс (от 8 чел.)</option><option>Корпоратив (от 10 чел.)</option><option>Подобрать с менеджером</option></select><textarea class="ff" rows="3" placeholder="Дата, гости, пожелания..."></textarea><button type="submit" class="btn btn-accent btn-full">Отправить</button></form></div></div>
+
+<!-- МОДАЛЬНОЕ ОКНО ПОЛИТИКИ -->
 <div class="overlay" id="privacy-modal"><div class="modal"><button class="modal-close" onclick="closeModal('privacy-modal')">✕</button><div class="modal-title">Политика конфиденциальности</div><p style="font-size:12px;color:rgba(255,255,255,.45)">Собираем только имя и телефон для связи. Данные не передаются третьим лицам.</p></div></div>
 
+<!-- ЛАЙТБОКС -->
 <div class="lightbox" id="lightbox" onclick="closeLightbox()"><span class="lightbox-close">✕</span><img class="lightbox-img" id="lightboxImg" src="" alt=""/></div>
 
 <!-- ВИДЕО МОДАЛЬНОЕ ОКНО -->
@@ -775,7 +1028,9 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.5);padding:48px 0 32px;
 </div>
 
 <script>
-// Плавный скролл до раздела бронирования
+/* ══════════════════════════════════════════════════
+   SCROLL TO BOOKING
+══════════════════════════════════════════════════ */
 function scrollToBooking() {
   const bookingSection = document.getElementById('booking');
   if (bookingSection) {
@@ -783,7 +1038,9 @@ function scrollToBooking() {
   }
 }
 
-// Лайтбокс для фото
+/* ══════════════════════════════════════════════════
+   LIGHTBOX
+══════════════════════════════════════════════════ */
 function openLightbox(imgSrc) {
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightboxImg');
@@ -792,12 +1049,13 @@ function openLightbox(imgSrc) {
   document.body.style.overflow = 'hidden';
 }
 function closeLightbox() {
-  const lightbox = document.getElementById('lightbox');
-  lightbox.classList.remove('active');
+  document.getElementById('lightbox').classList.remove('active');
   document.body.style.overflow = '';
 }
 
-// Видео модальное окно
+/* ══════════════════════════════════════════════════
+   VIDEO MODAL
+══════════════════════════════════════════════════ */
 function openVideoModal() {
   const videoModal = document.getElementById('videoModal');
   const modalVideo = document.getElementById('modalVideo');
@@ -808,75 +1066,193 @@ function openVideoModal() {
 function closeVideoModal(event) {
   const videoModal = document.getElementById('videoModal');
   const modalVideo = document.getElementById('modalVideo');
-  if (event && event.target !== videoModal && event.target !== event.currentTarget.querySelector('.video-close')) return;
+  if (event && event.target !== videoModal) return;
   videoModal.classList.remove('active');
   document.body.style.overflow = '';
   modalVideo.pause();
   modalVideo.currentTime = 0;
 }
+document.querySelector('.video-close').addEventListener('click', function() {
+  const videoModal = document.getElementById('videoModal');
+  const modalVideo = document.getElementById('modalVideo');
+  videoModal.classList.remove('active');
+  document.body.style.overflow = '';
+  modalVideo.pause();
+  modalVideo.currentTime = 0;
+});
 
-// Карусель доп. услуг
+/* ══════════════════════════════════════════════════
+   CAROUSEL
+══════════════════════════════════════════════════ */
 function scrollCarousel(direction) {
   const carousel = document.getElementById('dopCarousel');
-  const scrollAmount = 300;
-  carousel.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+  carousel.scrollBy({ left: direction * 300, behavior: 'smooth' });
 }
 
+/* ══════════════════════════════════════════════════
+   STICKY CTA
+══════════════════════════════════════════════════ */
 const stickyCta = document.getElementById('sticky-cta');
-window.addEventListener('scroll', () => { stickyCta.classList.toggle('vis', window.scrollY > 600); });
+window.addEventListener('scroll', () => {
+  stickyCta.classList.toggle('vis', window.scrollY > 600);
+});
 
-function openMnav() { document.getElementById('mnav').classList.add('open'); document.body.style.overflow = 'hidden'; }
-function closeMnav() { document.getElementById('mnav').classList.remove('open'); document.body.style.overflow = ''; }
-function openModal(id) { document.getElementById(id).classList.add('open'); document.body.style.overflow = 'hidden'; }
-function closeModal(id) { document.getElementById(id).classList.remove('open'); document.body.style.overflow = ''; }
-function openPrivacy(e) { e.preventDefault(); openModal('privacy-modal'); }
-document.querySelectorAll('.overlay').forEach(o => { o.addEventListener('click', e => { if (e.target === o) closeModal(o.id); }); });
-document.addEventListener('keydown', e => { if (e.key === 'Escape') { closeLightbox(); closeVideoModal(); document.querySelectorAll('.overlay.open').forEach(o => closeModal(o.id)); } });
-function sendForm(e) { e.preventDefault(); alert('Спасибо! Заявка отправлена.'); e.target.reset(); }
-function sendBooking(e) { e.preventDefault(); closeModal('book-modal'); alert('Заявка принята! Ответим в течение 15 минут.'); }
+/* ══════════════════════════════════════════════════
+   MOBILE NAV
+══════════════════════════════════════════════════ */
+function openMnav() {
+  document.getElementById('mnav').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeMnav() {
+  document.getElementById('mnav').classList.remove('open');
+  document.body.style.overflow = '';
+}
 
-// Фильтр программ
-document.querySelectorAll('.pfbtn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.pfbtn').forEach(b => b.classList.remove('act'));
-    btn.classList.add('act');
-    const filter = btn.dataset.f;
-    document.querySelectorAll('.prog-card').forEach(card => {
-      const show = filter === 'all' || card.dataset.cat === filter;
-      if (!card.classList.contains('show-all-override')) card.classList.toggle('hidden', !show);
-      else card.classList.toggle('hidden', false);
+/* ══════════════════════════════════════════════════
+   MODALS
+══════════════════════════════════════════════════ */
+function openModal(id) {
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(id) {
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow = '';
+}
+function openPrivacy(e) {
+  e.preventDefault();
+  openModal('privacy-modal');
+}
+document.querySelectorAll('.overlay').forEach(o => {
+  o.addEventListener('click', e => { if (e.target === o) closeModal(o.id); });
+});
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    closeLightbox();
+    document.querySelectorAll('.overlay.open').forEach(o => closeModal(o.id));
+  }
+});
+
+/* ══════════════════════════════════════════════════
+   FORMS
+══════════════════════════════════════════════════ */
+function sendForm(e) {
+  e.preventDefault();
+  alert('Спасибо! Заявка отправлена. Мы свяжемся с вами в течение 15 минут.');
+  e.target.reset();
+}
+function sendBooking(e) {
+  e.preventDefault();
+  closeModal('book-modal');
+  alert('Заявка принята! Ответим в течение 15 минут.');
+}
+
+/* ══════════════════════════════════════════════════
+   PROGRAMS FILTER + SHOW ALL
+   Logic:
+   - On page load: only first 3 cards visible, filter = "all"
+   - Filter click: show only matching category cards (all of them, regardless of show-all state)
+     If filter = "all": restore the limited view (first 3 only) unless show-all is active
+   - "Показать все" button: show all cards, set filter to "all" (active), button becomes "Скрыть"
+   - "Скрыть" button: show only first 3 cards, reset filter to "all"
+══════════════════════════════════════════════════ */
+(function() {
+  const allCards = Array.from(document.querySelectorAll('.prog-card'));
+  const filterBtns = document.querySelectorAll('.pfbtn');
+  const showAllBtn = document.getElementById('show-all-programs-btn');
+  let showAllActive = false;
+  let currentFilter = 'all';
+
+  // Initial state: show only first 3
+  function applyInitialVisibility() {
+    allCards.forEach((card, idx) => {
+      card.classList.toggle('hidden', idx >= 3);
+    });
+  }
+
+  // Show cards matching the current filter
+  // If filter is 'all' and showAllActive is false → show only first 3
+  // If filter is 'all' and showAllActive is true → show all
+  // If filter is specific → show all matching (ignore show-all limit)
+  function applyFilter(filter) {
+    currentFilter = filter;
+    if (filter === 'all') {
+      allCards.forEach((card, idx) => {
+        if (showAllActive) {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.toggle('hidden', idx >= 3);
+        }
+      });
+    } else {
+      allCards.forEach(card => {
+        card.classList.toggle('hidden', card.dataset.cat !== filter);
+      });
+    }
+  }
+
+  // Update active button style
+  function setActiveBtn(filter) {
+    filterBtns.forEach(btn => {
+      btn.classList.toggle('act', btn.dataset.f === filter);
+    });
+  }
+
+  // Filter button clicks
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const f = btn.dataset.f;
+      // If clicking 'all' while show-all is active, keep show-all active
+      // If clicking specific filter, show-all logic doesn't apply
+      if (f !== 'all') {
+        // Don't change showAllActive state for specific filters
+      }
+      setActiveBtn(f);
+      applyFilter(f);
     });
   });
-});
 
-let allProgramsVisible = false;
-const showAllBtn = document.getElementById('show-all-programs-btn');
-const allProgCards = document.querySelectorAll('.prog-card');
-if (showAllBtn) {
+  // Show All / Hide button
   showAllBtn.addEventListener('click', () => {
-    if (!allProgramsVisible) {
-      allProgCards.forEach(card => { card.style.display = ''; card.classList.remove('hidden'); card.classList.add('show-all-override'); });
+    if (!showAllActive) {
+      // Show all
+      showAllActive = true;
       showAllBtn.textContent = 'Скрыть программы';
-      allProgramsVisible = true;
+      // Reset to "all" filter and show everything
+      currentFilter = 'all';
+      setActiveBtn('all');
+      allCards.forEach(card => card.classList.remove('hidden'));
     } else {
-      allProgCards.forEach((card, idx) => { if (idx >= 3) { card.style.display = 'none'; card.classList.add('hidden'); } card.classList.remove('show-all-override'); });
+      // Hide back to first 3
+      showAllActive = false;
       showAllBtn.textContent = 'Показать все программы';
-      allProgramsVisible = false;
+      currentFilter = 'all';
+      setActiveBtn('all');
+      applyInitialVisibility();
     }
   });
-}
-function initProgramsVisibility() { allProgCards.forEach((card, idx) => { if (idx >= 3) { card.style.display = 'none'; card.classList.add('hidden'); } }); }
-initProgramsVisibility();
 
-// FAQ аккордеон
+  // Init
+  applyInitialVisibility();
+})();
+
+/* ══════════════════════════════════════════════════
+   FAQ ACCORDION
+══════════════════════════════════════════════════ */
 document.querySelectorAll('.faq-item').forEach(item => {
-  const question = item.querySelector('.faq-question');
-  question.addEventListener('click', () => { item.classList.toggle('active'); });
+  item.querySelector('.faq-question').addEventListener('click', () => {
+    item.classList.toggle('active');
+  });
 });
 
-const revealObs = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); }); }, { threshold: 0.08 });
+/* ══════════════════════════════════════════════════
+   SCROLL REVEAL
+══════════════════════════════════════════════════ */
+const revealObs = new IntersectionObserver(entries => {
+  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('vis'); });
+}, { threshold: 0.08 });
 document.querySelectorAll('.rv').forEach(el => revealObs.observe(el));
 </script>
 </body>
 </html>
-```
