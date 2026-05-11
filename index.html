@@ -122,9 +122,9 @@ header{
   display:grid;
   grid-template-columns:1fr auto 1fr;
   align-items:center;
-  padding:18px clamp(20px,5vw,72px);
-  max-width:1200px;
-  margin:0 auto;
+  padding:18px clamp(12px,2vw,28px);
+  max-width:none;
+  margin:0;
   gap:16px;
 }
 /* Logo — left column */
@@ -812,7 +812,7 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.5);padding:48px 0 32px;
 </section>
 
 <!-- БАНИ -->
-<section class="sec sec--light" id="bani"><div class="wrap"><div class="eyebrow rv">Наши бани</div><h2 class="htitle rv">Эксклюзив. <em>Старые традиции.</em><br/>Топка на дровах</h2><div class="bani-grid"><div class="bani-card rv"><div class="bani-card-img"><img src="images/НАДО ФОТО" alt="Баня по-серому"/><span class="bani-badge">По-серому</span></div><div class="bani-card-body"><div class="bani-card-title">Баня по-серому</div><p class="bani-card-desc">Классическая русская парная с мягким, бархатным паром. Идеальна для первого знакомства с банными ритуалами.</p><div class="bani-card-price">от 2 500 ₽/час</div><button class="btn btn-accent btn-full btn-scroll" onclick="scrollToBooking()">Забронировать</button></div></div><div class="bani-card rv"><div class="bani-card-img"><img src="images/ЧернаяБаня.jpg" alt="Баня по-чёрному"/><span class="bani-badge">По-чёрному</span></div><div class="bani-card-body"><div class="bani-card-title">Баня по-чёрному</div><p class="bani-card-desc">Аутентичная курная баня — жаркий и плотный пар. Самый традиционный и сильный вид бани.</p><div class="bani-card-price">от 3 000 ₽/час</div><button class="btn btn-accent btn-full btn-scroll" onclick="scrollToBooking()">Забронировать</button></div></div><div class="bani-card rv"><div class="bani-card-img"><img src="images/НАДО ФОТО" alt="Баня по-белому"/><span class="bani-badge bani-badge-build">Строится</span></div><div class="bani-card-body"><div class="bani-card-title">Баня по-белому</div><p class="bani-card-desc">Современная белая баня с печью-каменкой и чистым паром. Строятся 2 новые бани.</p><div class="bani-card-price">Стоимость уточняется</div></div></div></div></div></section>
+<section class="sec sec--light" id="bani"><div class="wrap"><div class="eyebrow rv">Наши бани</div><h2 class="htitle rv">Эксклюзив. <em>Старые традиции.</em><br/>Топка на дровах</h2><div class="bani-grid"><div class="bani-card rv"><div class="bani-card-img"><img src="images/seriy.jpg" alt="Баня по-серому"/><span class="bani-badge">По-серому</span></div><div class="bani-card-body"><div class="bani-card-title">Баня по-серому</div><p class="bani-card-desc">Классическая русская парная с мягким, бархатным паром. Идеальна для первого знакомства с банными ритуалами.</p><div class="bani-card-price">от 2 500 ₽/час</div><button class="btn btn-accent btn-full btn-scroll" onclick="scrollToBooking()">Забронировать</button></div></div><div class="bani-card rv"><div class="bani-card-img"><img src="images/ЧернаяБаня.jpg" alt="Баня по-чёрному"/><span class="bani-badge">По-чёрному</span></div><div class="bani-card-body"><div class="bani-card-title">Баня по-чёрному</div><p class="bani-card-desc">Аутентичная курная баня — жаркий и плотный пар. Самый традиционный и сильный вид бани.</p><div class="bani-card-price">от 3 000 ₽/час</div><button class="btn btn-accent btn-full btn-scroll" onclick="scrollToBooking()">Забронировать</button></div></div><div class="bani-card rv"><div class="bani-card-img" style="display:flex;align-items:center;justify-content:center;background:#2E4A26;"><span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,3vw,34px);font-weight:400;font-style:italic;color:#6DBF67;letter-spacing:.06em;text-align:center;padding:20px;">Скоро открытие</span><span class="bani-badge bani-badge-build">Строится</span></div><div class="bani-card-body"><div class="bani-card-title">Баня по-белому</div><p class="bani-card-desc">Современная белая баня с печью-каменкой и чистым паром. Строятся 2 новые бани.</p><div class="bani-card-price">Стоимость уточняется</div></div></div></div></div></section>
 
 <!-- МЕНЮ -->
 <section class="sec" id="menu"><div class="wrap"><div class="eyebrow rv">Банный стол</div><h2 class="htitle rv">Кухня <em>от шефа</em></h2>
@@ -961,7 +961,6 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.5);padding:48px 0 32px;
   <div class="carousel-arrow prev" onclick="scrollCarousel(-1)">←</div>
   <div class="carousel-arrow next" onclick="scrollCarousel(1)">→</div>
   <div class="dop-carousel" id="dopCarousel">
-    <div class="dop-card"><div class="dop-icon">🔥</div><div class="dop-name">Баня по-чёрному</div><div class="dop-price">15.000 ₽</div></div>
     <div class="dop-card"><div class="dop-icon">🫖</div><div class="dop-name">Чан Фурако</div><div class="dop-price">5.000–9.000 ₽</div></div>
     <div class="dop-card"><div class="dop-icon">💧</div><div class="dop-name">Холодная купель</div><div class="dop-price">9.000 ₽</div></div>
     <div class="dop-card"><div class="dop-icon">💆</div><div class="dop-name">Массаж</div><div class="dop-price">от 3.000 ₽</div></div>
