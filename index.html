@@ -15,7 +15,7 @@
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px}
 body{
-  background:#FAF6F0;
+  background:#F5EFE6;
   color:#2C3E2B;
   font-family:'Nunito',sans-serif;
   line-height:1.7;
@@ -41,7 +41,7 @@ button{border:none;background:none;cursor:pointer;font-family:inherit}
 ::-webkit-scrollbar-thumb{background:#4A6B3C;border-radius:3px}
 
 :root{
-  --cream:   #FAF6F0;
+  --cream:   #F5EFE6;
   --light:   #F2EBE1;
   --sand:    #E8DCD0;
   --taupe:   #D4C5B4;
@@ -50,7 +50,7 @@ button{border:none;background:none;cursor:pointer;font-family:inherit}
   --accent-light: #6B8E5A;
   --deep:    #2E4A26;
   --bark:    #2C3E2B;
-  --white:   #FAF6F0;
+  --white:   #F5EFE6;
   --dark-bg: #2A3A25;
   --gold:    #A8B89A;
   --ff-h:    'Cormorant Garamond', Georgia, serif;
@@ -114,7 +114,7 @@ header{
   width:100%;
   padding:0;
   z-index:100;
-  background:rgba(250,246,240,.96);
+  background:rgba(245,239,230,.96);
   backdrop-filter:blur(12px);
   border-bottom:1px solid var(--sand);
 }
@@ -425,7 +425,82 @@ header{
 .kids-tier-items li{font-size:12px;color:var(--bark);opacity:.7;padding:3px 0;list-style:none;}
 .kids-tier-items li::before{content:'· ';color:var(--accent);}
 
-/* АЛЬБОМ БАНИ */
+/* АЛЬБОМ — ВИДЕО ПЕРВЫМ */
+.album-video-wrap{
+  border-radius:var(--r);
+  overflow:hidden;
+  box-shadow:var(--shadow2);
+  margin-bottom:0;
+}
+.album-video-inner{
+  position:relative;
+  cursor:pointer;
+  aspect-ratio:16/9;
+  background:#1a2418;
+  overflow:hidden;
+}
+.album-video-preview{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  display:block;
+  opacity:.75;
+  transition:opacity .4s;
+}
+.album-video-inner:hover .album-video-preview{
+  opacity:.55;
+}
+.album-video-overlay{
+  position:absolute;
+  inset:0;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:18px;
+  background:linear-gradient(180deg,rgba(42,58,37,.15) 0%,rgba(42,58,37,.45) 100%);
+  transition:background .3s;
+}
+.album-video-inner:hover .album-video-overlay{
+  background:linear-gradient(180deg,rgba(42,58,37,.25) 0%,rgba(42,58,37,.6) 100%);
+}
+.album-play-btn{
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  border:2.5px solid rgba(245,239,230,.7);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  transition:transform .3s,border-color .3s;
+  backdrop-filter:blur(6px);
+}
+.album-video-inner:hover .album-play-btn{
+  transform:scale(1.1);
+  border-color:rgba(245,239,230,1);
+}
+.album-video-caption{
+  text-align:center;
+}
+.album-video-label{
+  display:block;
+  font-family:var(--ff-h);
+  font-size:clamp(18px,2.5vw,28px);
+  font-weight:400;
+  color:var(--white);
+  letter-spacing:.02em;
+  margin-bottom:6px;
+}
+.album-video-sub{
+  display:block;
+  font-size:11px;
+  font-weight:600;
+  letter-spacing:.18em;
+  text-transform:uppercase;
+  color:rgba(245,239,230,.6);
+}
+
+
 .album-grid{
   display:grid;
   grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
@@ -635,20 +710,20 @@ header{
 
 select.ff {
   background-color: rgba(42,58,37,0.95);
-  color: #FAF6F0;
+  color: #F5EFE6;
   cursor: pointer;
 }
 select.ff option {
-  background-color: #FAF6F0;
+  background-color: #F5EFE6;
   color: #2C3E2B;
   padding: 10px;
 }
 .modal select.ff {
   background-color: rgba(42,58,37,0.95);
-  color: #FAF6F0;
+  color: #F5EFE6;
 }
 .modal select.ff option {
-  background-color: #FAF6F0;
+  background-color: #F5EFE6;
   color: #2C3E2B;
 }
 
@@ -685,7 +760,7 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.5);padding:48px 0 32px;
 .modal-close{position:absolute;top:16px;right:16px;width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.08);color:rgba(255,255,255,.5);font-size:16px;display:flex;align-items:center;justify-content:center;cursor:pointer;}
 .modal-title{font-family:var(--ff-h);font-size:clamp(26px,4vw,36px);color:var(--white);margin:12px 0 8px;}
 
-.mobile-nav{position:fixed;inset:0;z-index:800;background:rgba(250,246,240,.98);backdrop-filter:blur(16px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;transform:translateX(100%);transition:transform .4s var(--ease);}
+.mobile-nav{position:fixed;inset:0;z-index:800;background:rgba(245,239,230,.98);backdrop-filter:blur(16px);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;transform:translateX(100%);transition:transform .4s var(--ease);}
 .mobile-nav.open{transform:translateX(0)}
 .mobile-nav a{font-family:var(--ff-h);font-size:36px;font-weight:300;color:var(--bark);}
 .mobile-nav a:hover{color:var(--accent)}
@@ -973,19 +1048,36 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.5);padding:48px 0 32px;
 </div></section>
 
 <!-- АЛЬБОМ БАНИ -->
-<section class="sec sec--light" id="album"><div class="wrap"><div class="eyebrow rv">Галерея</div><h2 class="htitle rv">Наш комплекс <em>в деталях</em></h2><div class="album-grid">
+<section class="sec sec--light" id="album"><div class="wrap">
+<div class="eyebrow rv">Галерея</div>
+<h2 class="htitle rv">Наш комплекс <em>внутри</em></h2>
+
+<!-- ВИДЕО ПЕРВЫМ -->
+<div class="album-video-wrap rv">
+  <div class="album-video-inner" onclick="openVideoModal()">
+    <video muted loop playsinline class="album-video-preview" id="albumVideoPreview">
+      <source src="videos/IMG_2748.MP4" type="video/mp4"/>
+    </video>
+    <div class="album-video-overlay">
+      <div class="album-play-btn">
+        <svg viewBox="0 0 60 60" width="60" height="60" xmlns="http://www.w3.org/2000/svg"><circle cx="30" cy="30" r="30" fill="rgba(245,239,230,0.18)"/><polygon points="24,18 46,30 24,42" fill="#F5EFE6"/></svg>
+      </div>
+      <div class="album-video-caption">
+        <span class="album-video-label">Видео-тур по комплексу</span>
+        <span class="album-video-sub">Нажмите, чтобы смотреть</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 6 ФОТО НИЖЕ -->
+<div class="album-grid" style="margin-top:32px">
   <div class="album-item" onclick="openLightbox('images/photo1.jpg')"><img src="images/photo1.jpg" alt="Парная" onerror="this.src='https://placehold.co/600x400/E8DCD0/4A6B3C?text=';"/><div class="album-caption"></div></div>
   <div class="album-item" onclick="openLightbox('images/photo2.jpg')"><img src="images/photo2.jpg" alt="Купель" onerror="this.src='https://placehold.co/600x400/E8DCD0/4A6B3C?text=Купель';"/><div class="album-caption"></div></div>
   <div class="album-item" onclick="openLightbox('images/photo3.jpg')"><img src="images/photo3.jpg" alt="Бассейн" onerror="this.src='https://placehold.co/600x400/E8DCD0/4A6B3C?text=Бассейн';"/><div class="album-caption"></div></div>
   <div class="album-item" onclick="openLightbox('images/photo4.jpg')"><img src="images/photo4.jpg" alt="Каменка" onerror="this.src='https://placehold.co/600x400/E8DCD0/4A6B3C?text=Каменка';"/><div class="album-caption"></div></div>
   <div class="album-item" onclick="openLightbox('images/photo5.jpg')"><img src="images/photo5.jpg" alt="Зона отдыха" onerror="this.src='https://placehold.co/600x400/E8DCD0/4A6B3C?text=Зона+отдыха';"/><div class="album-caption"></div></div>
   <div class="album-item" onclick="openLightbox('images/photo6.jpg')"><img src="images/photo6.jpg" alt="Чан" onerror="this.src='https://placehold.co/600x400/E8DCD0/4A6B3C?text=Чан';"/><div class="album-caption"></div></div>
-</div>
-<div class="video-block rv">
-  <div class="video-icon">🎬</div>
-  <h3>Видео-тур по комплексу</h3>
-  <p>Окунитесь в атмосферу бани Мунча Ташы — живой пар, уют и традиции</p>
-  <button class="btn btn-accent btn-video" onclick="openVideoModal()">Смотреть видео</button>
 </div>
 </div></section>
 
@@ -1027,6 +1119,14 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.5);padding:48px 0 32px;
 </div>
 
 <script>
+/* ══════════════════════════════════════════════════
+   ALBUM VIDEO PREVIEW AUTOPLAY
+══════════════════════════════════════════════════ */
+const albumPreview = document.getElementById('albumVideoPreview');
+if (albumPreview) {
+  albumPreview.play().catch(() => {});
+}
+
 /* ══════════════════════════════════════════════════
    SCROLL TO BOOKING
 ══════════════════════════════════════════════════ */
