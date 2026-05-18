@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
-<title>Мунча Ташы — Банный комплекс | Казань, д. Эстачи</title>
-<meta name="description" content="Мунча Ташы — банный комплекс в Казани. Баня по-чёрному, по-серому, авторские программы парения, SPA, купели, бассейн, кухня от шефа. +267-14-67"/>
+<title>Мунча Ташы — Банный комплекс | Высокогорский район, д. Эстачи</title>
+<meta name="description" content="Мунча Ташы — банный комплекс рядом с Казанью. Баня по-чёрному, по-серому, авторские программы парения, SPA, купели, бассейн, кухня от шефа. +267-14-67"/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet"/>
@@ -362,6 +362,24 @@ header{
   box-shadow:var(--shadow);
   transition:transform .3s var(--ease),box-shadow .3s;
   border:1px solid var(--sand);
+  position:relative;
+  overflow:hidden;
+}
+.dop-card-bg{
+  position:absolute;
+  inset:0;
+  background-size:cover;
+  background-position:center;
+  opacity:0.18;
+  transition:opacity .3s;
+  z-index:0;
+}
+.dop-card:hover .dop-card-bg{
+  opacity:0.28;
+}
+.dop-card > *:not(.dop-card-bg){
+  position:relative;
+  z-index:1;
 }
 .dop-card:hover{
   transform:translateY(-5px);
@@ -749,7 +767,18 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.5);padding:48px 0 32px;
 .fsi:hover{border-color:var(--warm);color:var(--warm)}
 .footer-bot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:11px;}
 
-/* STICKY CTA */
+.sec--green{background:linear-gradient(135deg,#3a5a2e 0%,#4A6B3C 60%,#2E4A26 100%);color:var(--white);}
+.sec--green .eyebrow{color:#A8B89A;}
+.sec--green .htitle{color:var(--white);}
+.sec--green .htitle em{color:#A8B89A;}
+.sec--green .pfbtn{border-color:rgba(255,255,255,.35);color:rgba(255,255,255,.8);}
+.sec--green .pfbtn:hover,.sec--green .pfbtn.act{background:var(--white);border-color:var(--white);color:var(--accent);}
+.sec--green p{color:rgba(255,255,255,.75);}
+.sec--green .prog-card{background:rgba(255,255,255,.95);}
+.sec--green .prog-card-title,.sec--green .prog-card-guests,.sec--green .prog-card-items li{color:var(--bark);}
+.sec--green .btn-show-all{background:var(--white);color:var(--accent);border-color:var(--white);}
+.sec--green .btn-show-all:hover{background:var(--deep);color:var(--white);border-color:var(--deep);}
+
 #sticky-cta{position:fixed;bottom:24px;right:24px;z-index:500;opacity:0;transform:translateY(16px);transition:all .4s var(--ease);pointer-events:none;}
 #sticky-cta.vis{opacity:1;transform:translateY(0);pointer-events:auto}
 
@@ -864,7 +893,7 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.5);padding:48px 0 32px;
   <div class="hero-video"><video autoplay muted loop playsinline poster="images/exterior-pool.png"><source src="videos/IMG_2748.MP4" type="video/mp4"/></video></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow">Банный комплекс · Казань · д. Эстачи</div>
+    <div class="hero-eyebrow">Банный комплекс · Высокогорский район · д. Эстачи</div>
     <h1>Мунча <em>Ташы</em></h1>
     <p class="hero-sub">Аутентичные бани по-чёрному и по-серому, авторские программы парения, тёплый бассейн и кухня от шефа — всё для душевного отдыха вдали от города</p>
     <div class="hero-btns"><button class="btn btn-accent btn-scroll" onclick="scrollToBooking()">Забронировать визит</button><a href="#programs" class="btn btn-outline-w">Наши программы</a></div>
@@ -880,14 +909,14 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.5);padding:48px 0 32px;
       <div><div class="eyebrow rv">О комплексе</div><h2 class="htitle rv">Тепло камня,<br/><em>тишина леса</em></h2>
       <p class="intro-text-primary rv">«Мунча Ташы» — в переводе с татарского «банный камень». Расположен в деревне Эстачи Высокогорского района, среди леса и тишины. Комплекс вмещает до 16 гостей. В распоряжении: русская парная на дровах (по-серому и по-чёрному), баня по-белому, холодные купели, обогреваемый уличный бассейн, горячий чан, гидромассаж, качели для отдыха, ароматный домик на травах.</p>
       <p class="intro-text-secondary rv">Всё необходимое включено: халаты, полотенца, простыни, тапочки, гигиенические средства. Наши пар-мастера работают с вениками по традиционной технике. Шеф-повар готовит авторскую кухню с татарским акцентом — из локальных продуктов, без полуфабрикатов.</p>
-      <div class="intro-features-strict rv"><div class="feature-item"><span class="feature-title">Баня по-чёрному</span><span class="feature-desc">Аутентичный жаркий пар</span></div><div class="feature-item"><span class="feature-title">Тёплый бассейн</span><span class="feature-desc">Открытый подогреваемый</span></div><div class="feature-item"><span class="feature-title">Авторские программы</span><span class="feature-desc">8 уникальных программ</span></div><div class="feature-item"><span class="feature-title">Кухня шефа</span><span class="feature-desc">Татарская кухня, мясо на углях</span></div></div>
+      <div class="intro-features-strict rv"><div class="feature-item"><span class="feature-title">Баня по-чёрному</span><span class="feature-desc">Аутентичная баня по-чёрному с атмосферой эксклюзивного отдыха</span></div><div class="feature-item"><span class="feature-title">Тёплый бассейн</span><span class="feature-desc">Открытый подогреваемый</span></div><div class="feature-item"><span class="feature-title">Авторские программы</span><span class="feature-desc">8 уникальных программ</span></div><div class="feature-item"><span class="feature-title">Кухня шефа</span><span class="feature-desc">Европейская кухня, Татарская кухня, эксклюзивные рыбные деликатесы</span></div></div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- БАНИ -->
-<section class="sec sec--light" id="bani"><div class="wrap"><div class="eyebrow rv">Наши бани</div><h2 class="htitle rv">Эксклюзив. <em>Старые традиции.</em><br/>Топка на дровах</h2><div class="bani-grid"><div class="bani-card rv"><div class="bani-card-img"><img src="images/seriy.jpg" alt="Баня по-серому"/><span class="bani-badge">По-серому</span></div><div class="bani-card-body"><div class="bani-card-title">Баня по-серому</div><p class="bani-card-desc">Классическая русская парная с мягким, бархатным паром. Идеальна для первого знакомства с банными ритуалами.</p><div class="bani-card-price">от 2 500 ₽/час</div><button class="btn btn-accent btn-full btn-scroll" onclick="scrollToBooking()">Забронировать</button></div></div><div class="bani-card rv"><div class="bani-card-img"><img src="images/ЧернаяБаня.jpg" alt="Баня по-чёрному"/><span class="bani-badge">По-чёрному</span></div><div class="bani-card-body"><div class="bani-card-title">Баня по-чёрному</div><p class="bani-card-desc">Аутентичная курная баня — жаркий и плотный пар. Самый традиционный и сильный вид бани.</p><div class="bani-card-price">от 3 000 ₽/час</div><button class="btn btn-accent btn-full btn-scroll" onclick="scrollToBooking()">Забронировать</button></div></div><div class="bani-card rv"><div class="bani-card-img" style="display:flex;align-items:center;justify-content:center;background:#2E4A26;"><span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,3vw,34px);font-weight:400;font-style:italic;color:#6DBF67;letter-spacing:.06em;text-align:center;padding:20px;">Скоро открытие</span><span class="bani-badge bani-badge-build">Строится</span></div><div class="bani-card-body"><div class="bani-card-title">Баня по-белому</div><p class="bani-card-desc">Современная белая баня с печью-каменкой и чистым паром. Строятся 2 новые бани.</p><div class="bani-card-price">Стоимость уточняется</div></div></div></div></div></section>
+<section class="sec sec--light" id="bani"><div class="wrap"><div class="eyebrow rv">Наши бани</div><h2 class="htitle rv">Эксклюзив. <em>Старые традиции.</em><br/>Топка на дровах</h2><div class="bani-grid"><div class="bani-card rv"><div class="bani-card-img"><img src="images/seriy.jpg" alt="Баня по-серому"/><span class="bani-badge">По-серому</span></div><div class="bani-card-body"><div class="bani-card-title">Баня по-серому</div><p class="bani-card-desc">Классическая русская парная с мягким, бархатным паром. Идеальна для первого знакомства с банными ритуалами.</p><div class="bani-card-price">Вместе с программами</div><button class="btn btn-accent btn-full btn-scroll" onclick="scrollToBooking()">Забронировать</button></div></div><div class="bani-card rv"><div class="bani-card-img"><img src="images/ЧернаяБаня.jpg" alt="Баня по-чёрному"/><span class="bani-badge">По-чёрному</span></div><div class="bani-card-body"><div class="bani-card-title">Баня по-чёрному</div><p class="bani-card-desc">Аутентичная курная баня — жаркий и плотный пар. Самый традиционный и сильный вид бани.</p><div class="bani-card-price">от 15 000 ₽/на всё время программы</div><button class="btn btn-accent btn-full btn-scroll" onclick="scrollToBooking()">Забронировать</button></div></div><div class="bani-card rv"><div class="bani-card-img" style="display:flex;align-items:center;justify-content:center;background:#2E4A26;"><span style="font-family:'Cormorant Garamond',Georgia,serif;font-size:clamp(22px,3vw,34px);font-weight:400;font-style:italic;color:#6DBF67;letter-spacing:.06em;text-align:center;padding:20px;">Скоро открытие</span><span class="bani-badge bani-badge-build">Строится</span></div><div class="bani-card-body"><div class="bani-card-title">Баня по-белому</div><p class="bani-card-desc">Современная белая баня с печью-каменкой и чистым паром. Строятся 2 новые бани.</p><div class="bani-card-price">Стоимость уточняется</div></div></div></div></div></section>
 
 <!-- МЕНЮ -->
 <section class="sec" id="menu"><div class="wrap"><div class="eyebrow rv">Банный стол</div><h2 class="htitle rv">Кухня <em>от шефа</em></h2>
@@ -898,10 +927,13 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.5);padding:48px 0 32px;
     <ul class="menu-features">
       <li>Чайный сет с мёдом и блинами</li>
       <li>Домашние соленья и фермерские овощи</li>
+      <li>Мясные и сырные нарезки</li>
+      <li>Экзотические фрукты — наше особое отличие</li>
       <li>Наваристые супы (борщ, уха, грибной)</li>
       <li>Горячее: утиная ножка конфи, говядина в горшочке</li>
       <li>Татарские блюда и авторские закуски</li>
-      <li>Детское меню, морсы и травяные чаи</li>
+      <li>Травяные чаи, квас и другие напитки</li>
+      <li>Детское меню</li>
     </ul>
     <p style="font-size:13px;margin-top:16px;">По спецзаказу — рыбные деликатесы (строганина, осетрина) и килограмм чёрной икры.</p>
   </div>
@@ -909,7 +941,7 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.5);padding:48px 0 32px;
 <div class="download-menu rv" style="text-align:center;"><a href="files/menu.pdf" class="btn btn-accent btn-download" download="Меню_Мунча_Ташы_2026.pdf">📄 Скачать меню (PDF)</a><p style="font-size:11px;margin-top:16px;opacity:.5;">* полные позиции и цены — в PDF-меню</p></div></div></section>
 
 <!-- ПРОГРАММЫ -->
-<section class="sec" id="programs"><div class="wrap">
+<section class="sec sec--green" id="programs"><div class="wrap">
   <div class="eyebrow rv">Авторские программы</div>
   <h2 class="htitle rv">Программы <em>на любой случай</em></h2>
   <p class="rv" style="font-size:14px;opacity:.65;max-width:520px;margin-bottom:36px">Каждая программа включает встречу гостей, чайный сет, профессиональное парение и застолье от шеф-повара</p>
@@ -928,7 +960,7 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.5);padding:48px 0 32px;
         <div class="prog-card-guests">от 2 взрослых</div>
         <div class="prog-card-title">Пар балдаклар</div>
         <ul class="prog-card-items"><li>Чайный сет</li><li>Ароматный пар с травами</li><li>Авторское парение (40-45 мин)</li><li>Контраст в купели</li><li>Флоатинг в бассейне</li><li>Скрабирование</li><li>Помывка мочалом</li><li>Отдых на качели</li><li>Блюда от шефа</li></ul>
-        <div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">11:00–15:00</div><div class="prog-price-new">22.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">17:00–22:00</div><div class="prog-price-new">24.000 ₽</div><div class="prog-price-per">на человека</div></div></div>
+        <div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">11:00–15:00</div><div class="prog-price-old">27.000 ₽</div><div class="prog-price-new">22.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">17:00–22:00</div><div class="prog-price-old">30.000 ₽</div><div class="prog-price-new">24.000 ₽</div><div class="prog-price-per">на человека</div></div></div>
         <button class="btn btn-accent btn-full btn-scroll" onclick="scrollToBooking()">Забронировать</button>
       </div>
     </div>
@@ -939,7 +971,7 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.5);padding:48px 0 32px;
         <div class="prog-card-guests">от 2 взрослых</div>
         <div class="prog-card-title">Алтын Таш</div>
         <ul class="prog-card-items"><li>Чайный сет</li><li>Первый пар с травами</li><li>Греющий пар (40-45 мин)</li><li>Контраст в купели</li><li>Флоатинг в бассейне</li><li>Скрабирование</li><li>Массаж (40 мин)</li><li>Горячий чан</li><li>Застолье от шефа</li></ul>
-        <div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">11:00–15:00</div><div class="prog-price-new">29.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">17:00–22:00</div><div class="prog-price-new">31.000 ₽</div><div class="prog-price-per">на человека</div></div></div>
+        <div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">11:00–15:00</div><div class="prog-price-old">35.000 ₽</div><div class="prog-price-new">29.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">17:00–22:00</div><div class="prog-price-old">38.000 ₽</div><div class="prog-price-new">31.000 ₽</div><div class="prog-price-per">на человека</div></div></div>
         <button class="btn btn-accent btn-full btn-scroll" onclick="scrollToBooking()">Забронировать</button>
       </div>
     </div>
@@ -950,7 +982,7 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.5);padding:48px 0 32px;
         <div class="prog-card-guests">от 3 взрослых</div>
         <div class="prog-card-title">Туган Як</div>
         <ul class="prog-card-items"><li>Чайный сет</li><li>Ароматный пар</li><li>Авторское парение (40-45 мин)</li><li>Скрабирование</li><li>Контраст в купели</li><li>Флоатинг в бассейне</li><li>Расслабление</li><li>Застолье от шефа</li></ul>
-        <div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">11:00–15:00</div><div class="prog-price-new">17.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">17:00–22:00</div><div class="prog-price-new">19.000 ₽</div><div class="prog-price-per">на человека</div></div></div>
+        <div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">11:00–15:00</div><div class="prog-price-old">22.000 ₽</div><div class="prog-price-new">17.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">17:00–22:00</div><div class="prog-price-old">25.000 ₽</div><div class="prog-price-new">19.000 ₽</div><div class="prog-price-per">на человека</div></div></div>
         <button class="btn btn-accent btn-full btn-scroll" onclick="scrollToBooking()">Забронировать</button>
       </div>
     </div>
@@ -961,7 +993,7 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.5);padding:48px 0 32px;
         <div class="prog-card-guests">от 4 взрослых</div>
         <div class="prog-card-title">Жиңел пар</div>
         <ul class="prog-card-items"><li>Чайный сет</li><li>Ароматный пар</li><li>Традиционное парение (25-30 мин)</li><li>Флоатинг</li><li>Контраст</li><li>Застолье</li></ul>
-        <div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">11:00–15:00</div><div class="prog-price-new">15.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">17:00–22:00</div><div class="prog-price-new">17.000 ₽</div><div class="prog-price-per">на человека</div></div></div>
+        <div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">11:00–15:00</div><div class="prog-price-old">20.000 ₽</div><div class="prog-price-new">15.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">17:00–22:00</div><div class="prog-price-old">22.000 ₽</div><div class="prog-price-new">17.000 ₽</div><div class="prog-price-per">на человека</div></div></div>
         <button class="btn btn-accent btn-full btn-scroll" onclick="scrollToBooking()">Забронировать</button>
       </div>
     </div>
@@ -972,7 +1004,7 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.5);padding:48px 0 32px;
         <div class="prog-card-guests">от 5 взрослых</div>
         <div class="prog-card-title">Эх, сез матур кызлар</div>
         <ul class="prog-card-items"><li>Чайный сет</li><li>Ароматный прогрев</li><li>Скрабирование</li><li>Прогрев дубовыми вениками</li><li>Обогреваемый бассейн</li><li>Горячий чан</li><li>Застолье от шефа</li></ul>
-        <div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">11:00–15:00</div><div class="prog-price-new">11.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">17:00–22:00</div><div class="prog-price-new">13.000 ₽</div><div class="prog-price-per">на человека</div></div></div>
+        <div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">11:00–15:00</div><div class="prog-price-old">16.000 ₽</div><div class="prog-price-new">11.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">17:00–22:00</div><div class="prog-price-old">18.000 ₽</div><div class="prog-price-new">13.000 ₽</div><div class="prog-price-per">на человека</div></div></div>
         <button class="btn btn-accent btn-full btn-scroll" onclick="scrollToBooking()">Забронировать</button>
       </div>
     </div>
@@ -983,7 +1015,7 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.5);padding:48px 0 32px;
         <div class="prog-card-guests">от 8 взрослых</div>
         <div class="prog-card-title">Банкет</div>
         <ul class="prog-card-items"><li>Чайный сет</li><li>Стол от шеф-повара</li><li>Горячий чан</li><li>Расслабление</li><li>Холодная купель</li><li>Обогреваемый бассейн</li></ul>
-        <div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">11:00–15:00</div><div class="prog-price-new">8.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">17:00–22:00</div><div class="prog-price-new">10.000 ₽</div><div class="prog-price-per">на человека</div></div></div>
+        <div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">11:00–15:00</div><div class="prog-price-old">12.000 ₽</div><div class="prog-price-new">8.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">17:00–22:00</div><div class="prog-price-old">14.000 ₽</div><div class="prog-price-new">10.000 ₽</div><div class="prog-price-per">на человека</div></div></div>
         <button class="btn btn-accent btn-full btn-scroll" onclick="scrollToBooking()">Забронировать</button>
       </div>
     </div>
@@ -994,7 +1026,7 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.5);padding:48px 0 32px;
         <div class="prog-card-guests">от 8 взрослых</div>
         <div class="prog-card-title">Детокс</div>
         <ul class="prog-card-items"><li>Чайный сет</li><li>Парение тела</li><li>Иммунный шот</li><li>Обогреваемый бассейн</li><li>Расслабление</li><li>Холодная купель</li><li>Горячий чан</li></ul>
-        <div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">11:00–15:00</div><div class="prog-price-new">9.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">17:00–22:00</div><div class="prog-price-new">11.000 ₽</div><div class="prog-price-per">на человека</div></div></div>
+        <div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">11:00–15:00</div><div class="prog-price-old">14.000 ₽</div><div class="prog-price-new">9.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">17:00–22:00</div><div class="prog-price-old">16.000 ₽</div><div class="prog-price-new">11.000 ₽</div><div class="prog-price-per">на человека</div></div></div>
         <button class="btn btn-accent btn-full btn-scroll" onclick="scrollToBooking()">Забронировать</button>
       </div>
     </div>
@@ -1005,7 +1037,7 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.5);padding:48px 0 32px;
         <div class="prog-card-guests">от 10 взрослых</div>
         <div class="prog-card-title">Корпоратив</div>
         <ul class="prog-card-items"><li>Чайный сет</li><li>Приветственный пар</li><li>Пробивка дубовыми вениками</li><li>Заплыв в бассейне</li><li>Контраст в купели</li><li>Горячий чан</li><li>Роскошное застолье</li></ul>
-        <div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">11:00–15:00</div><div class="prog-price-new">12.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">17:00–22:00</div><div class="prog-price-new">14.000 ₽</div><div class="prog-price-per">на человека</div></div></div>
+        <div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">11:00–15:00</div><div class="prog-price-old">18.000 ₽</div><div class="prog-price-new">12.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">17:00–22:00</div><div class="prog-price-old">20.000 ₽</div><div class="prog-price-new">14.000 ₽</div><div class="prog-price-per">на человека</div></div></div>
         <button class="btn btn-accent btn-full btn-scroll" onclick="scrollToBooking()">Забронировать</button>
       </div>
     </div>
@@ -1016,7 +1048,7 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.5);padding:48px 0 32px;
         <div class="prog-card-guests">от 4 взрослых</div>
         <div class="prog-card-title">Кара мунча</div>
         <ul class="prog-card-items"><li>Чайный сет</li><li>Пар в бане по-серому</li><li>Сет чёрной икры</li><li>Парение в бане по-чёрному</li><li>Массаж (40 мин)</li><li>Горячий чан</li><li>Застолье от шефа</li></ul>
-        <div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">10:00–15:00</div><div class="prog-price-new">52.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">17:00–22:00</div><div class="prog-price-new">54.000 ₽</div><div class="prog-price-per">на человека</div></div></div>
+        <div class="prog-card-prices"><div class="prog-price-slot"><div class="prog-price-time">10:00–15:00</div><div class="prog-price-old">65.000 ₽</div><div class="prog-price-new">52.000 ₽</div><div class="prog-price-per">на человека</div></div><div class="prog-price-slot"><div class="prog-price-time">17:00–22:00</div><div class="prog-price-old">68.000 ₽</div><div class="prog-price-new">54.000 ₽</div><div class="prog-price-per">на человека</div></div></div>
         <button class="btn btn-accent btn-full btn-scroll" onclick="scrollToBooking()">Забронировать</button>
       </div>
     </div>
@@ -1028,7 +1060,7 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.5);padding:48px 0 32px;
 </div></section>
 
 <!-- ДЕТСКАЯ ПРОГРАММА -->
-<section class="sec sec--sand" id="kids"><div class="wrap"><div class="kids-grid"><div><div class="eyebrow rv">Детская программа</div><h2 class="htitle rv">Бала Чага<br/><em>для маленьких гостей</em></h2><p class="rv" style="font-size:14px;opacity:.65;margin-bottom:8px">Специальная программа для детей — щадящий пар, детская комната, возможность пригласить няню.</p><p class="rv" style="font-size:12px;opacity:.5;margin-bottom:28px">* по предъявлению свидетельства о рождении или паспорта ребёнка</p><div class="kids-tiers"><div class="kids-tier rv"><div class="kids-tier-title">Грудничкам — бесплатно</div></div><div class="kids-tier rv"><div class="kids-tier-title">Дети до 7 лет (включительно)</div><div class="kids-tier-price">~6.000 ₽</div><ul class="kids-tier-items"><li>Чайный сет</li><li>Общий пар с ароматом трав</li><li>Тёплый душ или бассейн</li><li>Отдых в детской комнате</li><li>Основное блюдо из детского меню</li></ul></div><div class="kids-tier rv"><div class="kids-tier-title">Дети до 12 лет (включительно)</div><div class="kids-tier-price">~ 50% скидка</div><p style="font-size:12px;opacity:.6">(программа, выбранная взрослыми)</p></div></div></div><div class="kids-img rv"><img src="images/4.png" alt="Детская программа"/></div></div></div></section>
+<section class="sec sec--sand" id="kids"><div class="wrap"><div class="kids-grid"><div class="kids-img rv"><img src="images/4.png" alt="Детская программа"/></div><div><div class="eyebrow rv">Детская программа</div><h2 class="htitle rv">Бала Чага<br/><em>для маленьких гостей</em></h2><p class="rv" style="font-size:14px;opacity:.65;margin-bottom:8px">Специальная программа для детей — щадящий пар, детская комната, возможность пригласить няню.</p><p class="rv" style="font-size:12px;opacity:.5;margin-bottom:28px">* по предъявлению свидетельства о рождении или паспорта ребёнка</p><div class="kids-tiers"><div class="kids-tier rv"><div class="kids-tier-title">Грудничкам — бесплатно</div></div><div class="kids-tier rv"><div class="kids-tier-title">Дети до 7 лет (включительно)</div><div class="kids-tier-price">~6.000 ₽</div><ul class="kids-tier-items"><li>Чайный сет</li><li>Общий пар с ароматом трав</li><li>Тёплый душ или бассейн</li><li>Отдых в детской комнате</li><li>Основное блюдо из детского меню</li></ul></div><div class="kids-tier rv"><div class="kids-tier-title">Дети до 12 лет (включительно)</div><div class="kids-tier-price">~ 50% скидка</div><p style="font-size:12px;opacity:.6">(программа, выбранная взрослыми)</p></div></div></div></div></div></section>
 
 <!-- ДОПОЛНИТЕЛЬНЫЕ УСЛУГИ — КАРУСЕЛЬ -->
 <section class="sec" id="dop"><div class="wrap"><div class="eyebrow rv">Дополнительно</div><h2 class="htitle rv">Дополнительные <em>услуги</em></h2><p class="rv" style="font-size:13px;opacity:.55">* дополнительные услуги согласовываются перед бронированием</p>
@@ -1036,13 +1068,13 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.5);padding:48px 0 32px;
   <div class="carousel-arrow prev" onclick="scrollCarousel(-1)">←</div>
   <div class="carousel-arrow next" onclick="scrollCarousel(1)">→</div>
   <div class="dop-carousel" id="dopCarousel">
-    <div class="dop-card"><div class="dop-icon">🫖</div><div class="dop-name">Чан Фурако</div><div class="dop-price">5.000–9.000 ₽</div></div>
-    <div class="dop-card"><div class="dop-icon">💧</div><div class="dop-name">Холодная купель</div><div class="dop-price">9.000 ₽</div></div>
-    <div class="dop-card"><div class="dop-icon">💆</div><div class="dop-name">Массаж</div><div class="dop-price">от 3.000 ₽</div></div>
-    <div class="dop-card"><div class="dop-icon">🍯</div><div class="dop-name">Медовое скрабирование</div><div class="dop-price">3.000 ₽</div></div>
-    <div class="dop-card"><div class="dop-icon">🌿</div><div class="dop-name">Авторское парение</div><div class="dop-price">7.500 ₽</div></div>
-    <div class="dop-card"><div class="dop-icon">🤝</div><div class="dop-name">Парение в 4 руки</div><div class="dop-price">7.500 ₽</div></div>
-    <div class="dop-card"><div class="dop-icon">👶</div><div class="dop-name">Услуги няни</div><div class="dop-price">от 5.000 ₽</div></div>
+    <div class="dop-card"><div class="dop-card-bg" style="background-image:url('images/dop1.png')"></div><div class="dop-icon">🫖</div><div class="dop-name">Чан Фурако</div><div class="dop-price">5.000–9.000 ₽</div></div>
+    <div class="dop-card"><div class="dop-card-bg" style="background-image:url('images/dop2.png')"></div><div class="dop-icon">💧</div><div class="dop-name">Холодная купель</div><div class="dop-price">9.000 ₽</div></div>
+    <div class="dop-card"><div class="dop-card-bg" style="background-image:url('images/dop3.png')"></div><div class="dop-icon">💆</div><div class="dop-name">Массаж</div><div class="dop-price">от 3.000 ₽</div></div>
+    <div class="dop-card"><div class="dop-card-bg" style="background-image:url('images/dop4.png')"></div><div class="dop-icon">🍯</div><div class="dop-name">Медовое скрабирование</div><div class="dop-price">3.000 ₽</div></div>
+    <div class="dop-card"><div class="dop-card-bg" style="background-image:url('images/dop5.png')"></div><div class="dop-icon">🌿</div><div class="dop-name">Авторское парение</div><div class="dop-price">7.500 ₽</div></div>
+    <div class="dop-card"><div class="dop-card-bg" style="background-image:url('images/dop6.png')"></div><div class="dop-icon">🤝</div><div class="dop-name">Парение в 4 руки</div><div class="dop-price">7.500 ₽</div></div>
+    <div class="dop-card"><div class="dop-card-bg" style="background-image:url('images/dop7.png')"></div><div class="dop-icon">👶</div><div class="dop-name">Услуги няни</div><div class="dop-price">от 5.000 ₽</div></div>
   </div>
 </div>
 </div></section>
@@ -1082,19 +1114,19 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.5);padding:48px 0 32px;
 </div></section>
 
 <!-- ПРАКТИЧЕСКАЯ ИНФОРМАЦИЯ -->
-<section class="sec" id="info"><div class="wrap"><div class="eyebrow rv">Практическая информация</div><h2 class="htitle rv">Количество гостей<br/>и <em>расписание</em></h2><div class="info-grid"><div class="info-stat"><div class="info-stat-num">16</div><div class="info-stat-label">Гостей максимум</div></div><div class="info-stat"><div class="info-stat-num">2</div><div class="info-stat-label">Типа бань</div></div><div class="info-stat"><div class="info-stat-num">8+</div><div class="info-stat-label">Программ</div></div><div class="info-stat"><div class="info-stat-num">25</div><div class="info-stat-label">Минут от Казани</div></div></div><div class="info-timing"><div class="info-timing-card"><div class="info-timing-title">Время заездов</div><ul class="info-timing-list"><li><strong>Утренний заезд:</strong> 11:00 — 15:00</li><li><strong>Вечерний заезд:</strong> 17:00 — 22:00</li><li><strong>Специальный VIP:</strong> 10:00 — 15:00</li><li>При необходимости время можно продлить (+8.000₽/час)</li></ul></div><div class="info-timing-card"><div class="info-timing-title">Что включено</div><ul class="info-timing-list"><li>Полотенца, простыни, тапочки</li><li>Шапочки для парной, веники</li><li>Чайный сет при каждом визите</li><li>Приватное использование комплекса</li><li>Парковка на территории</li><li>Детская комната (при наличии детей)</li></ul></div></div></div></section>
+<section class="sec" id="info"><div class="wrap"><div class="eyebrow rv">Практическая информация</div><h2 class="htitle rv">Количество гостей<br/>и <em>расписание</em></h2><div class="info-grid"><div class="info-stat"><div class="info-stat-num">16</div><div class="info-stat-label">Гостей максимум</div></div><div class="info-stat"><div class="info-stat-num">3</div><div class="info-stat-label">Типа бань</div></div><div class="info-stat"><div class="info-stat-num">8+</div><div class="info-stat-label">Программ</div></div><div class="info-stat"><div class="info-stat-num">15</div><div class="info-stat-label">Минут от Казани</div></div></div><div class="info-timing"><div class="info-timing-card"><div class="info-timing-title">Время заездов</div><ul class="info-timing-list"><li><strong>Утренний заезд:</strong> 11:00 — 15:00</li><li><strong>Вечерний заезд:</strong> 17:00 — 22:00</li><li><strong>Специальный VIP:</strong> условия обговариваются индивидуально</li><li>При необходимости время можно продлить (+8.000₽/час)</li></ul></div><div class="info-timing-card"><div class="info-timing-title">Что включено</div><ul class="info-timing-list"><li>Полотенца, простыни, тапочки</li><li>Шапочки для парной</li><li>Чайный сет в каждой программе</li><li>Обогреваемый бассейн</li><li>Холодная купель</li><li>Приватное использование комплекса</li><li>Парковка на территории</li><li>Детская комната (при наличии детей)</li></ul></div></div></div></section>
 
 <!-- FAQ -->
-<section class="sec" id="faq"><div class="wrap"><div class="eyebrow rv">Часто задаваемые вопросы</div><h2 class="htitle rv">Ответы <em>на вопросы</em></h2><div class="faq-grid"><div class="faq-item"><div class="faq-question">Правила аренды<span class="arrow">▼</span></div><div class="faq-answer"><p>На нашем комплексе аренда бани возможна только с программой. Исключение: в двух новых банях возможна аренда на 3 часа без определённой программы.</p></div></div><div class="faq-item"><div class="faq-question">Халяльная ли у вас еда?<span class="arrow">▼</span></div><div class="faq-answer"><p>Да, все продукты, предоставляемые нашим комплексом — халяль.</p></div></div><div class="faq-item"><div class="faq-question">Как до вас добраться? Имеется ли парковка?<span class="arrow">▼</span></div><div class="faq-answer"><p>Да, у нас есть удобная бесплатная парковка. Посмотреть маршрут можно по ссылке ниже на этой странице (в разделе с картой/маршрутом).</p></div></div><div class="faq-item"><div class="faq-question">Имеются ли в комплексе услуги для детей?<span class="arrow">▼</span></div><div class="faq-answer"><p>Да, для наших маленьких гостей предусмотрены комфортные условия и безопасное пространство для отдыха.</p></div></div><div class="faq-item"><div class="faq-question">Имеются ли у вас пар-мастера женского пола?<span class="arrow">▼</span></div><div class="faq-answer"><p>Да, в нашем комплексе работают пар-мастера женского пола — с большим опытом и традиционными техниками парения.</p></div></div></div></div></section>
+<section class="sec" id="faq"><div class="wrap"><div class="eyebrow rv">Часто задаваемые вопросы</div><h2 class="htitle rv">Ответы <em>на вопросы</em></h2><div class="faq-grid"><div class="faq-item"><div class="faq-question">Правила аренды<span class="arrow">▼</span></div><div class="faq-answer"><p>В нашем комплексе аренда бани возможна только с программой. Исключение: в двух новых банях возможна аренда на 3 часа без определённой программы.</p></div></div><div class="faq-item"><div class="faq-question">Халяльная ли у вас еда?<span class="arrow">▼</span></div><div class="faq-answer"><p>Да, все продукты, предоставляемые нашим комплексом — халяль.</p></div></div><div class="faq-item"><div class="faq-question">Как до вас добраться? Имеется ли парковка?<span class="arrow">▼</span></div><div class="faq-answer"><p>Да, у нас есть удобная бесплатная парковка. Мы находимся в 15 минутах от Казани. Посмотреть маршрут можно по ссылке ниже на этой странице (в разделе с картой/маршрутом).</p></div></div><div class="faq-item"><div class="faq-question">Имеются ли в комплексе услуги для детей?<span class="arrow">▼</span></div><div class="faq-answer"><p>Да, для наших маленьких гостей предусмотрены комфортные условия и безопасное пространство для отдыха. Также в нашем комплексе предоставляются услуги няни за дополнительную плату.</p></div></div><div class="faq-item"><div class="faq-question">Имеются ли у вас пар-мастера женского пола?<span class="arrow">▼</span></div><div class="faq-answer"><p>Да, в нашем комплексе работают пар-мастера женского пола — с большим опытом и традиционными техниками парения.</p></div></div></div></div></section>
 
 <!-- БРОНИРОВАНИЕ -->
-<section class="sec sec--dark" id="booking"><div class="wrap"><div class="book-grid"><div><div class="eyebrow rv">Бронирование</div><h2 class="htitle rv" style="color:var(--white)">Забронировать <em style="color:#A8B89A">визит</em></h2><a href="tel:+26714-67" class="book-phone">+267-14-67</a><p class="book-sub">Звоните или пишите — ответим в течение 15 минут.<br/>Работаем ежедневно, уточняйте расписание при бронировании.</p><div class="book-messengers"><a href="https://wa.me/79503196915" class="btn btn-outline-w" target="_blank">WhatsApp</a><a href="https://t.me/munchatashi_kazan" class="btn btn-outline-w" target="_blank">Telegram</a></div></div><div><div class="eyebrow rv" style="color:var(--warm)">Онлайн-заявка</div><form class="bform" onsubmit="sendForm(event)"><div class="frow"><input class="ff" type="text" placeholder="Ваше имя *" required/><input class="ff" type="tel" placeholder="+7 (___) ___-__-__" required/></div><div class="frow"><input class="ff" type="text" placeholder="Желаемая дата"/><input class="ff" type="number" placeholder="Кол-во гостей" min="1" max="16"/></div><select class="ff"><option value="" disabled selected>Выберите программу</option><option>Пар балдаклар (от 2 чел.)</option><option>Алтын Таш (от 2 чел.)</option><option>Туган Як (от 3 чел.)</option><option>Жиңел пар (от 4 чел.)</option><option>Кара мунча VIP (от 4 чел.)</option><option>Эх, сез матур кызлар (от 5 чел.)</option><option>Банкет (от 8 чел.)</option><option>Детокс (от 8 чел.)</option><option>Корпоратив (от 10 чел.)</option><option>Хочу подобрать с менеджером</option></select><textarea class="ff" rows="3" placeholder="Пожелания, вопросы..."></textarea><div class="cb-row"><input type="checkbox" id="agree" required/><label for="agree">Нажимая «Отправить», я соглашаюсь с <a href="#" onclick="openPrivacy(event)">политикой конфиденциальности</a></label></div><button type="submit" class="btn btn-accent" style="align-self:flex-start">Отправить заявку →</button></form></div></div></div></section>
+<section class="sec sec--dark" id="booking"><div class="wrap"><div class="book-grid"><div><div class="eyebrow rv">Бронирование</div><h2 class="htitle rv" style="color:var(--white)">Забронировать <em style="color:#A8B89A">визит</em></h2><a href="tel:+26714-67" class="book-phone">+7 950 319 69 15</a><p class="book-sub">Звоните или пишите — ответим в течение 15 минут.<br/>Работаем ежедневно, уточняйте расписание при бронировании.</p><div class="book-messengers"><a href="https://wa.me/79503196915" class="btn btn-outline-w" target="_blank">WhatsApp</a><a href="https://t.me/munchatashi_kazan" class="btn btn-outline-w" target="_blank">Telegram</a><a href="https://max.ru/u/f9LHodD0cOI3BOWZhsOJ2freY00EsCTn3KJ2yRnVak-m5BXvcI7ff_ezJbA" class="btn btn-outline-w" target="_blank">MAX</a></div></div><div><div class="eyebrow rv" style="color:var(--warm)">Онлайн-заявка</div><form class="bform" onsubmit="sendForm(event)"><div class="frow"><input class="ff" type="text" placeholder="Ваше имя *" required/><input class="ff" type="tel" placeholder="+7 (___) ___-__-__" required/></div><div class="frow"><input class="ff" type="text" placeholder="Желаемая дата"/><input class="ff" type="number" placeholder="Кол-во гостей" min="1" max="16"/></div><select class="ff"><option value="" disabled selected>Выберите программу</option><option>Пар балдаклар (от 2 чел.)</option><option>Алтын Таш (от 2 чел.)</option><option>Туган Як (от 3 чел.)</option><option>Жиңел пар (от 4 чел.)</option><option>Кара мунча VIP (от 4 чел.)</option><option>Эх, сез матур кызлар (от 5 чел.)</option><option>Банкет (от 8 чел.)</option><option>Детокс (от 8 чел.)</option><option>Корпоратив (от 10 чел.)</option><option>Хочу подобрать с менеджером</option></select><textarea class="ff" rows="3" placeholder="Пожелания, вопросы..."></textarea><div class="cb-row"><input type="checkbox" id="agree" required/><label for="agree">Нажимая «Отправить», я соглашаюсь с <a href="#" onclick="openPrivacy(event)">политикой конфиденциальности</a></label></div><button type="submit" class="btn btn-accent" style="align-self:flex-start">Отправить заявку →</button></form></div></div></div></section>
 
 <!-- КОНТАКТЫ -->
-<section class="sec" id="contacts"><div class="wrap"><div class="eyebrow rv">Как нас найти</div><h2 class="htitle rv">Казань,<br/><em>деревня Эстачи</em></h2><div class="contacts-grid"><div><div class="ci-label">Адрес</div><div class="ci-value">Республика Татарстан<br/>Высокогорский район<br/>д. Эстачи, ул. Лодочная, 14</div></div><div><div class="ci-label">Телефон</div><div class="ci-value"><a href="tel:+26714-67">+267-14-67</a></div></div><div><div class="ci-label">Мессенджеры</div><div class="ci-value"><a href="https://wa.me/79503196915">WhatsApp</a><br/><a href="https://t.me/munchatashi_kazan">Telegram @munchatashi_kazan</a></div></div><div><div class="ci-label">Ориентир</div><div class="ci-value">~25 мин от Казани<br/>Высокогорский район</div></div></div><div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px"><a href="https://yandex.ru/maps/-/CHD8Qmy0" target="_blank" class="btn btn-accent">Яндекс.Карты</a><a href="https://2gis.ru/kazan/firm/70000001089301618" target="_blank" class="btn btn-outline">2ГИС</a></div><div class="map-block"><iframe src="https://yandex.ru/map-widget/v1/?ll=49.365285%2C55.860647&z=15&pt=49.365285%2C55.860647%2Cpm2rdm&lang=ru_RU" title="Мунча Ташы" allowfullscreen="" loading="lazy"></iframe></div></div></section>
+<section class="sec" id="contacts"><div class="wrap"><div class="eyebrow rv">Как нас найти</div><h2 class="htitle rv">Пос. Эстачи,<br/><em>деревня Эстачи</em></h2><div class="contacts-grid"><div><div class="ci-label">Адрес</div><div class="ci-value">Республика Татарстан<br/>Высокогорский район<br/>д. Эстачи, ул. Лодочная, 14</div></div><div><div class="ci-label">Телефон</div><div class="ci-value"><a href="tel:+26714-67">+7 950 319 69 15</a></div></div><div><div class="ci-label">Мессенджеры</div><div class="ci-value"><a href="https://wa.me/79503196915">WhatsApp</a><br/><a href="https://t.me/munchatashi_kazan">Telegram @munchatashi_kazan</a><br/><a href="https://max.ru/u/f9LHodD0cOI3BOWZhsOJ2freY00EsCTn3KJ2yRnVak-m5BXvcI7ff_ezJbA" target="_blank">MAX</a></div></div><div><div class="ci-label">Ориентир</div><div class="ci-value">~15 мин от Казани<br/>Пос.Эстачи</div></div></div><div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px"><a href="https://yandex.ru/maps/-/CHD8Qmy0" target="_blank" class="btn btn-accent">Яндекс.Карты</a><a href="https://2gis.ru/kazan/firm/70000001089301618" target="_blank" class="btn btn-outline">2ГИС</a></div><div class="map-block"><iframe src="https://yandex.ru/map-widget/v1/?ll=49.365285%2C55.860647&z=15&pt=49.365285%2C55.860647%2Cpm2rdm&lang=ru_RU" title="Мунча Ташы" allowfullscreen="" loading="lazy"></iframe></div></div></section>
 
 <!-- FOOTER -->
-<footer><div class="wrap"><div class="footer-main"><div class="flogo"><img src="images/logo.png" alt="Мунча Ташы" onerror="this.style.display='none'"/><div class="flogo-text">Мунча Ташы<small>Банный комплекс · д. Эстачи, Казань</small></div></div><nav class="fnav"><a href="#bani">Бани</a><a href="#programs">Программы</a><a href="#menu">Меню</a><a href="#dop">Услуги</a><a href="#album">Галерея</a><a href="#info">О нас</a><a href="#faq">Вопросы</a><a href="#booking">Бронирование</a><a href="#contacts">Контакты</a></nav><div class="fsoc"><a href="https://wa.me/79503196915" class="fsi" target="_blank">W</a><a href="https://t.me/munchatashi_kazan" class="fsi" target="_blank">T</a><a href="https://2gis.ru/kazan/firm/70000001089301618" class="fsi" target="_blank">2G</a></div></div><div class="footer-bot"><span>© 2026 Мунча Ташы · Банный комплекс · Республика Татарстан, Высокогорский район</span><a href="#" onclick="openPrivacy(event)">Политика конфиденциальности</a></div></div></footer>
+<footer><div class="wrap"><div class="footer-main"><div class="flogo"><img src="images/logo.png" alt="Мунча Ташы" onerror="this.style.display='none'"/><div class="flogo-text">Мунча Ташы<small>Банный комплекс · д. Эстачи, Казань</small></div></div><nav class="fnav"><a href="#bani">Бани</a><a href="#programs">Программы</a><a href="#menu">Меню</a><a href="#dop">Услуги</a><a href="#album">Галерея</a><a href="#info">О нас</a><a href="#faq">Вопросы</a><a href="#booking">Бронирование</a><a href="#contacts">Контакты</a></nav><div class="fsoc"><a href="https://wa.me/79503196915" class="fsi" target="_blank">W</a><a href="https://t.me/munchatashi_kazan" class="fsi" target="_blank">T</a><a href="https://max.ru/u/f9LHodD0cOI3BOWZhsOJ2freY00EsCTn3KJ2yRnVak-m5BXvcI7ff_ezJbA" class="fsi" target="_blank">M</a><a href="https://2gis.ru/kazan/firm/70000001089301618" class="fsi" target="_blank">2G</a></div></div><div class="footer-bot"><span>© 2026 Мунча Ташы · Банный комплекс · Республика Татарстан, Высокогорский район</span><span>Сотрудничество: <a href="mailto:muncha.tashi@yandex.ru" style="color:rgba(255,255,255,.5)">muncha.tashi@yandex.ru</a></span><a href="#" onclick="openPrivacy(event)">Политика конфиденциальности</a></div></div></footer>
 
 <div id="sticky-cta"><button class="btn btn-accent btn-scroll" onclick="scrollToBooking()">Забронировать</button></div>
 
