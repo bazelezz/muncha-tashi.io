@@ -1,21 +1,22 @@
+
 <!DOCTYPE html>
 <html lang="ru">
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
 <title>Мунча Ташы — Банный комплекс | Высокогорский район, д. Эстачи</title>
-<meta name="description" content="Мунча Ташы — банный комплекс рядом с Казанью. Баня по-чёрному, по-серому, авторские программы парения, SPA, купели, бассейн, кухня от шефа. +267-14-67"/>
+<meta name="description" content="Мунча Ташы — банный комплекс рядом с Казанью. Баня по-чёрному, по-серому, авторские программы парения, SPA, купели, бассейн, кухня от шефа."/>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Nunito:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
 /* ══════════════════════════════════════════════════
-   RESET & BASE — бежево-зелёная премиальная гамма
+   RESET & BASE — обновлённая цветовая гамма (основной фон Sand)
 ══════════════════════════════════════════════════ */
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px}
 body{
-  background:#F5EFE6;
+  background:#C7AF94; /* Изменён основной цвет фона на Sand */
   color:#2C3E2B;
   font-family:'Nunito',sans-serif;
   line-height:1.7;
@@ -37,20 +38,20 @@ img{display:block;max-width:100%}
 a{color:inherit;text-decoration:none}
 button{border:none;background:none;cursor:pointer;font-family:inherit}
 ::-webkit-scrollbar{width:5px}
-::-webkit-scrollbar-track{background:#E8DCD0}
-::-webkit-scrollbar-thumb{background:#4A6B3C;border-radius:3px}
+::-webkit-scrollbar-track{background:#D4C5B4}
+::-webkit-scrollbar-thumb{background:#6F4D38;border-radius:3px}
 
 :root{
-  --cream:   #F5EFE6;
-  --light:   #F2EBE1;
-  --sand:    #E8DCD0;
-  --taupe:   #D4C5B4;
-  --warm:    #A8B89A;
-  --accent:  #4A6B3C;
-  --accent-light: #6B8E5A;
-  --deep:    #2E4A26;
+  --cream:   #C7AF94;
+  --light:   #D9C5B0;
+  --sand:    #B5977A;
+  --taupe:   #A07F60;
+  --warm:    #8C6E51;
+  --accent:  #6F4D38; /* Coffee для акцентов */
+  --accent-light: #8C6E51;
+  --deep:    #4A3020;
   --bark:    #2C3E2B;
-  --white:   #F5EFE6;
+  --white:   #F8F3ED;
   --dark-bg: #2A3A25;
   --gold:    #A8B89A;
   --ff-h:    'Cormorant Garamond', Georgia, serif;
@@ -114,7 +115,7 @@ header{
   width:100%;
   padding:0;
   z-index:100;
-  background:rgba(245,239,230,.96);
+  background:rgba(199,175,148,.96);
   backdrop-filter:blur(12px);
   border-bottom:1px solid var(--sand);
 }
@@ -810,12 +811,10 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.5);padding:48px 0 32px;
   .menu-duo{grid-template-columns:1fr;gap:32px;}
   .carousel-arrow.prev{left:0;}
   .carousel-arrow.next{right:0;}
-  /* On medium screens collapse nav if it gets too tight */
   .hnav{gap:16px;}
   .hnav a{font-size:10px;}
 }
 @media(max-width:900px){
-  /* Switch header to simple flex when 3-column grid is too tight */
   .hdr-inner{
     grid-template-columns:1fr auto;
     grid-template-areas:
@@ -841,7 +840,6 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.5);padding:48px 0 32px;
   .intro-features-strict .feature-item{flex-direction:column;align-items:flex-start;gap:6px;}
   .intro-features-strict .feature-desc{text-align:left}
   .carousel-arrow{width:32px;height:32px;font-size:16px;top:30%;}
-  /* Hide booking button text on very small screens to save space */
   .hcontact .btn-accent{padding:11px 18px;font-size:10px;}
 }
 </style>
@@ -868,7 +866,7 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.5);padding:48px 0 32px;
     </nav>
     <!-- RIGHT: Phone + Book button + Burger -->
     <div class="hcontact">
-      <a href="tel:+26714-67" class="hphone">+267-14-67</a>
+      <a href="tel:+79503196915" class="hphone">+7 950 319 69 15</a>
       <button class="btn btn-accent btn-scroll" onclick="scrollToBooking()">Забронировать</button>
       <div class="hburger" onclick="openMnav()"><span></span><span></span><span></span></div>
     </div>
@@ -885,7 +883,7 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.5);padding:48px 0 32px;
   <a href="#info" onclick="closeMnav()">О нас</a>
   <a href="#faq" onclick="closeMnav()">Вопросы</a>
   <a href="#contacts" onclick="closeMnav()">Контакты</a>
-  <a href="tel:+26714-67">+267-14-67</a>
+  <a href="tel:+79503196915">+7 950 319 69 15</a>
 </nav>
 
 <!-- HERO -->
@@ -893,7 +891,13 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.5);padding:48px 0 32px;
   <div class="hero-video"><video autoplay muted loop playsinline poster="images/exterior-pool.png"><source src="videos/IMG_2748.MP4" type="video/mp4"/></video></div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow">Банный комплекс · Высокогорский район · д. Эстачи</div>
+    <div class="hero-eyebrow">
+        Банный комплекс
+        <span style="display:block; width:100%; height:0;"></span>
+        Высокогорский район
+        <span style="display:block; width:100%; height:0;"></span>
+        Пос.Эстачи
+    </div>
     <h1>Мунча <em>Ташы</em></h1>
     <p class="hero-sub">Аутентичные бани по-чёрному и по-серому, авторские программы парения, тёплый бассейн и кухня от шефа — всё для душевного отдыха вдали от города</p>
     <div class="hero-btns"><button class="btn btn-accent btn-scroll" onclick="scrollToBooking()">Забронировать визит</button><a href="#programs" class="btn btn-outline-w">Наши программы</a></div>
@@ -925,14 +929,13 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.5);padding:48px 0 32px;
   <div class="menu-text">
     <p>Традиции татарского гостеприимства и авторский подход шеф-повара. Мы готовим только из фермерских продуктов, прошедших строгий отбор. Вся еда — халяль.</p>
     <ul class="menu-features">
-      <li>Чайный сет с мёдом и блинами</li>
-      <li>Домашние соленья и фермерские овощи</li>
+      <li>Чайный сет (собственные травяные сборы и домашнее варенье)</li>
+      <li>Домашние соленья</li>
       <li>Мясные и сырные нарезки</li>
-      <li>Экзотические фрукты — наше особое отличие</li>
-      <li>Наваристые супы (борщ, уха, грибной)</li>
-      <li>Горячее: утиная ножка конфи, говядина в горшочке</li>
-      <li>Татарские блюда и авторские закуски</li>
-      <li>Травяные чаи, квас и другие напитки</li>
+      <li>Экзотические фрукты</li>
+      <li>Салаты, супы и горячее на выбор</li>
+      <li>Татарские национальные блюда</li>
+      <li>Лимонад, квас и другие напитки на выбор</li>
       <li>Детское меню</li>
     </ul>
     <p style="font-size:13px;margin-top:16px;">По спецзаказу — рыбные деликатесы (строганина, осетрина) и килограмм чёрной икры.</p>
@@ -1120,10 +1123,10 @@ footer{background:var(--dark-bg);color:rgba(255,255,255,.5);padding:48px 0 32px;
 <section class="sec" id="faq"><div class="wrap"><div class="eyebrow rv">Часто задаваемые вопросы</div><h2 class="htitle rv">Ответы <em>на вопросы</em></h2><div class="faq-grid"><div class="faq-item"><div class="faq-question">Правила аренды<span class="arrow">▼</span></div><div class="faq-answer"><p>В нашем комплексе аренда бани возможна только с программой. Исключение: в двух новых банях возможна аренда на 3 часа без определённой программы.</p></div></div><div class="faq-item"><div class="faq-question">Халяльная ли у вас еда?<span class="arrow">▼</span></div><div class="faq-answer"><p>Да, все продукты, предоставляемые нашим комплексом — халяль.</p></div></div><div class="faq-item"><div class="faq-question">Как до вас добраться? Имеется ли парковка?<span class="arrow">▼</span></div><div class="faq-answer"><p>Да, у нас есть удобная бесплатная парковка. Мы находимся в 15 минутах от Казани. Посмотреть маршрут можно по ссылке ниже на этой странице (в разделе с картой/маршрутом).</p></div></div><div class="faq-item"><div class="faq-question">Имеются ли в комплексе услуги для детей?<span class="arrow">▼</span></div><div class="faq-answer"><p>Да, для наших маленьких гостей предусмотрены комфортные условия и безопасное пространство для отдыха. Также в нашем комплексе предоставляются услуги няни за дополнительную плату.</p></div></div><div class="faq-item"><div class="faq-question">Имеются ли у вас пар-мастера женского пола?<span class="arrow">▼</span></div><div class="faq-answer"><p>Да, в нашем комплексе работают пар-мастера женского пола — с большим опытом и традиционными техниками парения.</p></div></div></div></div></section>
 
 <!-- БРОНИРОВАНИЕ -->
-<section class="sec sec--dark" id="booking"><div class="wrap"><div class="book-grid"><div><div class="eyebrow rv">Бронирование</div><h2 class="htitle rv" style="color:var(--white)">Забронировать <em style="color:#A8B89A">визит</em></h2><a href="tel:+26714-67" class="book-phone">+7 950 319 69 15</a><p class="book-sub">Звоните или пишите — ответим в течение 15 минут.<br/>Работаем ежедневно, уточняйте расписание при бронировании.</p><div class="book-messengers"><a href="https://wa.me/79503196915" class="btn btn-outline-w" target="_blank">WhatsApp</a><a href="https://t.me/munchatashi_kazan" class="btn btn-outline-w" target="_blank">Telegram</a><a href="https://max.ru/u/f9LHodD0cOI3BOWZhsOJ2freY00EsCTn3KJ2yRnVak-m5BXvcI7ff_ezJbA" class="btn btn-outline-w" target="_blank">MAX</a></div></div><div><div class="eyebrow rv" style="color:var(--warm)">Онлайн-заявка</div><form class="bform" onsubmit="sendForm(event)"><div class="frow"><input class="ff" type="text" placeholder="Ваше имя *" required/><input class="ff" type="tel" placeholder="+7 (___) ___-__-__" required/></div><div class="frow"><input class="ff" type="text" placeholder="Желаемая дата"/><input class="ff" type="number" placeholder="Кол-во гостей" min="1" max="16"/></div><select class="ff"><option value="" disabled selected>Выберите программу</option><option>Пар балдаклар (от 2 чел.)</option><option>Алтын Таш (от 2 чел.)</option><option>Туган Як (от 3 чел.)</option><option>Жиңел пар (от 4 чел.)</option><option>Кара мунча VIP (от 4 чел.)</option><option>Эх, сез матур кызлар (от 5 чел.)</option><option>Банкет (от 8 чел.)</option><option>Детокс (от 8 чел.)</option><option>Корпоратив (от 10 чел.)</option><option>Хочу подобрать с менеджером</option></select><textarea class="ff" rows="3" placeholder="Пожелания, вопросы..."></textarea><div class="cb-row"><input type="checkbox" id="agree" required/><label for="agree">Нажимая «Отправить», я соглашаюсь с <a href="#" onclick="openPrivacy(event)">политикой конфиденциальности</a></label></div><button type="submit" class="btn btn-accent" style="align-self:flex-start">Отправить заявку →</button></form></div></div></div></section>
+<section class="sec sec--dark" id="booking"><div class="wrap"><div class="book-grid"><div><div class="eyebrow rv">Бронирование</div><h2 class="htitle rv" style="color:var(--white)">Забронировать <em style="color:#A8B89A">визит</em></h2><a href="tel:+79503196915" class="book-phone">+7 950 319 69 15</a><p class="book-sub">Звоните или пишите — ответим в течение 15 минут.<br/>Работаем ежедневно, уточняйте расписание при бронировании.</p><div class="book-messengers"><a href="https://wa.me/79503196915" class="btn btn-outline-w" target="_blank">WhatsApp</a><a href="https://t.me/munchatashi_kazan" class="btn btn-outline-w" target="_blank">Telegram</a><a href="https://max.ru/u/f9LHodD0cOI3BOWZhsOJ2freY00EsCTn3KJ2yRnVak-m5BXvcI7ff_ezJbA" class="btn btn-outline-w" target="_blank">MAX</a></div></div><div><div class="eyebrow rv" style="color:var(--warm)">Онлайн-заявка</div><form class="bform" onsubmit="sendForm(event)"><div class="frow"><input class="ff" type="text" placeholder="Ваше имя *" required/><input class="ff" type="tel" placeholder="+7 (___) ___-__-__" required/></div><div class="frow"><input class="ff" type="text" placeholder="Желаемая дата"/><input class="ff" type="number" placeholder="Кол-во гостей" min="1" max="16"/></div><select class="ff"><option value="" disabled selected>Выберите программу</option><option>Пар балдаклар (от 2 чел.)</option><option>Алтын Таш (от 2 чел.)</option><option>Туган Як (от 3 чел.)</option><option>Жиңел пар (от 4 чел.)</option><option>Кара мунча VIP (от 4 чел.)</option><option>Эх, сез матур кызлар (от 5 чел.)</option><option>Банкет (от 8 чел.)</option><option>Детокс (от 8 чел.)</option><option>Корпоратив (от 10 чел.)</option><option>Хочу подобрать с менеджером</option></select><textarea class="ff" rows="3" placeholder="Пожелания, вопросы..."></textarea><div class="cb-row"><input type="checkbox" id="agree" required/><label for="agree">Нажимая «Отправить», я соглашаюсь с <a href="#" onclick="openPrivacy(event)">политикой конфиденциальности</a></label></div><button type="submit" class="btn btn-accent" style="align-self:flex-start">Отправить заявку →</button></form></div></div></div></section>
 
 <!-- КОНТАКТЫ -->
-<section class="sec" id="contacts"><div class="wrap"><div class="eyebrow rv">Как нас найти</div><h2 class="htitle rv">Пос. Эстачи,<br/><em>деревня Эстачи</em></h2><div class="contacts-grid"><div><div class="ci-label">Адрес</div><div class="ci-value">Республика Татарстан<br/>Высокогорский район<br/>д. Эстачи, ул. Лодочная, 14</div></div><div><div class="ci-label">Телефон</div><div class="ci-value"><a href="tel:+26714-67">+7 950 319 69 15</a></div></div><div><div class="ci-label">Мессенджеры</div><div class="ci-value"><a href="https://wa.me/79503196915">WhatsApp</a><br/><a href="https://t.me/munchatashi_kazan">Telegram @munchatashi_kazan</a><br/><a href="https://max.ru/u/f9LHodD0cOI3BOWZhsOJ2freY00EsCTn3KJ2yRnVak-m5BXvcI7ff_ezJbA" target="_blank">MAX</a></div></div><div><div class="ci-label">Ориентир</div><div class="ci-value">~15 мин от Казани<br/>Пос.Эстачи</div></div></div><div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px"><a href="https://yandex.ru/maps/-/CHD8Qmy0" target="_blank" class="btn btn-accent">Яндекс.Карты</a><a href="https://2gis.ru/kazan/firm/70000001089301618" target="_blank" class="btn btn-outline">2ГИС</a></div><div class="map-block"><iframe src="https://yandex.ru/map-widget/v1/?ll=49.365285%2C55.860647&z=15&pt=49.365285%2C55.860647%2Cpm2rdm&lang=ru_RU" title="Мунча Ташы" allowfullscreen="" loading="lazy"></iframe></div></div></section>
+<section class="sec" id="contacts"><div class="wrap"><div class="eyebrow rv">Как нас найти</div><h2 class="htitle rv">Пос. Эстачи,<br/><em>деревня Эстачи</em></h2><div class="contacts-grid"><div><div class="ci-label">Адрес</div><div class="ci-value">Республика Татарстан<br/>Высокогорский район<br/>д. Эстачи, ул. Лодочная, 14</div></div><div><div class="ci-label">Телефон</div><div class="ci-value"><a href="tel:+79503196915">+7 950 319 69 15</a></div></div><div><div class="ci-label">Мессенджеры</div><div class="ci-value"><a href="https://wa.me/79503196915">WhatsApp</a><br/><a href="https://t.me/munchatashi_kazan">Telegram @munchatashi_kazan</a><br/><a href="https://max.ru/u/f9LHodD0cOI3BOWZhsOJ2freY00EsCTn3KJ2yRnVak-m5BXvcI7ff_ezJbA" target="_blank">MAX</a></div></div><div><div class="ci-label">Ориентир</div><div class="ci-value">~15 мин от Казани<br/>Пос.Эстачи</div></div></div><div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:32px"><a href="https://yandex.ru/maps/-/CHD8Qmy0" target="_blank" class="btn btn-accent">Яндекс.Карты</a><a href="https://2gis.ru/kazan/firm/70000001089301618" target="_blank" class="btn btn-outline">2ГИС</a></div><div class="map-block"><iframe src="https://yandex.ru/map-widget/v1/?ll=49.365285%2C55.860647&z=15&pt=49.365285%2C55.860647%2Cpm2rdm&lang=ru_RU" title="Мунча Ташы" allowfullscreen="" loading="lazy"></iframe></div></div></section>
 
 <!-- FOOTER -->
 <footer><div class="wrap"><div class="footer-main"><div class="flogo"><img src="images/logo.png" alt="Мунча Ташы" onerror="this.style.display='none'"/><div class="flogo-text">Мунча Ташы<small>Банный комплекс · д. Эстачи, Казань</small></div></div><nav class="fnav"><a href="#bani">Бани</a><a href="#programs">Программы</a><a href="#menu">Меню</a><a href="#dop">Услуги</a><a href="#album">Галерея</a><a href="#info">О нас</a><a href="#faq">Вопросы</a><a href="#booking">Бронирование</a><a href="#contacts">Контакты</a></nav><div class="fsoc"><a href="https://wa.me/79503196915" class="fsi" target="_blank">W</a><a href="https://t.me/munchatashi_kazan" class="fsi" target="_blank">T</a><a href="https://max.ru/u/f9LHodD0cOI3BOWZhsOJ2freY00EsCTn3KJ2yRnVak-m5BXvcI7ff_ezJbA" class="fsi" target="_blank">M</a><a href="https://2gis.ru/kazan/firm/70000001089301618" class="fsi" target="_blank">2G</a></div></div><div class="footer-bot"><span>© 2026 Мунча Ташы · Банный комплекс · Республика Татарстан, Высокогорский район</span><span>Сотрудничество: <a href="mailto:muncha.tashi@yandex.ru" style="color:rgba(255,255,255,.5)">muncha.tashi@yandex.ru</a></span><a href="#" onclick="openPrivacy(event)">Политика конфиденциальности</a></div></div></footer>
@@ -1387,3 +1390,4 @@ document.querySelectorAll('.rv').forEach(el => revealObs.observe(el));
 </script>
 </body>
 </html>
+```
